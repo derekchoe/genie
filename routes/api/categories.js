@@ -27,24 +27,35 @@ router.get(
 router.get('/:id', (req, res) => {});
 
 // create categories
-router.post('/',
-    passport.authenticate('jwt', { session: false }),
-    (req, res) => {
-      const { errors, isValid } = validateCategoryInput(req.body);
+router.post(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Category.findOne({ name: req.body.name, user: req.user.id }).then(
+      category => {
+        if (category) {
+          return res.status(400).json({ name: 'That category already exists' });
+        } else {
+          const { errors, isValid } = validateCategoryInput(req.body);
 
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
+          if (!isValid) {
+            return res.status(400).json(errors);
+          }
 
-      const CategoryFields = {};
-      CategoryFields.user = req.user.id;
-      if (req.body.name) CategoryFields.name = req.body.name;
-      if (req.body.description) {
-        CategoryFields.description = req.body.description;
+          const CategoryFields = {};
+          CategoryFields.user = req.user.id;
+          if (req.body.name) CategoryFields.name = req.body.name;
+          if (req.body.description) {
+            CategoryFields.description = req.body.description;
+          }
+          if (req.body.budget) CategoryFields.budget = req.body.budget;
+          new Category(CategoryFields)
+            .save()
+            .then(category => res.json(category));
+        }
       }
-      if (req.body.budget) CategoryFields.budget = req.body.budget;
-      new Category(CategoryFields).save().then(category => res.json(category));
-    }
+    );
+  }
 );
 
 // edit categories
