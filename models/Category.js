@@ -14,7 +14,7 @@ const CategorySchema = new Schema({
     type: String
   },
   budget: {
-    type: Double
+    type: Number
   },
   date: {
     type: Date,
