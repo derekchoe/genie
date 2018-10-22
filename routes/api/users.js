@@ -5,13 +5,14 @@ const jsonwebtoken = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 
-const validateRegisterInput = require('');
+const validateRegisterInput = require('../../validation/signup');
+const validateLoginInput = require('../../validation/login');
 
 const User = require('../../models/User');
 
-router.get('/test', (req, res) => res.json({ msg: 'This is the users route' }));
+router.get('/test', (req, res) => res.json({ msg: 'Users works' }));
 
-router.post('/register', (req, res) => {
+router.post('/signup', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
@@ -22,7 +23,7 @@ router.post('/register', (req, res) => {
     if (user) {
       return res
         .status(400)
-        .json({ email: 'A user has already registered with this address' });
+        .json({ email: 'A user has already signed up with this Email' });
     } else {
       const newUser = new User({
         firstName: req.body.firstName,
@@ -98,13 +99,17 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.get('/current', passport.authenticate('jwt'), { session: false }),
+router.get(
+  '/current',
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     res.json({
       id: req.user.id,
       firstName: req.user.firstName,
+      lastName: req.user.lastName,
       email: req.user.email
     });
-  };
+  }
+);
 
 module.exports = router;
