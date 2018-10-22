@@ -6,7 +6,7 @@ const passport = require('passport');
 const users = require('./routes/api/users');
 
 const app = express();
-const db = require('./config/keys').mongoURI;
+const db = require('./config/key').mongoURI;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
