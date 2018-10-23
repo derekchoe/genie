@@ -8,6 +8,7 @@ const passport = require('passport');
 const Category = require('../../models/Category');
 const Transaction = require('../../models/Transaction');
 const validateCategoryInput = require('../../validation/category');
+const validatesTransactionInput = require('../../validation/transaction');
 
 router.get('/test', (req, res) => res.json({ msg: 'Categories works' }));
 
@@ -29,7 +30,8 @@ router.get(
   '/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Category.findById(req.params.id)
+    const category = Category.findById(req.params.id);
+    category
       .populate('transactions')
       .then(category => res.json(category))
       .catch(err => res.status(404).json(err));
@@ -104,8 +106,29 @@ router.delete(
           })
           .catch(err => res.status(404).json(err));
       })
-      .then(res.json({ category: 'Category removed' }))
+      .then(res.json({ category: 'Category and related transactions removed' }))
       .catch(err => res.status(404).json(err));
+  }
+);
+
+router.post(
+  '/:categoryId/transactions',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validatesTransactionInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    const newTransaction = new Transaction({
+      amount: req.body.amount,
+      type: req.body.type,
+      description: req.body.description,
+      category: req.params.categoryId
+    });
+
+    newTransaction.save().then(trans => res.json(trans));
   }
 );
 

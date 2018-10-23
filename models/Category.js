@@ -20,7 +20,7 @@ const CategorySchema = new Schema({
     type: Date,
     default: Date.now
   },
-  transactions: [{ type: Schema.Types.ObjectId, ref: 'Category' }]
+  transactions: [{ type: Schema.Types.ObjectId, ref: 'transaction' }]
 });
 
 module.exports = Category = mongoose.model('category', CategorySchema);
