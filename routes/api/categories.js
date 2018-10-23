@@ -20,21 +20,18 @@ router.get(
     const errors = {};
 
     Category.find({ user: req.user.id })
-      .then(categories => res.json(categories)) //TODO: it is an empty array???
+      .then(categories => res.json(categories))
       .catch(err => res.status(404).json(err));
   }
 );
 
-// return one category with all transactions
+// return one category
+// TODO: with all transactions
 router.get(
   '/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const category = Category.findById(req.params.id);
-    category
-      .populate('transactions')
-      .then(category => res.json(category))
-      .catch(err => res.status(404).json(err));
+    Category.findById(req.params.id).then(category => res.json(category));
   }
 );
 
@@ -96,7 +93,6 @@ router.delete(
   (req, res) => {
     Category.findById(req.params.id)
       .then(category => {
-        const transactionId = category.transactions;
         category.remove();
         Transaction.find({ category: category.id })
           .then(transactions => {

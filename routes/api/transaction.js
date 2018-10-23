@@ -5,7 +5,6 @@ const passport = require('passport');
 const jsonwebtoken = require('jsonwebtoken');
 
 const Transaction = require('../../models/Transaction');
-const validatesTransactionInput = require('../../validation/transaction');
 
 router.get('/', (req, res) => {
   Transaction.find()
