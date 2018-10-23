@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import NavbarContainer from './components/layout/navbar_container';
 import Footer from './components/layout/footer';
 import Homepage from './components/layout/homepage';
-import SignupContainer from './components/session/signup_container';
+import Signup from './components/session/signup';
 import Login from './components/session/login';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
@@ -38,7 +38,7 @@ class App extends Component {
             <NavbarContainer />
             <Switch>
               <Route exact path='/login' component={Login}/>
-              <Route exact path='/signup' component={SignupContainer}/>
+            <Route exact path='/signup' component={Signup}/>
               <Route exact path="/" component={Homepage} />
             </Switch> 
             <Footer />
