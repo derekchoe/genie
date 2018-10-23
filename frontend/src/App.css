@@ -3,6 +3,12 @@
   text-align: center;
 }
 
+.footer{
+  position: fixed;
+  left: 30%;
+  top: 100%;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -32,37 +38,54 @@
   }
 }
 
-.login-page-wrapper{
-  display: flex;
-  justify-content: center;
+.session-wrapper{
+  width: 800px;
+  height: 1000px;
 }
 
-.particles-stuff{
-  position: absolute;
+/* .login-page-wrapper{
   height: 100%;
-  z-index: -1;
+  width: 10000000000px;
+} */
+
+.particles-stuff{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
 }
 
 .login-form-wrapper{
+  display: flex;
   margin-top: 80px;
   width: 400px;
-  height: 450px;
+  height: 500px;
   color: #344dbb;
   font-weight: 300;
   border: 1px solid #ccc;
   border-radius: 5px;
   opacity: 0.8;
-  text-align: left;
+  position: absolute;
+  left: 37%;
+  top: 15%;
+  background: rgba(0, 0, 0, 0.4);
+  /* justify-content: center; */
 }
 
 .login-word{
   font-size: 40px;
   font-weight: bold;
   margin: 0;
+  color: white;
 }
 
 .login-form{
-  margin: 40px;
+  /* margin: 40px; */
+  width: 80%;
+  /* height: 80%; */
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 }
 
 .email-wrapper{
@@ -75,9 +98,9 @@
   padding: 10px;
   margin-top: 10px;
   border-radius: 5px;
-  opacity: 0.8;
+
   font-weight: bold;
-  width: 140px;
+  width: 95%;
 }
 
 .login-button{
