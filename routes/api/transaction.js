@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  Transaction.findById(req.params.id, (err, tarns) => {
+  Transaction.findById(req.params.id, (err, trans) => {
     trans.remove(err => {
       if (err) {
         res.status(500).send(err);
