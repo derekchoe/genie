@@ -6,6 +6,7 @@ const keys = require('../../config/key');
 const passport = require('passport');
 
 const Category = require('../../models/Category');
+const Transaction = require('../../models/Transaction');
 const validateCategoryInput = require('../../validation/category');
 
 router.get('/test', (req, res) => res.json({ msg: 'Categories works' }));
@@ -24,7 +25,16 @@ router.get(
 );
 
 // return one category with all transactions
-router.get('/:id', (req, res) => {});
+router.get(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Category.findById(req.params.id)
+      .populate('transactions')
+      .then(category => res.json(category))
+      .catch(err => res.status(404).json(err));
+  }
+);
 
 // create categories
 router.post(
@@ -58,10 +68,44 @@ router.post(
   }
 );
 
-// edit categories
-router.patch('/:id', (req, res) => {});
+// eidt categories
+router.patch(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Category.findById(req.params.id)
+      .then(category => {
+        if (req.body._id) {
+          delete req.body._id;
+        }
+        for (let key in req.body) {
+          category[key] = req.body[key];
+        }
+        category.save().then(category => res.json(category));
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
 
-// delete categories
-router.delete('/', (req, res) => {});
+// delete category and related transactions
+router.delete(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Category.findById(req.params.id)
+      .then(category => {
+        const transactionId = category.transactions;
+        category.remove();
+        Transaction.find({ category: category.id })
+          .then(transactions => {
+            if (transactions.length !== 0) {
+              transactions.forEach(transaction => transaction.remove());
+            }
+          })
+          .catch(err => res.status(404).json(err));
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
 
 module.exports = router;
