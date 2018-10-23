@@ -19,8 +19,8 @@ const CategorySchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  },
-  transactions: [{ type: Schema.Types.ObjectId, ref: 'Category' }]
+  }
+  // transactions: [{ type: Schema.Types.ObjectId, ref: 'Category' }]
 });
 
 module.exports = Category = mongoose.model('category', CategorySchema);

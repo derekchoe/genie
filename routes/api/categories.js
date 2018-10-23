@@ -6,7 +6,7 @@ const keys = require('../../config/key');
 const passport = require('passport');
 
 const Category = require('../../models/Category');
-const Transaction = require('../../models/Transaction');
+// const Transaction = require('../../models/Transaction');
 const validateCategoryInput = require('../../validation/category');
 
 router.get('/test', (req, res) => res.json({ msg: 'Categories works' }));
@@ -94,16 +94,17 @@ router.delete(
   (req, res) => {
     Category.findById(req.params.id)
       .then(category => {
-        const transactionId = category.transactions;
+        // const transactionId = category.transactions;
         category.remove();
-        Transaction.find({ category: category.id })
-          .then(transactions => {
-            if (transactions.length !== 0) {
-              transactions.forEach(transaction => transaction.remove());
-            }
-          })
-          .catch(err => res.status(404).json(err));
+        // Transaction.find({ category: category.id })
+        //   .then(transactions => {
+        //     if (transactions.length !== 0) {
+        //       transactions.forEach(transaction => transaction.remove());
+        //     }
+        //   })
+        //   .catch(err => res.status(404).json(err));
       })
+      .then(res.json({ category: 'Category removed' }))
       .catch(err => res.status(404).json(err));
   }
 );
