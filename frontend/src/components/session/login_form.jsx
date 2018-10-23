@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-// import Particles from "react-particles-js";
 
-class LoginForm extends Component {
+class SignUpForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,10 +18,6 @@ class LoginForm extends Component {
       this.props.history.push('/dashboard');
     }
   }
-
-  // shouldComponentUpdate(nextProps, nextState){
-
-  // }
 
   handleInput(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -43,7 +38,6 @@ class LoginForm extends Component {
 
   render() {
     const errors = this.props.errors.map(error => <p>{error}</p>);
-
 
     return <div className='session-wrapper'>
 
@@ -70,4 +64,4 @@ class LoginForm extends Component {
   }
 }
 
-export default withRouter(LoginForm);
+export default withRouter(SignUpForm);

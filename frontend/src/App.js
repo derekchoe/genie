@@ -7,7 +7,7 @@ import NavbarContainer from './components/layout/navbar_container';
 import Footer from './components/layout/footer';
 import Homepage from './components/layout/homepage';
 import SignupContainer from './components/session/signup_container';
-import LoginContainer from './components/session/login_container';
+import Login from './components/session/login';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
 import { receiveCurrentUser, logoutUser } from './action/session_actions';
@@ -37,10 +37,8 @@ class App extends Component {
           <div className="App">        
             <NavbarContainer />
             <Switch>
-              <Route exact path='/login' component={LoginContainer}/>
+              <Route exact path='/login' component={Login}/>
               <Route exact path='/signup' component={SignupContainer}/>
-              <SignupContainer />
-              <LoginContainer />
               <Route exact path="/" component={Homepage} />
             </Switch> 
             <Footer />
@@ -51,3 +49,6 @@ class App extends Component {
 }
 
 export default App;
+
+/* <SignupContainer />
+<LoginContainer /> */
