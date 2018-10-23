@@ -1,6 +1,6 @@
 # Genie
 
-*Your personal financial management tool *
+*Your personal financial management tool*
 
 [Live Site](https://www.google.com)
 
