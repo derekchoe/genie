@@ -61,6 +61,24 @@ export const createCategory = categoryData => dispatch => {
         );
 };
 
+export const updateCategory = categoryData => dispatch => {
+    dispatch(clearErrors());
+    axios
+        .patch(`/api/categories/${categoryData.id}`, categoryData)
+        .then(res =>
+            dispatch({
+                type: RECEIVE_CATEGORY,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch({
+                type: RECEIVE_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
 
 
 export const deleteCategory = id => dispatch => {
