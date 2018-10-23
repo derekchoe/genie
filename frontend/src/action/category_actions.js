@@ -1,11 +1,11 @@
 import axios from 'axios';
+import { RECEIVE_ERRORS } from './session_actions';
 export const RECEIVE_CATEGORY = "RECEIVE_CATEGORY";
 export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
 export const REMOVE_CATEGORY = "REMOVE_CATEGORY";
 export const CATEGORY_LOADING = "CATEGORY_LOADING";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
-export const GET_ERRORS = "GET_ERRORS";
-export const GET_ERROR = "GET_ERROR";
+
 
 export const fetchCategories = () => dispatch => {
     // dispatch(setCategoryLoading());
@@ -55,7 +55,7 @@ export const createCategory = categoryData => dispatch => {
         )
         .catch(err =>
             dispatch({
-                type: GET_ERRORS,
+                type: RECEIVE_ERRORS,
                 payload: err.response.data
             })
         );
@@ -74,7 +74,7 @@ export const deleteCategory = id => dispatch => {
         )
         .catch(err =>
             dispatch({
-                type: GET_ERRORS,
+                type: RECEIVE_ERRORS,
                 payload: err.response.data
             })
         );
