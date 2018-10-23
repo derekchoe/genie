@@ -43,8 +43,11 @@ class SignUpForm extends Component {
 
       <div className="login-form-wrapper">
         <form className="login-form">
+            <div className='picture-logo-stuff'>
+            </div>
           <div className="login-header-wrapper">
-            <p className="login-word">Log in</p>
+
+
             <p>{errors}</p>
           </div>
 
