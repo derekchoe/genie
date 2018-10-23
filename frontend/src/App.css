@@ -39,7 +39,8 @@
 }
 
 .session-wrapper{
-  
+  width: 800px;
+  height: 1000px;
 }
 
 /* .login-page-wrapper{
@@ -68,7 +69,6 @@
   left: 37%;
   top: 15%;
   background: rgba(0, 0, 0, 0.4);
-
   /* justify-content: center; */
 }
 
@@ -86,7 +86,6 @@
   display: flex;
   flex-direction: column;
   align-self: center;
-
 }
 
 .email-wrapper{

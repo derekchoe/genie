@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const CategorySchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'users'
   },
   name: {
     type: String,
@@ -19,8 +19,8 @@ const CategorySchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
-  // transactions: [{ type: Schema.Types.ObjectId, ref: 'Category' }]
+  },
+  transactions: { type: Schema.Types.ObjectId, ref: 'transaction' }
 });
 
 module.exports = Category = mongoose.model('category', CategorySchema);
