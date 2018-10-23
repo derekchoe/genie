@@ -43,4 +43,17 @@ router.post(
       newTransaction.save().then(trans => res.json(trans));
     }
   );
+
+  router.delete('/:id', (req, res) => {
+      Transaction.findById(req.params.id, (err, tarns) => {
+          trans.remove(err => {
+              if (err) {
+                  res.status(500).send(err)
+              } else  {
+                  res.status(204).send('removed')
+              }
+          })
+      })
+  })
 module.exports = router;
+
