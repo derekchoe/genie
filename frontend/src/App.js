@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
+
 
 import NavbarContainer from './components/layout/navbar_container';
 import Footer from './components/layout/footer';
@@ -28,21 +29,24 @@ if (localStorage.jwtToken) {
   }
 }
 
+
 class App extends Component {
   render() {
-    return (
-      <Provider store={store}>
+    return <Provider store={store}>
         <Router>
-          <div className="App">
+          <div className="App">        
             <NavbarContainer />
-            <Route exact path="/" component={Homepage} />
-            <SignupContainer />
-            <LoginContainer />
+            <Switch>
+              <Route exact path='/login' component={LoginContainer}/>
+              <Route exact path='/signup' component={SignupContainer}/>
+              <SignupContainer />
+              <LoginContainer />
+              <Route exact path="/" component={Homepage} />
+            </Switch> 
             <Footer />
           </div>
         </Router>
-      </Provider>
-    );
+      </Provider>;
   }
 }
 

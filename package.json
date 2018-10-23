@@ -21,8 +21,10 @@
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.4",
     "nodemon": "^1.18.4",
+    "particles.js": "^2.0.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "react-particles-js": "^2.3.0",
     "validator": "^10.8.0"
   }
 }

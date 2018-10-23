@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Particles from "react-particles-js";
 
 class Signup extends Component {
   constructor(props) {
@@ -42,48 +43,37 @@ class Signup extends Component {
 
   render() {
     const errors = this.props.errors.map(error => <li>{error}</li>);
-    return (
-      <form>
-        <h1>Sign up</h1>
-        <ul>{errors}</ul>
-        email:
-        <input
-          type="text"
-          name="email"
-          value={this.state.email}
-          onChange={this.handleInput}
-        />
-        First Name:
-        <input
-          type="text"
-          name="firstName"
-          value={this.state.firstName}
-          onChange={this.handleInput}
-        />
-        Last Name:
-        <input
-          type="text"
-          name="lastName"
-          value={this.state.lastName}
-          onChange={this.handleInput}
-        />
-        password:
-        <input
-          type="password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handleInput}
-        />
-        password2:
-        <input
-          type="password"
-          name="password2"
-          value={this.state.password2}
-          onChange={this.handleInput}
-        />
-        <button onClick={this.handleSubmit}>Sign Up</button>
-      </form>
-    );
+
+    const particlesOpt = { particles: { number: { value: 15, density: { enable: true, value_area: 800 } }, color: { value: "#60b5c8" }, shape: { type: "circle", stroke: { width: 0, color: "#ffffff" }, polygon: { nb_sides: 12 }, image: { src: "", width: 100, height: 100 } }, opacity: { value: 0.49716301422833176, random: false, anim: { enable: false, speed: 0.8932849335314805, opacity_min: 0.1, sync: false } }, size: { value: 3, random: true, anim: { enable: false, speed: 258.94105894105894, size_min: 18.38161838161838, sync: false } }, line_linked: { enable: true, distance: 284.0931509876182, color: "#60b5c8", opacity: 0.3367165327817595, width: 1.5782952832645454 }, move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } } }, interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true }, modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } } }, retina_detect: true };
+    
+    return <div className='login-page-wrapper'>
+        <div className="particles-stuff">
+          <Particles params={particlesOpt} />
+        </div>
+
+        <div className="login-form-wrapper">
+        <div className='login-form'>
+            <form>
+              <div className="login-header-wrapper">
+                <h1>Sign up</h1>
+                <ul>{errors}</ul>
+              </div>
+              <div className="email-password-wrapper">
+                <input id="input-option" type="text" placeholder='Email' name="email" value={this.state.email} onChange={this.handleInput} />
+                <div className='first-last-name'>
+                  <input id="input-option" type="text" placeholder="First Name" name="firstName" value={this.state.firstName} onChange={this.handleInput} />
+                  <input id="input-option" type="text" placeholder="Last Name" name="lastName" value={this.state.lastName} onChange={this.handleInput} />
+                </div>
+                <div className='first-last-name'>
+                  <input id="input-option" type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleInput} />
+                  <input id="input-option" type="password" placeholder="Password" name="password2" value={this.state.password2} onChange={this.handleInput} />
+                </div>
+                <input id="input-option" value='Sign Up' type='submit' className='login-button' onClick={this.handleSubmit} />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>;
   }
 }
 
