@@ -14,16 +14,16 @@ module.exports = function validateRegisterInput(data) {
     errors.firstName = 'First name is required';
   }
 
-  if (!Validator.isLength(data.firstName, { min: 2, max: 30 })) {
-    errors.firstName = 'First name must be between 2 and 30 characters';
+  if (!Validator.isLength(data.firstName, { min: 2 })) {
+    errors.firstName = 'First Name is required';
   }
 
   if (Validator.isEmpty(data.lastName)) {
     errors.lastName = 'Last name is required';
   }
 
-  if (!Validator.isLength(data.lastName, { min: 2, max: 30 })) {
-    errors.lastName = 'Last name must be between 2 and 30 characters';
+  if (!Validator.isLength(data.lastName, { min: 2 })) {
+    errors.lastName = 'Last name must be at least 2 letters';
   }
 
   if (Validator.isEmpty(data.email)) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-class SignUpForm extends Component {
+class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,11 +43,9 @@ class SignUpForm extends Component {
 
       <div className="login-form-wrapper">
         <form className="login-form">
+          <div className="login-header-wrapper">
             <div className='picture-logo-stuff'>
             </div>
-          <div className="login-header-wrapper">
-
-
             <p>{errors}</p>
           </div>
 
@@ -59,7 +57,7 @@ class SignUpForm extends Component {
             <div className="email-wrapper">
               <input id="input-option" placeholder="Password" type="password" name="password" value={this.state.password} onChange={this.handleInput} />
             </div>
-            <input value='Log In' type='submit' className='login-button' onClick={this.handleSubmit} />
+            <input value='Log In' type='submit' className='login-button1' onClick={this.handleSubmit} />
           </div>
         </form>
       </div>
@@ -67,4 +65,4 @@ class SignUpForm extends Component {
   }
 }
 
-export default withRouter(SignUpForm);
+export default withRouter(LoginForm);

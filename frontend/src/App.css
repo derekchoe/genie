@@ -60,7 +60,7 @@
   display: flex;
   margin-top: 80px;
   width: 350px;
-  height: 450px;
+  /* height: 450px; */
   color: #344dbb;
   font-weight: 300;
   border: 1px solid #ccc;
@@ -104,15 +104,51 @@
   outline: none;
 }
 
+#email-input{
+  padding: 10px 17px 10px 17px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 80%;
+  margin-left: 12px;
+  outline: none;
+}
+
 .login-button{
-  margin-top: 15px;
-  width: 90%;
+  margin: 15px 0 50px 10px;
+  width: 97%;
   background-color: #344dbb;
   border-radius: 5px;
   padding: 10px;
-  font-size: 25px;
+  font-size: 20px;
   color: white;
-  font-weight: 800;
+  border-color: black;
+  font-weight: 600;
+}
+
+.login-button1{
+  margin: 15px 0 50px 0px;
+  width: 92%;
+  background-color: #344dbb;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  border-color: black;
+  font-weight: 600;
+}
+
+.stupid-errors{
+  height: 30px;
+  overflow: scroll;
+}
+
+.login-button:hover{
+  background-color: #536fec;
+}
+
+.login-button1:hover{
+  background-color: #536fec;
 }
 
 .first-last-name{
@@ -125,5 +161,5 @@
   height: 170px;
   background-size: cover;
   display: flex;
-  align-self: center;
+  margin-left: 30px;
 }

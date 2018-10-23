@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Particles from "react-particles-js";
-import SignUpContainer from './login_container';
+import LoginContainer from './login_container';
 
-class Signup extends Component {
+class Login extends Component {
 
   render() {
-  
-
     const particlesOpt = {
       "particles": {
         "number": {
@@ -123,10 +121,9 @@ class Signup extends Component {
         <div className="particles-stuff">
           <Particles params={particlesOpt} />
         </div>
-        <SignUpContainer/>
-        
+      <LoginContainer/>     
       </div>;
   }
 }
 
-export default withRouter(Signup);
+export default withRouter(Login);
