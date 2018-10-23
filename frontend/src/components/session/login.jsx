@@ -94,7 +94,7 @@ class Signup extends Component {
           "distance": 150,
           "color": "#fff",
           "opacity": 0.4,
-          "width": 3
+          "width": 2
         },
         "move": {
           "enable": true,
