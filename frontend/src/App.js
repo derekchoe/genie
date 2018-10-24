@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-
+import { AuthRoute, ProtectedRoute } from './util/route_util';
 import NavbarContainer from './components/layout/navbar_container';
 import Footer from './components/layout/footer';
 import Homepage from './components/layout/homepage';
@@ -13,6 +13,7 @@ import setAuthToken from './util/set_auth_token';
 import { receiveCurrentUser, logoutUser } from './action/session_actions';
 import './App.css';
 import store from './store/store';
+import Redirect from 'react-router-dom/Redirect';
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -29,7 +30,6 @@ if (localStorage.jwtToken) {
   }
 }
 
-
 class App extends Component {
   render() {
     return <Provider store={store}>
@@ -37,9 +37,10 @@ class App extends Component {
           <div className="App">        
             <NavbarContainer />
             <Switch>
-              <Route exact path='/login' component={Login}/>
-            <Route exact path='/signup' component={Signup}/>
-              <Route exact path="/" component={Homepage} />
+              <AuthRoute exact path='/login' component={Login}/>
+            <AuthRoute exact path='/signup' component={Signup}/>
+              <ProtectedRoute exact path="/" component={Homepage} />
+              <Redirect to= '/login'/>
             </Switch> 
             <Footer />
           </div>

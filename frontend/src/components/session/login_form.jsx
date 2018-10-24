@@ -15,7 +15,7 @@ class LoginForm extends Component {
 
   componentDidMount() {
     if (this.props.session.isAuthenticated) {
-      this.props.history.push('/dashboard');
+      this.props.history.push('/');
     }
   }
 
