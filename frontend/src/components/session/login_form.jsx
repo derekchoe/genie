@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -14,9 +14,9 @@ class LoginForm extends Component {
   }
 
   componentDidMount() {
-    // if (this.props.session.isAuthenticated) {
-    //   this.props.history.push('/dashboard');
-    // }
+    if (this.props.session.isAuthenticated) {
+      this.props.history.push("/");
+    }
   }
 
   handleInput(e) {
@@ -31,38 +31,54 @@ class LoginForm extends Component {
       password: this.state.password
     };
 
-    this.props.loginUser(newUser);
-    this.props.history.push('/dasboard');
+    this.props.loginUser(newUser, this.props.history);
   }
-
-
 
   render() {
     const errors = this.props.errors.map(error => <p>{error}</p>);
 
-    return <div className='session-wrapper'>
-
-      <div className="login-form-wrapper">
-        <form className="login-form">
-          <div className="login-header-wrapper">
-            <div className='picture-logo-stuff'>
-            </div>
-            <p>{errors}</p>
-          </div>
-
-          <div className="email-password-wrapper">
-            <div className="email-wrapper">
-              <input id="input-option" placeholder='Email' type="text" name="email" value={this.state.email} onChange={this.handleInput} />
+    return (
+      <div className="session-wrapper">
+        <div className="login-form-wrapper">
+          <form className="login-form">
+            <div className="login-header-wrapper">
+              <div className="picture-logo-stuff" />
+              <p>{errors}</p>
             </div>
 
-            <div className="email-wrapper">
-              <input id="input-option" placeholder="Password" type="password" name="password" value={this.state.password} onChange={this.handleInput} />
+            <div className="email-password-wrapper">
+              <div className="email-wrapper">
+                <input
+                  id="input-option"
+                  placeholder="Email"
+                  type="text"
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleInput}
+                />
+              </div>
+
+              <div className="email-wrapper">
+                <input
+                  id="input-option"
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleInput}
+                />
+              </div>
+              <input
+                value="Log In"
+                type="submit"
+                className="login-button1"
+                onClick={this.handleSubmit}
+              />
             </div>
-            <input value='Log In' type='submit' className='login-button1' onClick={this.handleSubmit} />
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>;
+    );
   }
 }
 

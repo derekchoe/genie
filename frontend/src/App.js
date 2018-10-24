@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-
-import NavbarContainer from './components/layout/navbar_container';
+import { AuthRoute, ProtectedRoute } from './util/route_util';
+// import NavbarContainer from './components/layout/navbar_container';
 import Footer from './components/layout/footer';
-import Homepage from './components/layout/homepage';
+import DashBoard from './components/dashboard/dashboard';
 import Signup from './components/session/signup';
 import Login from './components/session/login';
-import DashBoard from './components/dashboard/dashboard';
-
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
 import { receiveCurrentUser, logoutUser } from './action/session_actions';
 import './App.css';
 import store from './store/store';
+import Redirect from 'react-router-dom/Redirect';
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -31,18 +30,17 @@ if (localStorage.jwtToken) {
   }
 }
 
-
 class App extends Component {
   render() {
     return <Provider store={store}>
         <Router>
           <div className="App">        
-            <NavbarContainer />
+            
             <Switch>
-              <Route exact path='/login' component={Login}/>
-              <Route exact path='/signup' component={Signup}/>
-              <Route exact path="/" component={Homepage} />
-              <Route exact path="/dashboard" component={DashBoard} />
+              <AuthRoute exact path='/login' component={Login}/>
+            <AuthRoute exact path='/signup' component={Signup}/>
+              <ProtectedRoute exact path="/" component={DashBoard} />
+              <Redirect to= '/login'/>
             </Switch> 
             <Footer />
           </div>
