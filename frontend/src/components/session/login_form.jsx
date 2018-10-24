@@ -14,9 +14,9 @@ class LoginForm extends Component {
   }
 
   componentDidMount() {
-    if (this.props.session.isAuthenticated) {
-      this.props.history.push('/dashboard');
-    }
+    // if (this.props.session.isAuthenticated) {
+    //   this.props.history.push('/dashboard');
+    // }
   }
 
   handleInput(e) {
@@ -31,7 +31,8 @@ class LoginForm extends Component {
       password: this.state.password
     };
 
-    this.props.loginUser(newUser, this.props.history);
+    this.props.loginUser(newUser);
+    this.props.history.push('/dasboard');
   }
 
 

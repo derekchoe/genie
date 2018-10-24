@@ -8,6 +8,8 @@ import Footer from './components/layout/footer';
 import Homepage from './components/layout/homepage';
 import Signup from './components/session/signup';
 import Login from './components/session/login';
+import DashBoard from './components/dashboard/dashboard';
+
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
 import { receiveCurrentUser, logoutUser } from './action/session_actions';
@@ -38,8 +40,9 @@ class App extends Component {
             <NavbarContainer />
             <Switch>
               <Route exact path='/login' component={Login}/>
-            <Route exact path='/signup' component={Signup}/>
+              <Route exact path='/signup' component={Signup}/>
               <Route exact path="/" component={Homepage} />
+              <Route exact path="/dashboard" component={DashBoard} />
             </Switch> 
             <Footer />
           </div>
