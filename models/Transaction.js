@@ -10,7 +10,7 @@ const TransactionSchema = new Schema({
     type: Number,
     required: true
   },
-  type: {
+  typeOfTrans: {
     type: String,
     required: true
   },

@@ -25,13 +25,69 @@ router.get(
   }
 );
 
+router.get(
+  '/monthly',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    let monthlyInfo = {};
+    const currentMonth = new Date().getMonth();
+    const months = [];
+
+    for (let i = 0; i < 5; i++) {
+      months.push(currentMonth - i);
+    }
+
+    // months.forEach(month => {
+    // Transaction.find(
+    //   {
+    //     date: {
+    //       $gte: new Date(`2018-10-01`),
+    //       $lt: new Date(`2018-10-31`)
+    //     },
+    //     type: 'income'
+    //   },
+    //   (err, transactions) => res.json(transactions)
+    // );
+
+    Transaction.aggregate([
+      {
+        $match: {
+          date: {
+            $gte: new Date(`2018-10-01`),
+            $lt: new Date(`2018-10-31`)
+          }
+        }
+      },
+      {
+        $group: {
+          _id: '$typeOfTrans',
+          total: { $sum: '$amount' }
+        }
+      }
+    ])
+      .then(result => res.json(result))
+      .catch(err => res.json(err));
+
+    // .toArray()
+    // .then(result => res.json(result))
+    // .catch(err => res.json(err));
+    // (err, transactions) => {
+    //   monthlyInfo = transactions;
+    // }
+    // );
+    // });
+    // res.json(monthlyInfo);
+  }
+);
+
 // return one category
-// TODO: with all transactions
 router.get(
   '/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Category.findById(req.params.id).then(category => res.json(category));
+    Category.findById(req.params.id)
+      .then(category => res.json(category))
+      .catch(err => res.json(err));
   }
 );
 
@@ -60,7 +116,8 @@ router.post(
           if (req.body.budget) CategoryFields.budget = req.body.budget;
           new Category(CategoryFields)
             .save()
-            .then(category => res.json(category));
+            .then(category => res.json(category))
+            .catch(err => res.json(err));
         }
       }
     );
@@ -119,12 +176,15 @@ router.post(
 
     const newTransaction = new Transaction({
       amount: req.body.amount,
-      type: req.body.type,
+      typeOfTrans: req.body.typeOfTrans,
       description: req.body.description,
       category: req.params.categoryId
     });
 
-    newTransaction.save().then(trans => res.json(trans));
+    newTransaction
+      .save()
+      .then(trans => res.json(trans))
+      .catch(err => res.json(err));
   }
 );
 
