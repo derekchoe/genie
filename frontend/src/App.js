@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { AuthRoute, ProtectedRoute } from './util/route_util';
-import NavbarContainer from './components/layout/navbar_container';
+// import NavbarContainer from './components/layout/navbar_container';
 import Footer from './components/layout/footer';
-import Homepage from './components/layout/homepage';
+import DashBoard from './components/dashboard/dashboard';
 import Signup from './components/session/signup';
 import Login from './components/session/login';
 import jwt_decode from 'jwt-decode';
@@ -35,11 +35,11 @@ class App extends Component {
     return <Provider store={store}>
         <Router>
           <div className="App">        
-            <NavbarContainer />
+            
             <Switch>
               <AuthRoute exact path='/login' component={Login}/>
             <AuthRoute exact path='/signup' component={Signup}/>
-              <ProtectedRoute exact path="/" component={Homepage} />
+              <ProtectedRoute exact path="/" component={DashBoard} />
               <Redirect to= '/login'/>
             </Switch> 
             <Footer />
