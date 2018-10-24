@@ -16,12 +16,6 @@ class SignupForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    if (this.props.session.isAuthenticated) {
-      this.props.history.push('/dashboard');
-    }
-  }
-
   handleInput(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
