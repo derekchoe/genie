@@ -26,12 +26,13 @@ router.get(
 );
 
 // return one category
-// TODO: with all transactions
 router.get(
   '/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Category.findById(req.params.id).then(category => res.json(category));
+    Category.findById(req.params.id)
+      .then(category => res.json(category))
+      .catch(err => res.json(err));
   }
 );
 
@@ -60,7 +61,8 @@ router.post(
           if (req.body.budget) CategoryFields.budget = req.body.budget;
           new Category(CategoryFields)
             .save()
-            .then(category => res.json(category));
+            .then(category => res.json(category))
+            .catch(err => res.json(err));
         }
       }
     );
@@ -119,12 +121,16 @@ router.post(
 
     const newTransaction = new Transaction({
       amount: req.body.amount,
-      type: req.body.type,
+      typeOfTrans: req.body.typeOfTrans,
       description: req.body.description,
-      category: req.params.categoryId
+      category: req.params.categoryId,
+      date: req.body.date
     });
 
-    newTransaction.save().then(trans => res.json(trans));
+    newTransaction
+      .save()
+      .then(trans => res.json(trans))
+      .catch(err => res.json(err));
   }
 );
 
