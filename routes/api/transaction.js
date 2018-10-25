@@ -74,7 +74,32 @@ router.get(
       {
         $group: {
           _id: '$category',
-          total: { $sum: '$amount' }
+          totalIncome: { $sum: '$amount' }
+        }
+      }
+    ]).then(result => res.json(result));
+  }
+);
+
+router.get(
+  '/byCategoryExpense',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const currentMonth = new Date().getMonth() + 1;
+    let trans = Transaction.aggregate([
+      {
+        $match: {
+          date: {
+            $gte: new Date(`2018-${currentMonth}-01`),
+            $lt: new Date(`2018-${currentMonth}-31`)
+          },
+          typeOfTrans: 'expense'
+        }
+      },
+      {
+        $group: {
+          _id: '$category',
+          totalExpense: { $sum: '$amount' }
         }
       }
     ]).then(result => res.json(result));
