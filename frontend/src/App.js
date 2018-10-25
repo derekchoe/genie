@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { AuthRoute, ProtectedRoute } from './util/route_util';
-// import NavbarContainer from './components/layout/navbar_container';
 import Footer from './components/layout/footer';
 import DashBoard from './components/dashboard/dashboard';
 import Signup from './components/session/signup';
@@ -50,6 +49,3 @@ class App extends Component {
 }
 
 export default App;
-
-/* <SignupContainer />
-<LoginContainer /> */
