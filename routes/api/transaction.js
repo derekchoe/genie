@@ -15,6 +15,48 @@ router.get('/', (req, res) => {
     );
 });
 
+router.get(
+  '/monthly',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    let monthlyInfo = {};
+    const currentMonth = new Date().getMonth() + 1;
+    const months = [];
+
+    for (let i = 0; i < 5; i++) {
+      months.push(currentMonth - i);
+    }
+
+    let request = months.map(month => {
+      const result = Transaction.aggregate([
+        {
+          $match: {
+            date: {
+              $gte: new Date(`2018-${month}-01`),
+              $lt: new Date(`2018-${month}-31`)
+            }
+          }
+        },
+        {
+          $group: {
+            _id: '$typeOfTrans',
+            total: { $sum: '$amount' }
+          }
+        },
+        {
+          $addFields: { typeOfTrans: '$_id' }
+        },
+        {
+          $project: { _id: 0 }
+        }
+      ]);
+      return result;
+    });
+
+    Promise.all(request).then(result => res.json(result));
+  }
+);
+
 router.get('/:id', (req, res) => {
   Transaction.findById(req.params.id)
     .then(trans => res.json(trans))

@@ -10,7 +10,7 @@ import Login from './components/session/login';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
 import { receiveCurrentUser, logoutUser } from './action/session_actions';
-import './App.css';
+import './stylesheet/App.css';
 import store from './store/store';
 import Redirect from 'react-router-dom/Redirect';
 
@@ -41,7 +41,7 @@ class App extends Component {
             <AuthRoute exact path='/signup' component={Signup}/>
               <ProtectedRoute exact path="/" component={DashBoard} />
               <Redirect to= '/login'/>
-              
+                
             </Switch> 
             <Footer />
           </div>
