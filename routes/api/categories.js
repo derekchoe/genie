@@ -25,69 +25,6 @@ router.get(
   }
 );
 
-router.get(
-  '/monthly',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-    let monthlyInfo = {};
-    const currentMonth = new Date().getMonth() + 1;
-    const months = [];
-
-    console.log('newdate', new Date().getMonth());
-    console.log(currentMonth);
-
-    for (let i = 0; i < 5; i++) {
-      months.push(currentMonth - i);
-    }
-
-    console.log('months', months);
-
-    let request = months.map(month => {
-      console.log('month', month);
-      const result = Transaction.aggregate([
-        {
-          $match: {
-            date: {
-              $gte: new Date(`2018-${month}-01`),
-              $lt: new Date(`2018-${month}-31`)
-            }
-          }
-        },
-        {
-          $group: {
-            _id: '$typeOfTrans',
-            total: { $sum: '$amount' }
-          }
-        }
-      ]);
-      return result;
-    });
-
-    Promise.all(request).then(result => res.json(result));
-
-    // const promise = Transaction.aggregate([
-    //   {
-    //     $match: {
-    //       date: {
-    //         $gte: new Date(`2018-10-01`),
-    //         $lt: new Date(`2018-10-31`)
-    //       }
-    //     }
-    //   },
-    //   {
-    //     $group: {
-    //       _id: '$typeOfTrans',
-    //       total: { $sum: '$amount' }
-    //     }
-    //   }
-    // ]);
-
-    // Promise.all(promise)
-    //   .then(re => res.json(re))
-    //   .catch(err => res.json(err));
-  }
-);
-
 // return one category
 router.get(
   '/:id',
