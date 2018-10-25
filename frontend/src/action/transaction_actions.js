@@ -25,6 +25,10 @@ export const fetchTransactions = () => dispatch => {
         );
 };
 
+export const fetchTrasactionMonthly = () => dispatch => {
+    axios.get('api/transactions')
+};
+
 export const fetchTransaction = id => dispatch => {
     // dispatch(setTransactionLoading());
     axios

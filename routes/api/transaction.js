@@ -22,6 +22,11 @@ router.get(
   (req, res) => {
     const currentMonth = new Date().getMonth() + 1;
     const months = [];
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    const final= {};
+
 
     for (let i = 0; i < 5; i++) {
       months.push(currentMonth - i);
@@ -43,18 +48,25 @@ router.get(
             _id: '$typeOfTrans',
             total: { $sum: '$amount' }
           }
-        },
-        {
-          $addFields: { typeOfTrans: '$_id' }
-        },
-        {
-          $project: { _id: 0 }
         }
       ]);
       return result;
     });
 
-    Promise.all(request).then(result => res.json(result));
+    const dataFinal = {};
+    Promise.all(request).then(result => {
+      result.forEach( (el, idx) => {
+        let monthObject = null;
+        if (el.length === 2) {
+           monthObject = { [el[0]._id]: el[0].total, [el[1]._id]: el[1].total };
+        } else if (el.length == 1) {
+           monthObject = { [el[0]._id]: el[0].total};
+        } else {
+           monthObject = {};
+        }
+        Object.assign(dataFinal, {[monthNames[months[idx] -1 ]]: monthObject})
+      })
+    }).then(() => res.json(dataFinal));
   }
 );
 
