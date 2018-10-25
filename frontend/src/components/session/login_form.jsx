@@ -11,6 +11,7 @@ class LoginForm extends Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +22,10 @@ class LoginForm extends Component {
 
   handleInput(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+  demoLogin() {
+    const user = {email:'demo@gmail.com', password: '123456'};
+    this.props.loginUser(user);
   }
 
   handleSubmit(e) {
@@ -76,6 +81,7 @@ class LoginForm extends Component {
               />
             </div>
           </form>
+          <button className ='demo-user' onClick={this.demoLogin}>Demo</button>
         </div>
       </div>
     );
