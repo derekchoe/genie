@@ -43,7 +43,7 @@ class LoginForm extends Component {
           <form className="login-form">
             <div className="login-header-wrapper">
               <div className="picture-logo-stuff" />
-              <p>{errors}</p>
+              <ul>{errors}</ul>
             </div>
 
             <div className="email-password-wrapper">
