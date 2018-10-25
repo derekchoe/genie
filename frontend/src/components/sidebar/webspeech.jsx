@@ -66,10 +66,10 @@ export default class WebSpeech extends Component {
 
             this.transcript = "";
             //will clear everything when you stop
-            // let children = Array.from(document.querySelectorAll(".live-text > p"));
-            // children.forEach(child => {
-            //     child.parentNode.removeChild(child);
-            // });
+            let children = Array.from(document.querySelectorAll(".live-text > p"));
+            children.forEach(child => {
+                child.parentNode.removeChild(child);
+            });
 
         }
 
