@@ -51,7 +51,7 @@ Genie is a personal daily financial management app, which users can utilize to k
 
 - Write routes and queries for dashboard graphs/charts - Alice
 - Write routes and queries for dashboard graphs/charts - Justin
-- Prepare for API implementation / Create/style navbar - Rika
+- Prepare for API implementation / finish navbar - Rika
 - Create/style nav-bar - Derek
 
 #### Day 4 - Oct 26
