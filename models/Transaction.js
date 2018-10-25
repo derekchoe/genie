@@ -21,6 +21,14 @@ const TransactionSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  categoryName: {
+    type: String,
+    required: true
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
   }
 });
 
