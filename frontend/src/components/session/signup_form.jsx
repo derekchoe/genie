@@ -71,7 +71,7 @@ class SignupForm extends Component {
 
             </div>
           </form>
-        <div>
+        <div className="demo-and-redirect">
           <button className='demo-user' onClick={this.demoLogin}>Demo</button>
           <p>Already signed up? <a href='/login'>Log In</a></p>
         </div>
