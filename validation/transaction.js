@@ -18,8 +18,8 @@ module.exports = function validateTransactionInput(data) {
     errors.typeOfTrans = 'typeOfTrans field is required';
   }
 
-  if (!Validator.isLength(data.description, { min: 5, max: 300 })) {
-    errors.description = 'Event name must be between 3 and 300 characters';
+  if (!Validator.isLength(data.description, { min: 3, max: 300 })) {
+    errors.description = 'Description must be between 3 and 300 characters';
   }
 
   if (Validator.isEmpty(data.description)) {
