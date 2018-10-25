@@ -41,7 +41,7 @@ class SignupForm extends Component {
   }
 
   render() {
-    const errors = this.props.errors[0];
+    const errors = this.props.errors[0]
 
     return <div className='login-page-wrapper'>
 

@@ -38,7 +38,7 @@ class App extends Component {
             <NavbarContainer />
             <Switch>
               <Route exact path='/login' component={Login}/>
-            <Route exact path='/signup' component={Signup}/>
+              <Route exact path='/signup' component={Signup}/>
               <Route exact path="/" component={Homepage} />
             </Switch> 
             <Footer />

@@ -28,6 +28,7 @@ window.fetchCategory = id => store.dispatch(fetchCategory(id));
 window.deleteCategory = id => store.dispatch(deleteCategory(id));
 window.createCategory = category => store.dispatch(createCategory(category));
 window.updateCategory = category => store.dispatch(updateCategory(category));
+window.store = store;
 
 window.fetchTransactions = () => store.dispatch(fetchTransactions());
 window.fetchTransaction = id => store.dispatch(fetchTransaction(id));
