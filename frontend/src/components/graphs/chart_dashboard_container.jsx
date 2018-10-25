@@ -3,7 +3,8 @@ import { fetchCategories } from '../../action/category_actions';
 import ChartDashboard from './chart_dashboard';
 
 const mapStateToProps = state => ({
-  categories: state.categories
+  categories: Object.keys(state.entities.categories.categories)
+    .map(id => state.entities.categories.categories[id])
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -14,15 +14,14 @@ class ChartDashboard extends Component {
     this.props.fetchCategories()
   }
 
-  
+
   render() {
-    console.log(this.props)
-    const categories = this.props.categories
     return <div>
         <p>Chart Dashboard</p>
         <div>
-        <PieChart />
-        <p>{categories}</p>
+          <PieChart
+            cat={this.props.categories}
+          />
         </div>
       </div>;
   }
