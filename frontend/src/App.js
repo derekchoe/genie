@@ -10,7 +10,7 @@ import Login from './components/session/login';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
 import { receiveCurrentUser, logoutUser } from './action/session_actions';
-import './App.css';
+// import './stylesheet/index.scss';
 import store from './store/store';
 import Redirect from 'react-router-dom/Redirect';
 
