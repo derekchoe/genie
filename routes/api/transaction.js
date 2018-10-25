@@ -19,7 +19,6 @@ router.get(
   '/monthly',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    let monthlyInfo = {};
     const currentMonth = new Date().getMonth() + 1;
     const months = [];
 
@@ -54,6 +53,31 @@ router.get(
     });
 
     Promise.all(request).then(result => res.json(result));
+  }
+);
+
+router.get(
+  '/byCategoryIncome',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const currentMonth = new Date().getMonth() + 1;
+    let trans = Transaction.aggregate([
+      {
+        $match: {
+          date: {
+            $gte: new Date(`2018-${currentMonth}-01`),
+            $lt: new Date(`2018-${currentMonth}-31`)
+          },
+          typeOfTrans: 'income'
+        }
+      },
+      {
+        $group: {
+          _id: '$category',
+          total: { $sum: '$amount' }
+        }
+      }
+    ]).then(result => res.json(result));
   }
 );
 
