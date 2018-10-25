@@ -30,15 +30,21 @@ router.get(
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     let monthlyInfo = {};
-    const currentMonth = new Date().getMonth();
+    const currentMonth = new Date().getMonth() + 1;
     const months = [];
+
+    console.log('newdate', new Date().getMonth());
+    console.log(currentMonth);
 
     for (let i = 0; i < 5; i++) {
       months.push(currentMonth - i);
     }
 
+    console.log('months', months);
+
     let request = months.map(month => {
-      Transaction.aggregate([
+      console.log('month', month);
+      const result = Transaction.aggregate([
         {
           $match: {
             date: {
@@ -53,10 +59,12 @@ router.get(
             total: { $sum: '$amount' }
           }
         }
-      ]).then();
+      ]);
+      return result;
     });
 
-    Promise.all(request).then(() => res.json(request));
+    Promise.all(request).then(result => res.json(result));
+
     // const promise = Transaction.aggregate([
     //   {
     //     $match: {
@@ -178,7 +186,8 @@ router.post(
       amount: req.body.amount,
       typeOfTrans: req.body.typeOfTrans,
       description: req.body.description,
-      category: req.params.categoryId
+      category: req.params.categoryId,
+      date: req.body.date
     });
 
     newTransaction
