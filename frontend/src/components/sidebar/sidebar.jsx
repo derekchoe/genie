@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import WebSpeechContainer from './webspeech_container'
 
 export default class Sidebar extends Component {
     render() {
@@ -6,7 +7,8 @@ export default class Sidebar extends Component {
             <div>
                
                 This is the sidebar
-      </div>
+                <WebSpeechContainer />
+           </div>
         )
     }
 }
