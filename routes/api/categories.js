@@ -37,46 +37,46 @@ router.get(
       months.push(currentMonth - i);
     }
 
-    // months.forEach(month => {
-    // Transaction.find(
-    //   {
-    //     date: {
-    //       $gte: new Date(`2018-10-01`),
-    //       $lt: new Date(`2018-10-31`)
-    //     },
-    //     type: 'income'
-    //   },
-    //   (err, transactions) => res.json(transactions)
-    // );
-
-    Transaction.aggregate([
-      {
-        $match: {
-          date: {
-            $gte: new Date(`2018-10-01`),
-            $lt: new Date(`2018-10-31`)
+    let request = months.map(month => {
+      Transaction.aggregate([
+        {
+          $match: {
+            date: {
+              $gte: new Date(`2018-${month}-01`),
+              $lt: new Date(`2018-${month}-31`)
+            }
+          }
+        },
+        {
+          $group: {
+            _id: '$typeOfTrans',
+            total: { $sum: '$amount' }
           }
         }
-      },
-      {
-        $group: {
-          _id: '$typeOfTrans',
-          total: { $sum: '$amount' }
-        }
-      }
-    ])
-      .then(result => res.json(result))
-      .catch(err => res.json(err));
+      ]).then();
+    });
 
-    // .toArray()
-    // .then(result => res.json(result))
-    // .catch(err => res.json(err));
-    // (err, transactions) => {
-    //   monthlyInfo = transactions;
-    // }
-    // );
-    // });
-    // res.json(monthlyInfo);
+    Promise.all(request).then(() => res.json(request));
+    // const promise = Transaction.aggregate([
+    //   {
+    //     $match: {
+    //       date: {
+    //         $gte: new Date(`2018-10-01`),
+    //         $lt: new Date(`2018-10-31`)
+    //       }
+    //     }
+    //   },
+    //   {
+    //     $group: {
+    //       _id: '$typeOfTrans',
+    //       total: { $sum: '$amount' }
+    //     }
+    //   }
+    // ]);
+
+    // Promise.all(promise)
+    //   .then(re => res.json(re))
+    //   .catch(err => res.json(err));
   }
 );
 
