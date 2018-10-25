@@ -4,8 +4,28 @@
 
 nav {
   background-color: white;
-  height: 60px;
+  height: 100px;
   width: 100%;
+}
+
+.nav-box{
+  display: flex;
+  justify-content: center;
+}
+
+.logo-logout-wrapper{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  background-image: url(https://s3-us-west-1.amazonaws.com/bagquest-pro/logo/logo4.png);
+  background-repeat: no-repeat;
+  width: 200px;
+  height: auto;
+  background-size: contain;
+  margin-top: 15px;
 }
 
 .logout-button {
@@ -14,5 +34,7 @@ nav {
   color: gray;
   border-radius: 5px;
   padding: 6px;
-  margin: 10px 10px 0px 0px;
+  border: none;
+
+  // margin: 10px 10px 0px 0px;
 }

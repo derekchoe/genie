@@ -21,7 +21,7 @@ export default class WebSpeech extends Component {
         
         if (!this.state.stream) {
             this.setState({ stream: true });
-            console.log(this.transcript);
+            // console.log(this.transcript);
             
 
             this.recognition = new SpeechRecognition();
@@ -65,11 +65,11 @@ export default class WebSpeech extends Component {
             // })
 
             this.transcript = "";
-
-            // let children = Array.from(document.querySelectorAll(".live-text > p"));
-            // children.forEach(child => {
-            //     child.parentNode.removeChild(child);
-            // });
+            //will clear everything when you stop
+            let children = Array.from(document.querySelectorAll(".live-text > p"));
+            children.forEach(child => {
+                child.parentNode.removeChild(child);
+            });
 
         }
 
