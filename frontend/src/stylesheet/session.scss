@@ -1,0 +1,189 @@
+// from index.css
+
+.App {
+  text-align: center;
+}
+
+.footer{
+  position: fixed;
+  left: 30%;
+  top: 100%;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.session-wrapper{
+  width: 800px;
+  /* height: 1000px; */
+}
+
+/* .login-page-wrapper{
+  height: 100%;
+  width: 10000000000px;
+} */
+
+.particles-stuff{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 0;
+
+  /* display: flex; */
+  /* align-content: center; */
+}
+
+.login-form-wrapper{
+  display: flex;
+  margin-top: 80px;
+  width: 350px;
+  /* height: 450px; */
+  color: #344dbb;
+  font-weight: 300;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  left: 38%;
+  top: 12%;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 1
+}
+
+.login-word{
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.login-form{
+  /* margin: 40px; */
+  width: 70%;
+  /* height: 80%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.email-wrapper{
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+}
+
+#input-option{
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 80%;
+  margin-left: 12px;
+  outline: none;
+}
+
+#email-input{
+  padding: 10px 17px 10px 17px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 80%;
+  margin-left: 12px;
+  outline: none;
+}
+
+.login-button{
+  margin: 15px 0 50px 10px;
+  width: 97%;
+  background-color: #344dbb;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  border-color: black;
+  font-weight: 600;
+}
+
+.login-button1{
+  margin: 15px 0 50px 0px;
+  width: 92%;
+  background-color: #344dbb;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  border-color: black;
+  font-weight: 600;
+}
+
+.stupid-errors{
+  height: 30px;
+  overflow: scroll;
+}
+
+.login-button:hover{
+  background-color: #536fec;
+}
+
+.login-button1:hover{
+  background-color: #536fec;
+}
+
+.first-last-name{
+  display: flex;
+}
+
+.picture-logo-stuff{
+  background-image: url('http://sid.cps.unizar.es/SEMANTICWEB/GENIE/GENIE_files/GENIE%20LOGO.png');
+  width: 170px;
+  height: 170px;
+  background-size: cover;
+  display: flex;
+  margin-left: 30px;
+}
+
+
+// from index.scss
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #00356B;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
