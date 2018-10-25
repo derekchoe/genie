@@ -73,15 +73,17 @@ class LoginForm extends Component {
                   onChange={this.handleInput}
                 />
               </div>
+            </div>
+            <div className='login-demo-wrapper'>
               <input
                 value="Log In"
                 type="submit"
                 className="login-button1"
                 onClick={this.handleSubmit}
               />
+          <button className ='demo-user' onClick={this.demoLogin}>Demo</button>
             </div>
           </form>
-          <button className ='demo-user' onClick={this.demoLogin}>Demo</button>
         </div>
       </div>
     );

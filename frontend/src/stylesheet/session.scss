@@ -75,7 +75,8 @@
   background: rgba(0, 0, 0, 0.4);
   justify-content: center;
   align-items: center;
-  z-index: 1
+  z-index: 1;
+  min-height: 450px;
 }
 
 .login-word{
@@ -86,16 +87,16 @@
 }
 
 .login-form{
-  /* margin: 40px; */
   width: 70%;
-  /* height: 80%; */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .email-wrapper{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   border-radius: 3px;
 }
 
@@ -105,7 +106,6 @@
   border-radius: 5px;
   font-weight: bold;
   width: 80%;
-  margin-left: 12px;
   outline: none;
 }
 
@@ -114,8 +114,7 @@
   margin-top: 10px;
   border-radius: 5px;
   font-weight: bold;
-  width: 80%;
-  margin-left: 12px;
+  width: 225px;
   outline: none;
 }
 
@@ -132,8 +131,8 @@
 }
 
 .login-button1{
-  margin: 15px 0 50px 0px;
-  width: 92%;
+  align-self: center;
+  width: 218px;
   background-color: #344dbb;
   border-radius: 5px;
   padding: 10px;
@@ -158,6 +157,8 @@
 
 .first-last-name{
   display: flex;
+  justify-content: space-between;
+  width: 95%;
 }
 
 .picture-logo-stuff{
@@ -166,7 +167,7 @@
   height: 170px;
   background-size: cover;
   display: flex;
-  margin-left: 30px;
+  align-self: center;
 }
 
 
@@ -186,4 +187,39 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.login-demo-wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-content: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  * {
+    margin: 5px;
+  }
+
+
+}
+
+.demo-user {
+  background-color: #ff704d;
+  align-self: center;
+  width: 218px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  border-color: black;
+  font-weight: 600;
+  &:hover {
+    background-color: #ffad99;
+  }
+}
+.login-header-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
