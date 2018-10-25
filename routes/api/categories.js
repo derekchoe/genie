@@ -124,7 +124,9 @@ router.post(
       typeOfTrans: req.body.typeOfTrans,
       description: req.body.description,
       category: req.params.categoryId,
-      date: req.body.date
+      date: req.body.date,
+      categoryName: req.body.categoryName,
+      user: req.user.id
     });
 
     newTransaction

@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -17,19 +17,40 @@ class LoginForm extends Component {
 
   componentDidMount() {
     if (this.props.session.isAuthenticated) {
-      this.props.history.push("/");
+      this.props.history.push('/');
     }
   }
 
   handleInput(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-  demoLogin() {
-    const user = {email:'demo@gmail.com', password: '123456'};
-    this.props.loginUser(user);
+
+  demoLogin(e) {
+    // const user = { email: 'demo@gmail.com', password: '123456' };
+    // this.props.loginUser(user);
+
+    e.preventDefault();
+
+    let password = '123456';
+    const demoLoginEffect = () => {
+      setTimeout(() => {
+        if (password.length > 0) {
+          this.setState({
+            email: 'demo@gmail.com',
+            password: this.state.password.concat(password[0])
+          });
+          password = password.slice(1);
+          demoLoginEffect();
+        } else {
+          this.props.loginUser(this.state);
+        }
+      }, 125);
+    };
+    demoLoginEffect();
   }
+
   otherFrom() {
-    this.props.history.push('/signup')
+    this.props.history.push('/signup');
   }
 
   handleSubmit(e) {
@@ -78,7 +99,7 @@ class LoginForm extends Component {
                 />
               </div>
             </div>
-            <div className='login-demo-wrapper'>
+            <div className="login-demo-wrapper">
               <input
                 value="Log In"
                 type="submit"
@@ -88,8 +109,12 @@ class LoginForm extends Component {
             </div>
           </form>
           <div>
-          <button className ='demo-user' onClick={this.demoLogin}>Demo</button>
-            <p>First time? <a href='/signup'>Sign Up</a></p>
+            <button className="demo-user" onClick={this.demoLogin}>
+              Demo
+            </button>
+            <p>
+              First time? <a href="/signup">Sign Up</a>
+            </p>
           </div>
         </div>
       </div>

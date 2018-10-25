@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const jsonwebtoken = require('jsonwebtoken');
+ObjectId = require('mongodb').ObjectID;
 
 const Transaction = require('../../models/Transaction');
 
@@ -33,7 +34,8 @@ router.get(
             date: {
               $gte: new Date(`2018-${month}-01`),
               $lt: new Date(`2018-${month}-31`)
-            }
+            },
+            user: ObjectId(req.user.id)
           }
         },
         {
@@ -68,14 +70,21 @@ router.get(
             $gte: new Date(`2018-${currentMonth}-01`),
             $lt: new Date(`2018-${currentMonth}-31`)
           },
-          typeOfTrans: 'income'
+          typeOfTrans: 'income',
+          user: ObjectId(req.user.id)
         }
       },
       {
         $group: {
-          _id: '$category',
+          _id: '$categoryName',
           totalIncome: { $sum: '$amount' }
         }
+      },
+      {
+        $addFields: { categoryName: '$_id' }
+      },
+      {
+        $project: { _id: 0 }
       }
     ]).then(result => res.json(result));
   }
@@ -93,14 +102,21 @@ router.get(
             $gte: new Date(`2018-${currentMonth}-01`),
             $lt: new Date(`2018-${currentMonth}-31`)
           },
-          typeOfTrans: 'expense'
+          typeOfTrans: 'expense',
+          user: ObjectId(req.user.id)
         }
       },
       {
         $group: {
-          _id: '$category',
+          _id: '$categoryName',
           totalExpense: { $sum: '$amount' }
         }
+      },
+      {
+        $addFields: { categoryName: '$_id' }
+      },
+      {
+        $project: { _id: 0 }
       }
     ]).then(result => res.json(result));
   }
