@@ -23,7 +23,7 @@ class SignupForm extends Component {
 
   demoLogin() {
     const demo = {email: 'demo@gmail.com', password: '123456'}
-    this.props.login(demo)
+    this.props.loginUser(demo)
   }
 
   handleSubmit(e) {
@@ -58,17 +58,23 @@ class SignupForm extends Component {
             <div className="email-password-wrapper">
               <input id="email-input" type="text" placeholder='Email' name="email" value={this.state.email} onChange={this.handleInput} />
               <div className='first-last-name'>
-                <input id="input-option" type="text" placeholder="First Name" name="firstName" value={this.state.firstName} onChange={this.handleInput} />
-                <input id="input-option" type="text" placeholder="Last Name" name="lastName" value={this.state.lastName} onChange={this.handleInput} />
+                <input className="name-input" type="text" placeholder="First Name" name="firstName" value={this.state.firstName} onChange={this.handleInput} />
+                <input className="name-input" type="text" placeholder="Last Name" name="lastName" value={this.state.lastName} onChange={this.handleInput} />
               </div>
-              <div className='first-last-name'>
-                <input id="input-option" type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleInput} />
-                <input id="input-option" type="password" placeholder="Password" name="password2" value={this.state.password2} onChange={this.handleInput} />
+              <div className='password-wrapper'>
+                <input id="email-input" type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleInput} />
+                <input id="email-input" type="password" placeholder="Password" name="password2" value={this.state.password2} onChange={this.handleInput} />
               </div>
+            </div>
+            <div className='login-demo-wrapper'>
               <input value='Sign Up' type='submit' className='login-button' onClick={this.handleSubmit} />
+
             </div>
           </form>
+        <div>
           <button className='demo-user' onClick={this.demoLogin}>Demo</button>
+          <p>Already signed up? <a href='/login'>Log In</a></p>
+        </div>
         </div>
     </div>;
   }
