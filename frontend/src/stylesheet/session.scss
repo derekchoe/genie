@@ -2,6 +2,10 @@
 
 .App {
   text-align: center;
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .footer{
@@ -62,7 +66,8 @@
 
 .login-form-wrapper{
   display: flex;
-  margin-top: 80px;
+  flex-direction: column;
+  margin-top: 3%;
   width: 350px;
   /* height: 450px; */
   color: #344dbb;
@@ -100,12 +105,12 @@
   border-radius: 3px;
 }
 
-#input-option{
+.input-option{
   padding: 10px;
   margin-top: 10px;
   border-radius: 5px;
   font-weight: bold;
-  width: 80%;
+  width: 218px;
   outline: none;
 }
 
@@ -114,7 +119,7 @@
   margin-top: 10px;
   border-radius: 5px;
   font-weight: bold;
-  width: 225px;
+  width: 218px;
   outline: none;
 }
 
@@ -157,8 +162,9 @@
 
 .first-last-name{
   display: flex;
-  justify-content: space-between;
-  width: 95%;
+  justify-content: center;
+  width: 218px;
+
 }
 
 .picture-logo-stuff{
@@ -195,7 +201,6 @@ code {
   justify-content: space-between;
   align-content: center;
   padding: 10px;
-  margin-bottom: 20px;
   * {
     margin: 5px;
   }
@@ -213,6 +218,7 @@ code {
   color: white;
   border-color: black;
   font-weight: 600;
+  margin-bottom: 30px;
   &:hover {
     background-color: #ffad99;
   }
@@ -222,4 +228,28 @@ code {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+}
+
+.password-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.name-input {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 50%;
+  outline: none;
+}
+
+.email-password-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }

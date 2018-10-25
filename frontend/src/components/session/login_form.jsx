@@ -12,6 +12,7 @@ class LoginForm extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.otherFrom = this.otherFrom.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,9 @@ class LoginForm extends Component {
   demoLogin() {
     const user = {email:'demo@gmail.com', password: '123456'};
     this.props.loginUser(user);
+  }
+  otherFrom() {
+    this.props.history.push('/signup')
   }
 
   handleSubmit(e) {
@@ -54,7 +58,7 @@ class LoginForm extends Component {
             <div className="email-password-wrapper">
               <div className="email-wrapper">
                 <input
-                  id="input-option"
+                  className="input-option"
                   placeholder="Email"
                   type="text"
                   name="email"
@@ -65,7 +69,7 @@ class LoginForm extends Component {
 
               <div className="email-wrapper">
                 <input
-                  id="input-option"
+                  className="input-option"
                   placeholder="Password"
                   type="password"
                   name="password"
@@ -81,9 +85,12 @@ class LoginForm extends Component {
                 className="login-button1"
                 onClick={this.handleSubmit}
               />
-          <button className ='demo-user' onClick={this.demoLogin}>Demo</button>
             </div>
           </form>
+          <div>
+          <button className ='demo-user' onClick={this.demoLogin}>Demo</button>
+            <p>First time? <a href='/signup'>Sign Up</a></p>
+          </div>
         </div>
       </div>
     );
