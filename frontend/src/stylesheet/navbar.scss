@@ -1,8 +1,18 @@
+.App{
+  text-align-last: right;
+}
+
 nav {
   background-color: white;
   height: 60px;
+  width: 100%;
 }
 
 .logout-button {
-  margin-right: 30px;
+  font-size: 20px;
+  // font-family: sans-serif;
+  color: gray;
+  border-radius: 5px;
+  padding: 6px;
+  margin: 10px 10px 0px 0px;
 }
