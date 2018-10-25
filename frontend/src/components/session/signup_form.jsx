@@ -63,7 +63,7 @@ class SignupForm extends Component {
               </div>
               <div className='password-wrapper'>
                 <input id="email-input" type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleInput} />
-                <input id="email-input" type="password" placeholder="Password" name="password2" value={this.state.password2} onChange={this.handleInput} />
+                <input id="email-input" type="password" placeholder="Confirm Password" name="password2" value={this.state.password2} onChange={this.handleInput} />
               </div>
             </div>
             <div className='login-demo-wrapper'>

@@ -4,7 +4,7 @@ import WebSpeechContainer from './webspeech_container'
 export default class Sidebar extends Component {
     render() {
         return (
-            <div>
+            <div className="sidebar-box">
                
                 This is the sidebar
                 <WebSpeechContainer />
