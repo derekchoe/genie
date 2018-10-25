@@ -67,7 +67,7 @@ router.post(
   }
 );
 
-// eidt categories
+// edit categories
 router.patch(
   '/:id',
   passport.authenticate('jwt', { session: false }),

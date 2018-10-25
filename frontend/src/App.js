@@ -36,10 +36,12 @@ class App extends Component {
           <div className="App">        
             
             <Switch>
+
               <AuthRoute exact path='/login' component={Login}/>
             <AuthRoute exact path='/signup' component={Signup}/>
               <ProtectedRoute exact path="/" component={DashBoard} />
               <Redirect to= '/login'/>
+               <Route exact path="/stuff" component={Homepage} />
             </Switch> 
             <Footer />
           </div>
