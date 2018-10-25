@@ -7,14 +7,18 @@ ObjectId = require('mongodb').ObjectID;
 
 const Transaction = require('../../models/Transaction');
 
-router.get('/', (req, res) => {
-  Transaction.find()
-    .sort({ date: -1 })
-    .then(trans => res.json(trans))
-    .catch(err =>
-      res.status(404).json({ notransctionfound: 'No transaction found' })
-    );
-});
+router.get(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Transaction.find({ user: req.user.id })
+      .sort({ date: -1 })
+      .then(trans => res.json(trans))
+      .catch(err =>
+        res.status(404).json({ notransctionfound: 'No transaction found' })
+      );
+  }
+);
 
 router.get(
   '/monthly',
