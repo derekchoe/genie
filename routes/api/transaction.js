@@ -27,8 +27,6 @@ router.get(
       months.push(currentMonth - i);
     }
 
-    console.log(req.user.id);
-
     let request = months.map(month => {
       const result = Transaction.aggregate([
         {
