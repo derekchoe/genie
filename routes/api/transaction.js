@@ -7,14 +7,18 @@ ObjectId = require('mongodb').ObjectID;
 
 const Transaction = require('../../models/Transaction');
 
-router.get('/', (req, res) => {
-  Transaction.find()
-    .sort({ date: -1 })
-    .then(trans => res.json(trans))
-    .catch(err =>
-      res.status(404).json({ notransctionfound: 'No transaction found' })
-    );
-});
+router.get(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Transaction.find({ user: req.user.id })
+      .sort({ date: -1 })
+      .then(trans => res.json(trans))
+      .catch(err =>
+        res.status(404).json({ notransctionfound: 'No transaction found' })
+      );
+  }
+);
 
 router.get(
   '/monthly',
@@ -22,11 +26,6 @@ router.get(
   (req, res) => {
     const currentMonth = new Date().getMonth() + 1;
     const months = [];
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-    const final= {};
-
 
     for (let i = 0; i < 5; i++) {
       months.push(currentMonth - i);
@@ -48,25 +47,18 @@ router.get(
             _id: '$typeOfTrans',
             total: { $sum: '$amount' }
           }
+        },
+        {
+          $addFields: { typeOfTrans: '$_id' }
+        },
+        {
+          $project: { _id: 0 }
         }
       ]);
       return result;
     });
 
-    const dataFinal = {};
-    Promise.all(request).then(result => {
-      result.forEach( (el, idx) => {
-        let monthObject = null;
-        if (el.length === 2) {
-           monthObject = { [el[0]._id]: el[0].total, [el[1]._id]: el[1].total };
-        } else if (el.length == 1) {
-           monthObject = { [el[0]._id]: el[0].total};
-        } else {
-           monthObject = {};
-        }
-        Object.assign(dataFinal, {[monthNames[months[idx] -1 ]]: monthObject})
-      })
-    }).then(() => res.json(dataFinal));
+    Promise.all(request).then(result => res.json(result));
   }
 );
 
@@ -134,25 +126,34 @@ router.get(
   }
 );
 
-router.get('/:id', (req, res) => {
-  Transaction.findById(req.params.id)
-    .then(trans => res.json(trans))
-    .catch(err =>
-      res
-        .status(404)
-        .json({ notransctionfound: 'No transaction found with that ID' })
-    );
-});
+router.get(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Transaction.findById(req.params.id)
+      .then(trans => res.json(trans))
+      .catch(err =>
+        res
+          .status(404)
+          .json({ notransctionfound: 'No transaction found with that ID' })
+      );
+  }
+);
 
-router.delete('/:id', (req, res) => {
-  Transaction.findById(req.params.id, (err, trans) => {
-    trans.remove(err => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(204).send('removed');
-      }
+router.delete(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Transaction.findById(req.params.id, (err, trans) => {
+      trans.remove(err => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.status(204).send('removed');
+        }
+      });
     });
-  });
-});
+  }
+);
+
 module.exports = router;
