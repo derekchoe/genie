@@ -3,3 +3,32 @@
   background-color: black;
   width: 20%;
 }
+
+.recent-trans-box {
+}
+
+.recent-trans-title {
+  padding: 15px 0 15px 0;
+}
+
+.recent-trans-table ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: white;
+  padding: 15px 5px 15px 5px;
+  margin: 0;
+}
+
+.recent-trans-table ul:last-child {
+  border-bottom: 1px solid white;
+  padding-bottom: 15px;
+}
+
+.recent-trans-table ul:hover {
+  background-color: grey;
+}
