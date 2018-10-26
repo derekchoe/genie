@@ -7,7 +7,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Cell,
 } from "recharts";
 
 export default class NetIncomeBarChart extends Component {
@@ -38,14 +38,19 @@ export default class NetIncomeBarChart extends Component {
       <BarChart width={600} height={300} data={netIncome}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="month" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <ReferenceLine y={0} stroke='#000' />
-  
-        <Bar dataKey="NetIncome" fill={netIncome.net > 0 ? "#8884d8" : "#82ca9d"} />
+        <XAxis dataKey="month" tick={{ fill: 'white' }}/>
+        <YAxis tick={{fill: 'white'}}/>
+        <Tooltip cursor={{ fill: 'none' }} />
+        <ReferenceLine y={0} stroke='#ffff' />
+
+        <Bar dataKey="NetIncome" barSize={60}>
+          {netIncome.map((income, index) => (
+            <Cell fill={income.NetIncome > 0 ? '#b3ff99' : '#b30047'} stroke={'#ffff'} strokeWidth={1}/ >
+          ))}
+        </Bar>
       </BarChart>
     )
   }
 }
+
+// {/* <Bar dataKey="NetIncome" fill={netIncome.net > 0 ? "#8884d8" : "#82ca9d"} /> */}
