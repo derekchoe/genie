@@ -10,10 +10,6 @@ import {
   Legend,
   AreaChart,
   Area,
-  linearGradient,
-  ReferenceArea,
-  ReferenceDot,
-  defs,
   Cell,
 } from "recharts";
 
