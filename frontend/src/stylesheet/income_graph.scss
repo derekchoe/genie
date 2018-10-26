@@ -1,17 +1,11 @@
-.recharts-tooltip-wrapper {
-  background-color: red;
-  .recharts-default-tooltip {
-    //
-    .recharts-tooltip-label {
-    
+.net-income-graph {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+        font-size: 40px;
+        font-weight: 300;
     }
-    .recharts-tooltip-item-list {
-       .recharts-tooltip-item {
-        .recharts-tooltip-item-name {}
-        .recharts-tooltip-item-separator {} 
-        .recharts-tooltip-item-value {}
-        .recharts-tooltip-item-unit {}
-      }
-     }  
-  }
+
 }

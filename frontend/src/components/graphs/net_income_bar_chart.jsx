@@ -35,6 +35,8 @@ export default class NetIncomeBarChart extends Component {
 
   
     return (
+      <div className= 'net-income-graph'>
+      <h1>Net Income </h1>
       <BarChart width={600} height={300} data={netIncome}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
@@ -49,8 +51,9 @@ export default class NetIncomeBarChart extends Component {
           ))}
         </Bar>
       </BarChart>
-    )
+      </div>
+      )
+    }
   }
-}
-
+  
 // {/* <Bar dataKey="NetIncome" fill={netIncome.net > 0 ? "#8884d8" : "#82ca9d"} /> */}
