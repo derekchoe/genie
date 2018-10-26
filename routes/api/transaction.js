@@ -38,12 +38,12 @@ router.get(
         },
         {
           $group: {
-            _id: '$typeOfTrans',
-            total: { $sum: '$amount' }
+            _id: "$typeOfTrans",
+            total: { $sum: "$amount" }
           }
         },
         {
-          $addFields: { typeOfTrans: '$_id' }
+          $addFields: { typeOfTrans: "$_id" }
         },
         {
           $project: { _id: 0 }

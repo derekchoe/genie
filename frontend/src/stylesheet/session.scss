@@ -6,7 +6,9 @@
   * {
     box-sizing: border-box;
   }
+  
 }
+
 
 .footer{
   position: fixed;
@@ -46,18 +48,14 @@
 
 .session-wrapper{
   width: 800px;
-  /* height: 1000px; */
+  height: 1000px;
 }
 
-/* .login-page-wrapper{
-  height: 100%;
-  width: 10000000000px;
-} */
 
 .particles-stuff{
   position: fixed;
-  height: 100vh;
-  width: 100%;
+  height: 200vh;
+  width: 200vh;
   z-index: 0;
 
   /* display: flex; */
