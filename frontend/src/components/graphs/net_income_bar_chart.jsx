@@ -10,19 +10,17 @@ import {
   Legend,
   AreaChart,
   Area,
-  linearGradient,
-  ReferenceArea,
-  ReferenceDot,
-  defs,
+
   Cell,
 } from "recharts";
+import Switch from "react-switch";
 
 export default class NetIncomeBarChart extends Component {
 
   constructor(props){
     super(props);
     this.state = { net: false}
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount(){
@@ -30,13 +28,8 @@ export default class NetIncomeBarChart extends Component {
     this.props.monthly();
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    if (this.state.net === false) { 
-      this.setState({net: true})
-    } else {
-      this.setState({ net: false })
-    }
+  handleChange(net) {
+    this.setState({ net });
   }
 
 
@@ -50,39 +43,31 @@ export default class NetIncomeBarChart extends Component {
         const expense = trans.expense || 0;
         const net = income - expense;
         return {month: month,  NetIncome: net,};
-      } ).reverse();
+      } );
+      const linedata = this.props.monthlyTransactions.reverse();
     
-    if (this.state.net) {
-      return (       
-         <div className= 'net-income-graph'>
-          
-          <div>
-          <button onClick={this.handleSubmit}>{buttonContent}</button>
-          </div>
-          
-          <BarChart width={600} height={300} data={netIncome}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+      const netIncomeChart = () => (
+        <BarChart width={600} height={300} data={netIncome}
+          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" tick={{ fill: 'white' }}/>
-          <YAxis tick={{fill: 'white'}}/>
+          <XAxis dataKey="month"  />
+          <YAxis  />
           <Tooltip cursor={{ fill: 'none' }} />
           <ReferenceLine y={0} stroke='#ffff' />
 
           <Bar dataKey="NetIncome" barSize={60}>
             {netIncome.map((income, index) => (
-              <Cell fill={income.NetIncome > 0 ? '#b3ff99' : '#b30047'} stroke={'#ffff'} strokeWidth={1}/ >
+              <Cell fill={income.NetIncome > 0 ? '#b3ff99' : '#b30047'} stroke={'#ffff'} strokeWidth={1} />
             ))}
           </Bar>
         </BarChart>
-              
-      </div> )} else { 
-        return (<div>
-          <div>
-            <button onClick={this.handleSubmit}>{buttonContent}</button>
-          </div>
 
-          <AreaChart width={730} height={250} data={this.props.monthlyTransactions}
-           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+      );
+
+      const areaChart = () => (
+        <div>
+          <AreaChart width={600} height={300} data={linedata}
+            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
@@ -93,16 +78,48 @@ export default class NetIncomeBarChart extends Component {
                 <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <XAxis dataKey="month" />
+            <XAxis dataKey="month"  />
             <YAxis />
+            <Legend/>
             <CartesianGrid strokeDasharray="3 3" />
             <Tooltip />
-          <Area type="monotone" dataKey="income" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-          <Area type="monotone" dataKey="expense" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+            <Area type="monotone" dataKey="income" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+            <Area type="monotone" dataKey="expense" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
           </AreaChart>
 
-          
-        </div>)
-    }
-  }
+
+        </div>
+
+      );
+      const content = this.state.net ? netIncomeChart() : areaChart();
+      return (
+        <div className='net-income-graph-container'>
+          <div className='title-switch-wrapper'>
+            <h1>{this.state.net ? 'Net Income' : 'Income/Expense Comparison'}</h1>
+          <Switch
+            checked={this.state.net}
+            onChange={this.handleChange}
+            onColor="#86d3ff"
+            onHandleColor="#2693e6"
+            handleDiameter={30}
+            uncheckedIcon={true}
+            checkedIcon={true}
+            boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+            activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+            height={20}
+            width={48}
+            className="react-switch"
+            id="material-switch"
+            />
+            
+            </div>
+        {content}
+        </div>
+      
+
+      );
+      }
+
+
+    
   }
