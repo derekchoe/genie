@@ -1,13 +1,15 @@
 import {
-    RECEIVE_TRANSACTION,
-    RECEIVE_TRANSACTIONS,
-    REMOVE_TRANSACTION,
-    // TRANSACTION_LOADING
-} from '../action/transaction_actions';
+  RECEIVE_TRANSACTION,
+  RECEIVE_TRANSACTIONS,
+  REMOVE_TRANSACTION,
+  RECEIVE_CATEGORY_EXPENSE
+  // TRANSACTION_LOADING
+} from "../action/transaction_actions";
 
 const initialState = {
     transactions: [],
     transaction: {},
+    transactionByCategory: [],
     loading: false
 };
 
@@ -24,6 +26,12 @@ export default function (state = initialState, action) {
                 transactions: action.payload,
                 loading: false
             };
+        case RECEIVE_CATEGORY_EXPENSE:
+            return {
+                ...state,
+                transactionByCategory: action.payload,
+                loading: false
+            }
         case RECEIVE_TRANSACTION:
             const transactions = state.transactions;
             transactions.push(action.payload);
