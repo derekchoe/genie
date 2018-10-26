@@ -11,13 +11,17 @@
   padding: 15px 0 15px 0;
 }
 
+.recent-trans-table {
+  box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 0.2);
+}
+
 .recent-trans-table ul {
   list-style: none;
   padding: 0;
   width: 350px;
   border-width: 1px 1px 0 1px;
   border-style: solid;
-  border-color: black;
+  border-color: lightgrey;
   padding: 15px 5px 15px 5px;
   margin: 0;
   display: grid;
@@ -25,9 +29,14 @@
   color: black;
 }
 
+.recent-trans-table ul:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
 .recent-trans-table ul:last-child {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightgrey;
   padding-bottom: 15px;
+  border-radius: 0 0 5px 5px;
 }
 
 .recent-trans-table ul:first-child:hover {
