@@ -56,8 +56,10 @@ Genie is a personal daily financial management app, which users can utilize to k
 
 #### Day 4 - Oct 26
 
-- Write backend logic for dashboard - Alice, Justin
-- Write React frontend for dashboard - Rika, Derek
+- Polish backend query result for monthly transactions Justin
+- Write recent transaction table for dashboard - Alice
+- Write net income chart for dashboard - Rika, Justin
+- Write monthly transactions pie chart for dashboard - Derek
 
 #### Day 5 - Oct 27
 
