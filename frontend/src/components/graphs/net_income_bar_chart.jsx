@@ -75,9 +75,8 @@ export default class NetIncomeBarChart extends Component {
           </Bar>
         </BarChart>
               
-      </div> )} else { return 
-            
-         (<div>
+      </div> )} else { 
+        return (<div>
           <div>
             <button onClick={this.handleSubmit}>{buttonContent}</button>
           </div>
@@ -106,5 +105,4 @@ export default class NetIncomeBarChart extends Component {
         </div>)
     }
   }
-  
-// {/* <Bar dataKey="NetIncome" fill={netIncome.net > 0 ? "#8884d8" : "#82ca9d"} /> */}
+  }
