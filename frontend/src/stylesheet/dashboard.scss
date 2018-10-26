@@ -28,6 +28,10 @@
   padding-bottom: 15px;
 }
 
+.recent-trans-table ul:first-child:hover {
+  background-color: transparent;
+}
+
 .recent-trans-table ul:hover {
   background-color: grey;
 }
