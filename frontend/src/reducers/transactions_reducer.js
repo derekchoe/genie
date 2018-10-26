@@ -2,12 +2,14 @@ import {
     RECEIVE_TRANSACTION,
     RECEIVE_TRANSACTIONS,
     REMOVE_TRANSACTION,
+    RECEIVE_MONTHLY_TRANSACTIONS,
     // TRANSACTION_LOADING
 } from '../action/transaction_actions';
 
 const initialState = {
     transactions: [],
     transaction: {},
+    monthlytransactions: [],
     loading: false
 };
 
@@ -31,6 +33,12 @@ export default function (state = initialState, action) {
                 ...state,
                 transaction: action.payload,
                 transactions: transactions,
+                loading: false
+            };
+        case RECEIVE_MONTHLY_TRANSACTIONS:
+            return {
+                ...state,
+                monthlytransactions: action.payload,
                 loading: false
             };
         case REMOVE_TRANSACTION:
