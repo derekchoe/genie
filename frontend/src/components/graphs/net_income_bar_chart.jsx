@@ -12,7 +12,7 @@ import {
 
 export default class NetIncomeBarChart extends Component {
   render() {
-    debugger
+
     return (
       <BarChart width={600} height={300} data={this.props.data}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>

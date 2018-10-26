@@ -58,11 +58,11 @@ router.get(
       result.forEach( (el, idx) => {
         let monthObject = null;
         if (el.length === 2) {
-           monthObject = { [el[0]._id]: el[0].total, [el[1]._id]: el[1].total };
+          monthObject = { [el[0]._id]: el[0].total, [el[1]._id]: el[1].total, month: monthNames[months[idx] - 1] };
         } else if (el.length == 1) {
-           monthObject = { [el[0]._id]: el[0].total};
+          monthObject = { [el[0]._id]: el[0].total, month: monthNames[months[idx] - 1]};
         } else {
-           monthObject = {};
+          monthObject = { month: monthNames[months[idx] - 1]};
         }
         Object.assign(dataFinal, {[monthNames[months[idx] -1 ]]: monthObject})
       })
