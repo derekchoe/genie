@@ -15,7 +15,15 @@ const RecentTrans = props => {
   return (
     <div className="recent-trans-box">
       <div className="recent-trans-title">Recent Transactions</div>
-      <div className="recent-trans-table">{transactions}</div>
+      <div className="recent-trans-table">
+        <ul>
+          <li>Description</li>
+          <li>Date</li>
+          <li>Category</li>
+          <li>Amount</li>
+        </ul>
+        {transactions}
+      </div>
     </div>
   );
 };

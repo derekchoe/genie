@@ -1,14 +1,9 @@
 import { connect } from 'react-redux';
 import Sidebar from './sidebar';
-import { fetchTransactions } from '../../action/transaction_actions';
 
-const mapStateToProps = state => ({
-  transactions: Object.values(state.entities.transactions.transactions)
-});
+const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({
-  fetchTransactions: () => dispatch(fetchTransactions())
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,

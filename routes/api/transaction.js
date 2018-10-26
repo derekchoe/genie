@@ -68,7 +68,6 @@ router.get(
         Object.assign(dataFinal, {[monthNames[months[idx] -1 ]]: monthObject})
       })
     }).then(() => res.json(dataFinal));
-
   }
 );
 

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import { AuthRoute, ProtectedRoute } from './util/route_util';
 import Footer from './components/layout/footer';
-import DashBoard from './components/dashboard/dashboard';
+import DashBoardContainer from './components/dashboard/dashboard_container';
 import Signup from './components/session/signup';
 import Login from './components/session/login';
 import jwt_decode from 'jwt-decode';
@@ -31,21 +31,21 @@ if (localStorage.jwtToken) {
 
 class App extends Component {
   render() {
-    return <Provider store={store}>
+    return (
+      <Provider store={store}>
         <Router>
-          <div className="App">        
-            
+          <div className="App">
             <Switch>
-
-              <AuthRoute exact path='/login' component={Login}/>
-            <AuthRoute exact path='/signup' component={Signup}/>
-              <ProtectedRoute exact path="/" component={DashBoard} />
-              <Redirect to= '/login'/>
-            </Switch> 
+              <AuthRoute exact path="/login" component={Login} />
+              <AuthRoute exact path="/signup" component={Signup} />
+              <ProtectedRoute exact path="/" component={DashBoardContainer} />
+              <Redirect to="/login" />
+            </Switch>
             <Footer />
           </div>
         </Router>
-      </Provider>;
+      </Provider>
+    );
   }
 }
 
