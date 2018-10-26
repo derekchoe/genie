@@ -1,6 +1,6 @@
 .sidebar-box {
   height: 100%;
-  background-color: black;
+  background-color: #a0cab1;
   width: 20%;
 }
 
@@ -31,4 +31,29 @@
 
 .recent-trans-table ul:hover {
   background-color: grey;
+}
+
+.DateInput_input {
+  padding: 7px;
+  font-size: 16px;
+}
+
+// create-trans-form
+
+.create-form-box {
+  width: 100%;
+}
+
+// .create-form-box div {
+//   display: grid;
+//   grid-template-columns: 1fr 3fr;
+// }
+
+.form-category {
+  display: flex;
+  align-items: center;
+}
+
+.form-typeOfTrans {
+  display: flex;
 }
