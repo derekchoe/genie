@@ -18,7 +18,10 @@ import {
     fetchTransaction,
     deleteTransaction,
     createTransaction,
+    fetchTransactionMonthly,
+    fetchCategoriesByExpenses
 } from './action/transaction_actions';
+
 import { loginUser } from './action/session_actions';
 import store from './store/store';
 
@@ -26,6 +29,8 @@ import store from './store/store';
 window.loginUser = user => store.dispatch(loginUser(user));
 window.fetchCategories = () => store.dispatch(fetchCategories());
 window.fetchCategory = id => store.dispatch(fetchCategory(id));
+window.fetchCategoriesByExpenses = id =>
+  store.dispatch(fetchCategoriesByExpenses(id));
 window.deleteCategory = id => store.dispatch(deleteCategory(id));
 window.createCategory = category => store.dispatch(createCategory(category));
 window.updateCategory = category => store.dispatch(updateCategory(category));
@@ -33,6 +38,7 @@ window.store = store;
 
 window.fetchTransactions = () => store.dispatch(fetchTransactions());
 window.fetchTransaction = id => store.dispatch(fetchTransaction(id));
+window.fetchTransactionMonthly = () => store.dispatch(fetchTransactionMonthly());
 window.deleteTransaction = id => store.dispatch(deleteTransaction(id));
 window.createTransaction = transaction => store.dispatch(createTransaction(transaction));
 // Test end
