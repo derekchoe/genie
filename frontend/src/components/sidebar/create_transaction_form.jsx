@@ -62,29 +62,32 @@ export default class create_transaction_form extends Component {
     return (
       <div className="create-form-box">
         <form>
-          <SingleDatePicker
-            date={this.state.date}
-            onDateChange={date =>
-              this.setState(
-                // momentPropTypes.momentObj or null
-                { date }
-              )
-            }
-            focused={
-              this.state.focused // PropTypes.func.isRequired
-            }
-            onFocusChange={({ focused }) =>
-              this.setState({
-                // PropTypes.bool
-                focused
-              })
-            }
-            id="single-date-picker"
-            required={
-              true // PropTypes.func.isRequired // PropTypes.string.isRequired,
-            }
-            numberOfMonths={1}
-          />
+          <div className="form-date">
+            <p>Date</p>
+            <SingleDatePicker
+              date={this.state.date}
+              onDateChange={date =>
+                this.setState(
+                  // momentPropTypes.momentObj or null
+                  { date }
+                )
+              }
+              focused={
+                this.state.focused // PropTypes.func.isRequired
+              }
+              onFocusChange={({ focused }) =>
+                this.setState({
+                  // PropTypes.bool
+                  focused
+                })
+              }
+              id="single-date-picker"
+              required={
+                true // PropTypes.func.isRequired // PropTypes.string.isRequired,
+              }
+              numberOfMonths={1}
+            />
+          </div>
 
           <label>
             <div className="form-category">
@@ -99,7 +102,8 @@ export default class create_transaction_form extends Component {
           </label>
 
           <label onChange={this.handleInput('typeOfTrans')}>
-            <div className="form-typeOfTrans">
+            <div className="form-radio">
+              <p>Type</p>
               <input
                 type="radio"
                 name="income"
@@ -120,20 +124,24 @@ export default class create_transaction_form extends Component {
           </label>
 
           <label>
-            <p>Description</p>
-            <textarea
-              value={this.state.description}
-              onChange={this.handleInput('description')}
-            />
+            <div className="form-amount">
+              <p>Amount</p>
+              <input
+                type="number"
+                value={this.state.amount}
+                onChange={this.handleInput('amount')}
+              />
+            </div>
           </label>
-
           <label>
-            <p>Amount</p>
-            <input
-              type="number"
-              value={this.state.amount}
-              onChange={this.handleInput('amount')}
-            />
+            <div className="form-desc">
+              <p>Description</p>
+              <textarea
+                id="text-area"
+                value={this.state.description}
+                onChange={this.handleInput('description')}
+              />
+            </div>
           </label>
 
           <button className="create-button" onClick={this.handleSubmit}>
