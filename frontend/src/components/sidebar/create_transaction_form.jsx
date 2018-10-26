@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { throws } from 'assert';
+import { SingleDatePicker } from 'react-dates';
 
 export default class create_transaction_form extends Component {
   constructor(props) {
@@ -9,7 +9,8 @@ export default class create_transaction_form extends Component {
       amount: '',
       description: '',
       date: '',
-      typeOfTrans: 'expense'
+      typeOfTrans: 'expense',
+      focus: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,6 +37,7 @@ export default class create_transaction_form extends Component {
   handleSubmit(e) {
     let formData = Object.assign({}, this.state);
     formData.category = this.props.categories[parseInt(formData.category)]._id;
+    formData.date = formData.date._d;
     formData.categoryName = this.props.categories[
       parseInt(formData.category)
     ].name;
@@ -60,42 +62,61 @@ export default class create_transaction_form extends Component {
     return (
       <div className="create-form-box">
         <form>
-          <label>
-            <p>Date</p>
-            <input
-              type="date"
-              value={this.state.date}
-              onChange={this.handleInput('date')}
-            />
-          </label>
+          <SingleDatePicker
+            date={this.state.date}
+            onDateChange={date =>
+              this.setState(
+                // momentPropTypes.momentObj or null
+                { date }
+              )
+            }
+            focused={
+              this.state.focused // PropTypes.func.isRequired
+            }
+            onFocusChange={({ focused }) =>
+              this.setState({
+                // PropTypes.bool
+                focused
+              })
+            }
+            id="single-date-picker"
+            required={
+              true // PropTypes.func.isRequired // PropTypes.string.isRequired,
+            }
+            numberOfMonths={1}
+          />
 
           <label>
-            <p>Category</p>
-            <select onChange={this.handleInput('category')}>
-              <option selected disabled>
-                please select
-              </option>
-              {categoryOptions}
-            </select>
+            <div className="form-category">
+              <p>Category</p>
+              <select onChange={this.handleInput('category')}>
+                <option selected disabled>
+                  please select
+                </option>
+                {categoryOptions}
+              </select>
+            </div>
           </label>
 
           <label onChange={this.handleInput('typeOfTrans')}>
-            <input
-              type="radio"
-              name="income"
-              value="income"
-              checked={this.radioCheck('income')}
-              onChange={this.handleRadioChange}
-            />
-            Income
-            <input
-              type="radio"
-              name="expense"
-              value="expense"
-              checked={this.radioCheck('expense')}
-              onChange={this.handleRadioChange}
-            />
-            Expense
+            <div className="form-typeOfTrans">
+              <input
+                type="radio"
+                name="income"
+                value="income"
+                checked={this.radioCheck('income')}
+                onChange={this.handleRadioChange}
+              />
+              Income
+              <input
+                type="radio"
+                name="expense"
+                value="expense"
+                checked={this.radioCheck('expense')}
+                onChange={this.handleRadioChange}
+              />
+              Expense
+            </div>
           </label>
 
           <label>
@@ -115,9 +136,9 @@ export default class create_transaction_form extends Component {
             />
           </label>
 
-          <p className="create-button" onClick={this.handleSubmit}>
+          <button className="create-button" onClick={this.handleSubmit}>
             Create
-          </p>
+          </button>
         </form>
       </div>
     );
