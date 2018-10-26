@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PieChart from "./income_pie_chart";
+import NetIncomeBarChartContainer from './net_income_bar_chart_container'
 
 class ChartDashboard extends Component {
   constructor(props) {
@@ -20,6 +21,10 @@ class ChartDashboard extends Component {
         <div>
           <PieChart transactionByCategory={this.props.transactionByCategory} />
         </div>
+
+          <div>
+            <NetIncomeBarChartContainer />
+          </div>
       </div>;
   }
 

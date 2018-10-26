@@ -1,15 +1,17 @@
 import {
-  RECEIVE_TRANSACTION,
-  RECEIVE_TRANSACTIONS,
-  REMOVE_TRANSACTION,
-  RECEIVE_CATEGORY_EXPENSE
-  // TRANSACTION_LOADING
-} from "../action/transaction_actions";
+    RECEIVE_TRANSACTION,
+    RECEIVE_TRANSACTIONS,
+    REMOVE_TRANSACTION,
+    RECEIVE_MONTHLY_TRANSACTIONS,
+    RECEIVE_CATEGORY_EXPENSE,
+    // TRANSACTION_LOADING
+} from '../action/transaction_actions';
 
 const initialState = {
     transactions: [],
     transaction: {},
     transactionByCategory: [],
+    monthlytransactions: [],
     loading: false
 };
 
@@ -39,6 +41,12 @@ export default function (state = initialState, action) {
                 ...state,
                 transaction: action.payload,
                 transactions: transactions,
+                loading: false
+            };
+        case RECEIVE_MONTHLY_TRANSACTIONS:
+            return {
+                ...state,
+                monthlytransactions: action.payload,
                 loading: false
             };
         case REMOVE_TRANSACTION:

@@ -2,6 +2,7 @@ import axios from 'axios';
 import { RECEIVE_ERRORS } from './session_actions';
 export const RECEIVE_TRANSACTION = "RECEIVE_TRANSACTION";
 export const RECEIVE_TRANSACTIONS = "RECEIVE_TRANSACTIONS";
+export const RECEIVE_MONTHLY_TRANSACTIONS = "RECEIVE_MONTHLY_TRANSACTIONS";
 export const REMOVE_TRANSACTION = "REMOVE_TRANSACTION";
 export const TRANSACTION_LOADING = "TRANSACTION_LOADING";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
@@ -26,6 +27,7 @@ export const fetchTransactions = () => dispatch => {
         );
 };
 
+
 export const fetchCategoriesByExpenses = () => dispatch => {
   // dispatch(setCategoryLoading());
   axios
@@ -38,8 +40,20 @@ export const fetchCategoriesByExpenses = () => dispatch => {
     )
 };
 
-export const fetchTrasactionMonthly = () => dispatch => {
-    axios.get('api/transactions')
+export const fetchTransactionMonthly = () => dispatch => {
+    axios.get('api/transactions/monthly')
+    .then( res =>
+        dispatch({
+            type: RECEIVE_MONTHLY_TRANSACTIONS,
+            payload: Object.values(res.data)
+        })
+    )
+    .catch(err =>
+        dispatch({
+            type: RECEIVE_MONTHLY_TRANSACTIONS,
+            payload: null
+        })
+    );
 };
 
 export const fetchTransaction = id => dispatch => {

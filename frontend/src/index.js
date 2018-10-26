@@ -14,12 +14,14 @@ import {
 } from './action/category_actions';
 
 import {
-  fetchTransactions,
-  fetchTransaction,
-  deleteTransaction,
-  createTransaction,
-  fetchCategoriesByExpenses
-} from "./action/transaction_actions";
+    fetchTransactions,
+    fetchTransaction,
+    deleteTransaction,
+    createTransaction,
+    fetchTransactionMonthly,
+    fetchCategoriesByExpenses
+} from './action/transaction_actions';
+
 import { loginUser } from './action/session_actions';
 import store from './store/store';
 
@@ -36,6 +38,7 @@ window.store = store;
 
 window.fetchTransactions = () => store.dispatch(fetchTransactions());
 window.fetchTransaction = id => store.dispatch(fetchTransaction(id));
+window.fetchTransactionMonthly = () => store.dispatch(fetchTransactionMonthly());
 window.deleteTransaction = id => store.dispatch(deleteTransaction(id));
 window.createTransaction = transaction => store.dispatch(createTransaction(transaction));
 // Test end
