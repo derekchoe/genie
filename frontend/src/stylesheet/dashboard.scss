@@ -3,3 +3,31 @@
   height: 93.7vh;
   color: white;
 }
+
+// Recent Transaction table
+
+.recent-trans-title {
+  padding: 15px 0 15px 0;
+}
+
+.recent-trans-table ul {
+  list-style: none;
+  padding: 0;
+  width: 350px;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-color: white;
+  padding: 15px 5px 15px 5px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.recent-trans-table ul:last-child {
+  border-bottom: 1px solid white;
+  padding-bottom: 15px;
+}
+
+.recent-trans-table ul:hover {
+  background-color: grey;
+}
