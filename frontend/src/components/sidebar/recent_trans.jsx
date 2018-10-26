@@ -4,9 +4,9 @@ const RecentTrans = props => {
   const transactions = props.transactions.slice(0, 5).map(tran => {
     return (
       <ul key={tran.id} className="each-tran">
+        <li>{tran.categoryName}</li>
         <li>{tran.description}</li>
         <li>{tran.date.slice(5, 10)}</li>
-        <li>{tran.categoryName}</li>
         <li>${tran.amount}</li>
       </ul>
     );
