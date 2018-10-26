@@ -6,6 +6,7 @@ export const RECEIVE_MONTHLY_TRANSACTIONS = "RECEIVE_MONTHLY_TRANSACTIONS";
 export const REMOVE_TRANSACTION = "REMOVE_TRANSACTION";
 export const TRANSACTION_LOADING = "TRANSACTION_LOADING";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const RECEIVE_CATEGORY_EXPENSE = "RECEIVE_CATEGORY_EXPENSE";
 
 
 export const fetchTransactions = () => dispatch => {
@@ -24,6 +25,19 @@ export const fetchTransactions = () => dispatch => {
                 payload: null
             })
         );
+};
+
+
+export const fetchCategoriesByExpenses = () => dispatch => {
+  // dispatch(setCategoryLoading());
+  axios
+    .get("/api/transactions/byCategoryExpense")
+    .then(res =>
+      dispatch({
+        type: RECEIVE_CATEGORY_EXPENSE,
+        payload: res.data
+      })
+    )
 };
 
 export const fetchTransactionMonthly = () => dispatch => {

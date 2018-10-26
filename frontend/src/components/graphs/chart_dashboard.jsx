@@ -12,17 +12,14 @@ class ChartDashboard extends Component {
 
   }
   componentDidMount(){
-    this.props.fetchCategories()
+    this.props.fetchCategoriesByExpenses();
   }
-
 
   render() {
     return <div>
         <p>Chart Dashboard</p>
         <div>
-          <PieChart
-            cat={this.props.categories}
-          />
+          <PieChart transactionByCategory={this.props.transactionByCategory} />
         </div>
 
           <div>
@@ -30,7 +27,6 @@ class ChartDashboard extends Component {
           </div>
       </div>;
   }
-  
 
 };
 
