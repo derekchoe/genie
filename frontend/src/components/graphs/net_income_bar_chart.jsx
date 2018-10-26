@@ -14,7 +14,7 @@ import {
   ReferenceArea,
   ReferenceDot,
   defs,
-
+  Cell,
 } from "recharts";
 
 export default class NetIncomeBarChart extends Component {
@@ -42,43 +42,42 @@ export default class NetIncomeBarChart extends Component {
 
   render() {
 
-
     let buttonContent = this.state.net ? "Income/Expense instead": "Net Income instead";
 
-
-    const netIncome = this.props.monthlyTransactions.map(trans => {
-      let month = trans.month;
-      const income = trans.income || 0;
-      const expense = trans.expense || 0;
-      const net = income - expense;
-      return { month: month, NetIncome: net, };
-    })
-
+    const netIncome = this.props.monthlyTransactions.map( trans => {
+        let month = trans.month;
+        const income = trans.income || 0;
+        const expense = trans.expense || 0;
+        const net = income - expense;
+        return {month: month,  NetIncome: net,};
+      } ).reverse();
+    
     if (this.state.net) {
-
-
-      return (
-        <div>
-
-        <div>
+      return (       
+         <div className= 'net-income-graph'>
+          
+          <div>
           <button onClick={this.handleSubmit}>{buttonContent}</button>
-        </div>
-        <BarChart width={600} height={300} data={netIncome}
+          </div>
+          
+          <BarChart width={600} height={300} data={netIncome}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <ReferenceLine y={0} stroke='#000' />
+          <XAxis dataKey="month" tick={{ fill: 'white' }}/>
+          <YAxis tick={{fill: 'white'}}/>
+          <Tooltip cursor={{ fill: 'none' }} />
+          <ReferenceLine y={0} stroke='#ffff' />
 
-          <Bar dataKey="NetIncome" fill="#8884d8" />
+          <Bar dataKey="NetIncome" barSize={60}>
+            {netIncome.map((income, index) => (
+              <Cell fill={income.NetIncome > 0 ? '#b3ff99' : '#b30047'} stroke={'#ffff'} strokeWidth={1}/ >
+            ))}
+          </Bar>
         </BarChart>
-        </div>
-      )
-
-    } else {
-      return <div>
+              
+      </div> )} else { return 
+            
+         (<div>
           <div>
             <button onClick={this.handleSubmit}>{buttonContent}</button>
           </div>
@@ -104,7 +103,8 @@ export default class NetIncomeBarChart extends Component {
           </AreaChart>
 
           
-        </div>;
+        </div>)
     }
   }
-}
+  
+// {/* <Bar dataKey="NetIncome" fill={netIncome.net > 0 ? "#8884d8" : "#82ca9d"} /> */}
