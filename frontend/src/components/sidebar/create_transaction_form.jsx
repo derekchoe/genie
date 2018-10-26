@@ -121,7 +121,8 @@ export default class create_transaction_form extends Component {
 
           <label>
             <p>Description</p>
-            <textarea
+            <textarea 
+              id="text-area"
               value={this.state.description}
               onChange={this.handleInput('description')}
             />
