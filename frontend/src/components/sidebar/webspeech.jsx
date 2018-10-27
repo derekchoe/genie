@@ -12,6 +12,7 @@ export default class WebSpeech extends Component {
     // this.props.clearErrors();
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
     // this.props.clearErrors();
@@ -30,6 +31,7 @@ export default class WebSpeech extends Component {
       this.recognition.maxAlternatives = 1;
 
       let text = document.querySelector('.live-text');
+      // let p = document.getElementById('text-area')
       let p = document.createElement('p');
 
       text.appendChild(p);
@@ -64,20 +66,23 @@ export default class WebSpeech extends Component {
 
       this.transcript = '';
       //will clear everything when you stop
-      let children = Array.from(document.querySelectorAll('.live-text > p'));
-      children.forEach(child => {
-        child.parentNode.removeChild(child);
-      });
+      // let children = Array.from(document.querySelectorAll('.live-text > p'));
+      // children.forEach(child => {
+      //   child.parentNode.removeChild(child);
+      // });
     }
   }
 
   render() {
     let buttonContent = this.state.stream ? 'Stop' : 'Record';
     return (
-      <div>
-        <div>Record Transaction</div>
+      <div className="webspeech-box">
+        <div className="instruction">Click Record and start recording your transactions! (e.g. You can say 'Dec 24 food expense $100')</div>
         <div className="live-text">
-          <button onClick={this.handleSubmit}>{buttonContent}</button>
+          <button className="record-button"onClick={this.handleSubmit}>{buttonContent}</button>
+          <br/><br/>
+         
+          
         </div>
       </div>
     );
