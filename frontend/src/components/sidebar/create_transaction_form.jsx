@@ -22,12 +22,6 @@ export default class create_transaction_form extends Component {
   }
 
   handleInput(field) {
-    // if (field === 'category') {
-    //   return e =>
-    //     this.setState({
-    //       ['category']: e.target.value
-    //     });
-    // }
     return e =>
       this.setState({
         [field]: e.target.value
@@ -66,25 +60,11 @@ export default class create_transaction_form extends Component {
             <p>Date</p>
             <SingleDatePicker
               date={this.state.date}
-              onDateChange={date =>
-                this.setState(
-                  // momentPropTypes.momentObj or null
-                  { date }
-                )
-              }
-              focused={
-                this.state.focused // PropTypes.func.isRequired
-              }
-              onFocusChange={({ focused }) =>
-                this.setState({
-                  // PropTypes.bool
-                  focused
-                })
-              }
+              onDateChange={date => this.setState({ date })}
+              focused={this.state.focused}
+              onFocusChange={({ focused }) => this.setState({ focused })}
               id="single-date-picker"
-              required={
-                true // PropTypes.func.isRequired // PropTypes.string.isRequired,
-              }
+              required={true}
               numberOfMonths={1}
             />
           </div>
