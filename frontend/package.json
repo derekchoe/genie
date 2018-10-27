@@ -8,6 +8,7 @@
     "moment": "^2.22.2",
     "node-sass": "^4.9.4",
     "react": "^16.6.0",
+    "react-burger-menu": "^2.5.4",
     "react-dates": "^18.1.1",
     "react-dom": "^16.6.0",
     "react-particles-js": "^2.3.0",
