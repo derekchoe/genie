@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RecentTrans = props => {
-  const transactions = props.transactions.slice(0, 5).map(tran => {
+  const transactions = props.transactions.slice(0, 11).map(tran => {
     return (
       <ul key={tran.id} className="each-tran">
         <li>{tran.description}</li>
