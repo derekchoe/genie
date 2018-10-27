@@ -1,9 +1,12 @@
 .body-box {
   display: flex;
   height: 93.7vh;
-  color: white;
+  color: #3188de;
   background-color: white;
+  font-weight: 500;
 }
+
+
 
 // Recent Transaction table
 
@@ -26,7 +29,6 @@
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  color: black;
 }
 
 .recent-trans-table ul:first-child {

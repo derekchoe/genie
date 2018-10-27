@@ -53,7 +53,7 @@ export default class NetIncomeBarChart extends Component {
         <XAxis dataKey="month" />
         <YAxis />
         <Tooltip cursor={{ fill: 'none' }} />
-        <ReferenceLine y={0} stroke='#ffff' />
+        <ReferenceLine y={0} stroke='gray' />
 
         <Bar dataKey="NetIncome" barSize={60}>
           {netIncome.map((income, index) => (
@@ -95,7 +95,7 @@ export default class NetIncomeBarChart extends Component {
     return (
       <div className='net-income-graph-container'>
         <div className='title-switch-wrapper'>
-          <h1>{this.state.net ? 'Net Income' : 'Income/Expense Comparison'}</h1>
+          <p>{this.state.net ? 'Net Income' : 'Income/Expense Comparison'}</p>
           <Switch
             checked={this.state.net}
             onChange={this.handleChange}
