@@ -55,12 +55,12 @@ export default class NetIncomeBarChart extends Component {
         <YAxis />
         <Tooltip cursor={{ fill: 'none' }} />
 
-        <ReferenceLine y={0} stroke='gray' />
-
+        <ReferenceLine y={0} stroke="gray" />
 
         <Bar dataKey="NetIncome" barSize={60}>
           {netIncome.map((income, index) => (
             <Cell
+              key={index}
               fill={income.NetIncome > 0 ? '#b3ff99' : '#b30047'}
               stroke={'#ffff'}
               strokeWidth={1}
@@ -112,9 +112,8 @@ export default class NetIncomeBarChart extends Component {
     );
     const content = this.state.net ? netIncomeChart() : areaChart();
     return (
-
-      <div className='net-income-graph-container'>
-        <div className='title-switch-wrapper'>
+      <div className="net-income-graph-container">
+        <div className="title-switch-wrapper">
           <p>{this.state.net ? 'Net Income' : 'Income/Expense Comparison'}</p>
 
           <Switch

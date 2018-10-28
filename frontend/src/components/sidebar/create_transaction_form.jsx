@@ -8,7 +8,7 @@ export default class create_transaction_form extends Component {
       category: '',
       amount: '',
       description: '',
-      date: '',
+      date: null,
       typeOfTrans: 'expense',
       focus: false
     };
@@ -50,7 +50,9 @@ export default class create_transaction_form extends Component {
 
   render() {
     const categoryOptions = this.props.categories.map((category, idx) => (
-      <option value={idx}>{category.name}</option>
+      <option key={category._id} value={idx}>
+        {category.name}
+      </option>
     ));
 
     return (
@@ -73,7 +75,7 @@ export default class create_transaction_form extends Component {
             <div className="form-category">
               <p>Category</p>
               <select onChange={this.handleInput('category')}>
-                <option selected disabled>
+                <option defaultChecked disabled>
                   please select
                 </option>
                 {categoryOptions}
