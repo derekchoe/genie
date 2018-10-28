@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WebSpeechContainer from './webspeech_container';
 import CreateTransFormContainer from './create_trans_form_container';
+import CreateCategoryFormContainer from './create_cate_form_container';
 import { slide as Menu } from 'react-burger-menu';
 
 export default class Sidebar extends Component {
@@ -13,6 +14,7 @@ export default class Sidebar extends Component {
         className="sidebar-box"
       >
         <WebSpeechContainer />
+        <CreateCategoryFormContainer />
         <CreateTransFormContainer />
       </Menu>
     );

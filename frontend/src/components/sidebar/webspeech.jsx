@@ -12,7 +12,6 @@ export default class WebSpeech extends Component {
     // this.props.clearErrors();
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
     // this.props.clearErrors();
@@ -77,12 +76,13 @@ export default class WebSpeech extends Component {
     let buttonContent = this.state.stream ? 'Stop' : 'Record';
     return (
       <div className="webspeech-box">
-        <div className="instruction">Click Record and start recording your transactions! (e.g. You can say 'Dec 24 food expense $100')</div>
+        <div className="instruction">Voice record your transactions!</div>
         <div className="live-text">
-          <button className="record-button"onClick={this.handleSubmit}>{buttonContent}</button>
-          <br/><br/>
-         
-          
+          <button className="record-button" onClick={this.handleSubmit}>
+            {buttonContent}
+          </button>
+          <br />
+          <br />
         </div>
       </div>
     );

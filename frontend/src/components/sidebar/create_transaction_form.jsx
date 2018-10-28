@@ -58,6 +58,7 @@ export default class create_transaction_form extends Component {
 
     return (
       <div className="create-form-box">
+        <h3>Record a new transaction</h3>
         <form onSubmit={this.handleSubmit}>
           <div className="form-date">
             <p>Date</p>
