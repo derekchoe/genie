@@ -50,10 +50,6 @@ export default class create_transaction_form extends Component {
     });
   }
 
-  isOutsideRange() {
-    return false;
-  }
-
   render() {
     const categoryOptions = this.props.categories.map((category, idx) => (
       <option key={category._id} value={idx}>
@@ -76,7 +72,7 @@ export default class create_transaction_form extends Component {
               numberOfMonths={1}
               required={true}
               hideKeyboardShortcutsPanel={true}
-              isOutsideRange={this.isOutsideRange}
+              isOutsideRange={() => false}
             />
           </div>
 
@@ -121,6 +117,8 @@ export default class create_transaction_form extends Component {
                 type="number"
                 value={this.state.amount}
                 onChange={this.handleInput('amount')}
+                defaultValue="0"
+                min="0"
                 required
               />
             </div>
