@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
-import IncomePieChart from "./income_pie_chart";
+import React, { Component } from 'react';
+import IncomePieChart from './income_pie_chart';
+import NetIncomeBarChartContainer from './net_income_bar_chart_container';
 import { Pie, PieChart, Tooltip, Sector, Cell, Label } from "recharts";
-import NetIncomeBarChartContainer from './net_income_bar_chart_container'
-// import IncomeVsExpenseChart from './income_vs_expense_chart';
 
 class ChartDashboard extends Component {
   constructor(props) {
@@ -13,11 +12,12 @@ class ChartDashboard extends Component {
     };
     this.formatBetter = this.formatBetter.bind(this)
   }
-  componentDidMount(){
+  
+  componentDidMount() {
     this.props.fetchTransactionMonthly();
     this.props.fetchCategoriesByExpenses();
   }
-
+  
   formatBetter(data) {
   const result = []
   data.forEach(trans => {
@@ -36,10 +36,12 @@ class ChartDashboard extends Component {
 }
 
 
-render() {
-  const COLORS = ["#00C49F", "#e60000"];
-  const data = this.formatBetter(this.props.netIncome);
-    return <div>
+  render() {
+    const COLORS = ["#00C49F", "#e60000"];
+    const data = this.formatBetter(this.props.netIncome);
+        
+    return <div className="chart-dashboard-box">
+
         <p>Chart Dashboard</p>
         <div>
           <IncomePieChart transactionByCategory={this.props.transactionByCategory} />
@@ -61,9 +63,8 @@ render() {
         <div>
           <NetIncomeBarChartContainer />
         </div>
-      </div>;
-  }
-
-};
+      </div>
+   }
+ };
 
 export default ChartDashboard;
