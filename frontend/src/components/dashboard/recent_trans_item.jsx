@@ -21,7 +21,6 @@ class RecentTransItem extends React.Component {
     this._isMounted = false;
     this.openSuccessModal = this.openSuccessModal.bind(this);
     this.deleteTrans = this.deleteTrans.bind(this);
-    this.closeSuccessModal = this.closeSuccessModal.bind(this);
   }
 
   componentDidMount() {
@@ -35,19 +34,12 @@ class RecentTransItem extends React.Component {
     });
     deletePromise.then(() => {
       this.openSuccessModal();
-      setTimeout(() => this.closeSuccessModal(), 2000);
     });
   }
 
   openSuccessModal() {
     if (this._isMounted) {
       this.setState({ successModalOpen: true });
-    }
-  }
-
-  closeSuccessModal() {
-    if (this._isMounted) {
-      this.setState({ successModalOpen: false });
     }
   }
 
