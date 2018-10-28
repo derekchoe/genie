@@ -72,6 +72,34 @@ router.get(
 );
 
 router.get(
+  "/currentNetIncome",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const currentMonth = new Date().getMonth() + 1;
+    let trans = Transaction.aggregate([
+      {
+        $match: {
+          date: {
+            $gte: new Date(`2018-${currentMonth}-01`),
+            $lt: new Date(`2018-${currentMonth}-31`)
+          },
+          user: ObjectId(req.user.id)
+        }
+      },
+      {
+        $group: {
+          _id: '$typeOfTrans',
+          total: { $sum: '$amount' }
+        }
+      },
+      {
+        $addFields: { categoryName: '$_id' }
+      },
+    ]).then(result => res.json(result));
+  }
+);
+
+router.get(
   '/byCategoryIncome',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
