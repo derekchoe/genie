@@ -63,13 +63,16 @@ Genie is a personal daily financial management app, which users can utilize to k
 
 #### Day 5 - Oct 27
 
-- Finish dashboard - Alice, Justin, Derek
+- Create toggable sidebar - Alice
+- Polish recent transaction table, add delete feature - Justin
+- Write monthly transactions pie chart for dashboard - Derek
 - Seed demo - Rika
 
 #### Day 6 - Oct 28
 
 - debug
 - polish
+- Clean out console warnings
 
 #### Day 7 - Oct 29
 
