@@ -23,7 +23,7 @@ class RecentTrans extends React.Component {
 
 
   render() {
-    const transactions = this.props.transactions.slice(0, 5).map(tran => {
+    const transactions = this.props.transactions.slice(0, 11).map(tran => {
 
       return (
         <RecentTransItem deleteTrans={this.props.deleteTransaction} tran={tran} />
