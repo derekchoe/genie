@@ -7,6 +7,8 @@ export const REMOVE_TRANSACTION = "REMOVE_TRANSACTION";
 export const TRANSACTION_LOADING = "TRANSACTION_LOADING";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const RECEIVE_CATEGORY_EXPENSE = "RECEIVE_CATEGORY_EXPENSE";
+export const RECEIVE_CATEGORY_INCOME = "RECEIVE_CATEGORY_INCOME";
+export const RECEIVE_NET = "RECEIVE_NET"; 
 
 
 export const fetchTransactions = () => dispatch => {
@@ -35,6 +37,30 @@ export const fetchCategoriesByExpenses = () => dispatch => {
     .then(res =>
       dispatch({
         type: RECEIVE_CATEGORY_EXPENSE,
+        payload: res.data
+      })
+    )
+};
+
+export const fetchCategoriesByIncome = () => dispatch => {
+  // dispatch(setCategoryLoading());
+  axios
+    .get("/api/transactions/byCategoryIncome")
+    .then(res =>
+      dispatch({
+        type: RECEIVE_CATEGORY_INCOME,
+        payload: res.data
+      })
+    )
+};
+
+export const fetchNet = () => dispatch => {
+  // dispatch(setCategoryLoading());
+  axios
+    .get("/api/transactions/currentNetIncome")
+    .then(res =>
+      dispatch({
+        type: RECEIVE_NET,
         payload: res.data
       })
     )

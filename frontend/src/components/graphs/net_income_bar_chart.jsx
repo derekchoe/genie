@@ -19,7 +19,6 @@ export default class NetIncomeBarChart extends Component {
     }
 
     componentDidMount(){
-      
       this.props.monthly();
     }
 
