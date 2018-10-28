@@ -2,11 +2,11 @@ import React from 'react';
 import { Pie, PieChart, Tooltip, Cell } from "recharts";
 
 const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
-  function formatBetter(data) {
+  function formatBetter(netIncomeData) {
     const result = [];
-    data.forEach(trans => {
-      const income = trans.income || 0;
-      let expense = trans.expense || 0;
+    netIncomeData.forEach(data => {
+      const income = data.income || 0;
+      let expense = data.expense || 0;
       let netIn = income - expense;
       if (netIn < 0) {
         expense = (income - expense) * -1;
@@ -17,20 +17,17 @@ const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
     });
     return result.slice(0, 2);
   }
-  const COLORS = ["#00C49F", "#e60000"];
-  const data = formatBetter(netIncome);
 
-  function formatBetter1(data) {
+  function formatBetter1(categoryData) {
     let result = [];
 
-    data.forEach(datum => {
-      result.push({
-        value: datum.totalExpense,
-        name: datum.categoryName
-      });
+    categoryData.forEach(datum => {
+      result.push({ value: datum.totalExpense, name: datum.categoryName });
     });
     return result;
   }
+  const COLORS = ["#00C49F", "#e60000"];
+  const data = formatBetter(netIncome);
   const data1 = formatBetter1(transactionByCategory);
 
   return <div>
@@ -41,8 +38,8 @@ const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
           ))}
         </Pie>
 
-        <Pie data={data1} dataKey="value" nameKey="name" cx="420" cy="200" innerRadius={80} outerRadius={110} fill="#82ca9d" />
-      <Pie data={data1} dataKey="value" nameKey="name" cx="420" cy="200" outerRadius={60} fill="#8884d8" />
+        <Pie data={data1} dataKey="value" nameKey="name" cx="500" cy="200" innerRadius={80} outerRadius={110} fill="#82ca9d" />
+      <Pie data={data1} dataKey="value" nameKey="name" cx="500" cy="200" outerRadius={60} fill="#8884d8" />
         <Tooltip />
       </PieChart>
     </div>;
