@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavbarContainer from '../layout/navbar_container';
 import SidebarContainer from '../sidebar/sidebar_container';
 import ChartDashboardContainer from '../graphs/chart_dashboard_container';
-import RecentTrans from './recent_trans';
+import RecentTransContainer from './recent_trans_container';
 
 export default class DashBoard extends Component {
   componentDidMount() {
@@ -16,7 +16,7 @@ export default class DashBoard extends Component {
         <div className="body-box">
           <SidebarContainer />
           <ChartDashboardContainer />
-          <RecentTrans transactions={this.props.transactions} />
+      <RecentTransContainer transactions={this.props.transactions} /> 
         </div>
       </div>
     );

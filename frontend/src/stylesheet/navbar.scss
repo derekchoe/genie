@@ -13,6 +13,7 @@ nav {
   justify-content: center;
 }
 
+
 .logo-logout-wrapper {
   width: 90%;
   display: flex;
@@ -31,7 +32,8 @@ nav {
 .logout-button {
   font-size: 20px;
   // font-family: sans-serif;
-  color: white;
+  color: #3188de;
+
   border-radius: 5px;
   // padding: 6px;
   border: none;
@@ -41,6 +43,6 @@ nav {
 }
 
 .logout-button:hover {
-  background-color: grey;
-  font-size: 22px;
+  color: gray;
+
 }

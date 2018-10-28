@@ -94,6 +94,7 @@ export const createTransaction = transactionData => dispatch => {
 
 
 export const deleteTransaction = id => dispatch => {
+
     axios
         .delete(`/api/transactions/${id}`)
         .then(res =>

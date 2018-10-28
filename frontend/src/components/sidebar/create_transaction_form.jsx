@@ -35,7 +35,7 @@ export default class create_transaction_form extends Component {
     formData.categoryName = this.props.categories[
       parseInt(formData.category)
     ].name;
-    debugger;
+ 
 
     this.props.createTransaction(formData);
   }
