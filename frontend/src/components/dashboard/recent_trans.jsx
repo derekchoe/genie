@@ -1,61 +1,45 @@
 import React from 'react';
-import Modal from 'react-modal';
 import RecentTransItem from './recent_trans_item';
 
+// const statusStyle = {
+//   content: {
+//     top: '50%',
+//     left: '50%',
+//     right: 'auto',
+//     bottom: 'auto',
+//     marginRight: '-50%',
+//     transform: 'translate(-50%, -50%)'
+//   }
+// };
 
-const statusStyle = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
-  }
+const RecentTrans = props => {
+  const transactions = props.transactions.slice(0, 11).map(tran => {
+    return (
+      <RecentTransItem
+        key={tran._id}
+        deleteTrans={props.deleteTransaction}
+        tran={tran}
+      />
+    );
+  });
+
+  return (
+    <div className="recent-trans-box">
+      <div className="recent-trans-title">Recent Transactions</div>
+      <div className="recent-trans-table">
+        <ul className="rec-titles">
+          <li>Description</li>
+          <li>Date</li>
+          <li>Category</li>
+          <li>Amount</li>
+        </ul>
+        {transactions}
+      </div>
+    </div>
+  );
 };
 
-class RecentTrans extends React.Component {
-  constructor(props) {
-    super(props)
-  };
-
- 
-
-
-  render() {
-    const transactions = this.props.transactions.slice(0, 11).map(tran => {
-
-      return (
-        <RecentTransItem deleteTrans={this.props.deleteTransaction} tran={tran} />
-      );
-    });
-
-  
-
-    return (
-      <div className="recent-trans-box">
-
-        <div className="recent-trans-title">Recent Transactions</div>
-        <div className="recent-trans-table">
-          <ul className='rec-titles'>
-            <li>Description</li>
-            <li>Date</li>
-            <li>Category</li>
-            <li>Amount</li>
-          </ul>
-          {transactions}
-          
-        </div>
-      </div>
-
-    );
-  }
-
-}
-
 export default RecentTrans;
-
-
 
 // const RecentTrans = props => {
 //   const transactions = props.transactions.slice(0, 5).map(tran => {
