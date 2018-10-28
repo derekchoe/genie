@@ -8,7 +8,8 @@
     "server": "nodemon app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
@@ -27,7 +28,9 @@
     "particles.js": "^2.0.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "react-modal": "^3.6.1",
     "react-particles-js": "^2.3.0",
+    "react-switch": "^3.0.4",
     "recharts": "^1.3.5",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",

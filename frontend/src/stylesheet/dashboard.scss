@@ -1,7 +1,9 @@
 .body-box {
   display: flex;
-  height: 93.7vh;
-  color: white;
+  height: 850px;
+  color: #3188de;
+  background-color: white;
+  font-weight: 500;
 }
 
 // Recent Transaction table
@@ -10,28 +12,69 @@
   padding: 15px 0 15px 0;
 }
 
+.recent-trans-table {
+  box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 0.2);
+}
+
 .recent-trans-table ul {
   list-style: none;
   padding: 0;
-  width: 350px;
+  width: 500px;
   border-width: 1px 1px 0 1px;
   border-style: solid;
-  border-color: white;
-  padding: 15px 5px 15px 5px;
+  border-color: lightgrey;
+  padding: 15px 17px 15px 5px;
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.delete-recent {
+  color: white;
+  background-color: #ff6666;
+  border-radius: 3px;
+  height: 25px;
+  padding: 3px;
+  cursor: pointer;
+  &:hover {
+    background-color: #ffb3b3;
+  }
+}
+
+.recent-trans-table ul:first-child {
+  border-radius: 5px 5px 0 0;
 }
 
 .recent-trans-table ul:last-child {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid lightgrey;
   padding-bottom: 15px;
+  border-radius: 0 0 5px 5px;
 }
 
 .recent-trans-table ul:first-child:hover {
   background-color: transparent;
 }
 
-.recent-trans-table ul:hover {
-  background-color: grey;
+.graphs {
+  background-color: white;
+}
+
+.negative {
+  color: #ff3333;
+  &:hover {
+    background-color: #ffcccc;
+  }
+}
+
+.positive {
+  color: #66cc66;
+}
+
+.rec-titles {
+  color: #51535a;
+}
+
+.success-modal {
+  color: red;
+  font-weight: 600;
 }

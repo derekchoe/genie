@@ -1,34 +1,120 @@
 .sidebar-box {
   height: 100%;
-  background-color: black;
+  background-color: #a0cab1;
   width: 20%;
 }
 
-.recent-trans-box {
+.DateInput_input {
+  padding: 0px;
+  padding-left: 10px;
+  font-size: 13px;
 }
 
-.recent-trans-title {
-  padding: 15px 0 15px 0;
+// create-trans-form
+
+.create-form-box {
+  width: 95%;
+  border: 2px solid #8982d5;
+  padding: 10px 0 10px 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  margin: 5px;
 }
 
-.recent-trans-table ul {
-  list-style: none;
-  padding: 0;
-  width: 100%;
+.create-form-box textarea {
+  width: 80%;
+  height: 100px;
+}
+
+// .create-form-box div {
+//   display: grid;
+//   grid-template-columns: 1fr 3fr;
+// }
+
+.form-category {
   display: flex;
-  justify-content: space-between;
-  border-width: 1px 0 0 0;
-  border-style: solid;
-  border-color: white;
-  padding: 15px 5px 15px 5px;
-  margin: 0;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.recent-trans-table ul:last-child {
-  border-bottom: 1px solid white;
-  padding-bottom: 15px;
+.form-radio {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
 }
 
-.recent-trans-table ul:hover {
-  background-color: grey;
+.form-radio input {
+  margin-left: 20px;
+}
+
+.create-button {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  height: 30px;
+  width: 80px;
+  font-size: 15px;
+}
+
+.form-amount {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form-amount input {
+  height: 30px;
+}
+
+.form-date {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form-desc p {
+  margin-left: 0;
+}
+
+.webspeech-box {
+  // margin-top: 10px;
+  padding: 15px;
+}
+.record-button {
+  font-size: 16px;
+  border-radius: 5px;
+  color: gray;
+  padding: 5px;
+}
+.instruction {
+  padding: 20px;
+}
+
+// side bar burger
+.bm-menu {
+  overflow: visible !important;
+}
+
+.bm-burger-button span {
+  display: none !important;
+}
+
+.bm-burger-button {
+  width: 50px;
+  height: 50px;
+  background-image: url('burger.png');
+  background-size: contain;
+  border: none;
+  margin: 15px;
+}
+
+.bm-burger-button span span {
+  display: none !important;
+}
+
+.bm-burger-button button {
+  height: 80px !important;
+  width: 80px !important;
+  top: 80px !important;
+  left: 15px !important;
 }
