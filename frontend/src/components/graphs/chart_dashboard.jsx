@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PieChart from './income_pie_chart';
+import IncomePieChart from './income_pie_chart';
 import NetIncomeBarChartContainer from './net_income_bar_chart_container';
 import { Pie, PieChart, Tooltip, Sector, Cell, Label } from "recharts";
 
@@ -40,8 +40,8 @@ class ChartDashboard extends Component {
     const COLORS = ["#00C49F", "#e60000"];
     const data = this.formatBetter(this.props.netIncome);
         
-    return (
-      <div className="chart-dashboard-box">
+    return <div className="chart-dashboard-box">
+
 
         <p>Chart Dashboard</p>
         <div>
@@ -60,12 +60,11 @@ class ChartDashboard extends Component {
             <Tooltip />
           </PieChart>
         </div>
-
         <div>
           <NetIncomeBarChartContainer />
         </div>
-      </div>;
-  }
-}
+      </div>
+   }
+ };
 
 export default ChartDashboard;
