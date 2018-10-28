@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IncomePieChart from './income_pie_chart';
 import NetIncomeBarChartContainer from './net_income_bar_chart_container';
+import IncomeVsExpenseChart from './income_vs_expense_chart'
 import { Pie, PieChart, Tooltip, Sector, Cell, Label } from 'recharts';
 
 class ChartDashboard extends Component {
@@ -41,20 +42,31 @@ class ChartDashboard extends Component {
     return (
       <div className="chart-dashboard-box">
         <p>Chart Dashboard</p>
-        <div>
-          <IncomePieChart
-            transactionByCategory={this.props.transactionByCategory}
+        <div className='chart-wrapper'>
+          {/* <PieChart width={800} height={400} onMouseEnter={this.onPieEnter} z-index={'1'} >
+            <Pie data={data} dataKey="Amount" nameKey="Name" cx={200} cy={200} labelLine={false} innerRadius={80} outerRadius={110} fill="#8884d8">
+              {data.map((entry, index) => (<Cell fill={COLORS[index % COLORS.length]} />))}
+            </Pie>
+            <Tooltip />
+          </PieChart> */}
+          <IncomeVsExpenseChart 
+          netIncome={this.props.netIncome}
+          transactionByCategory={this.props.transactionByCategory}
           />
+          {/* <IncomePieChart
+            transactionByCategory={this.props.transactionByCategory}
+            netIncome={this.props.netIncome}
+          /> */}
         </div>
 
-        <div>
+        {/* <div>
           <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
             <Pie
               data={data}
               dataKey="Amount"
               nameKey="Name"
-              cx={300}
-              cy={200}
+              cx={200}
+              cy={100}
               labelLine={false}
               innerRadius={80}
               outerRadius={110}
@@ -67,7 +79,7 @@ class ChartDashboard extends Component {
             </Pie>
             <Tooltip />
           </PieChart>
-        </div>
+        </div> */}
         <div>
           <NetIncomeBarChartContainer />
         </div>
