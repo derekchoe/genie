@@ -77,18 +77,45 @@
   margin-left: 0;
 }
 
-
-.webspeech-box{
+.webspeech-box {
   // margin-top: 10px;
   padding: 15px;
-  
 }
-.record-button{
+.record-button {
   font-size: 16px;
   border-radius: 5px;
   color: gray;
   padding: 5px;
 }
-.instruction{
-  padding: 20px;;
+.instruction {
+  padding: 20px;
+}
+
+// side bar burger
+.bm-menu {
+  overflow: visible !important;
+}
+
+.bm-burger-button span {
+  display: none !important;
+}
+
+.bm-burger-button {
+  width: 50px;
+  height: 50px;
+  background-image: url('burger.png');
+  background-size: contain;
+  border: none;
+  margin: 15px;
+}
+
+.bm-burger-button span span {
+  display: none !important;
+}
+
+.bm-burger-button button {
+  height: 80px !important;
+  width: 80px !important;
+  top: 80px !important;
+  left: 15px !important;
 }

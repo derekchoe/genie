@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import RecentTransItem from './recent_trans_item';
 
+
 const statusStyle = {
   content: {
     top: '50%',
@@ -30,6 +31,7 @@ class RecentTrans extends React.Component {
     });
 
   
+
     return (
       <div className="recent-trans-box">
 
