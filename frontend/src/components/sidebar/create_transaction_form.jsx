@@ -36,7 +36,6 @@ export default class create_transaction_form extends Component {
     ].name;
     formData.category = this.props.categories[parseInt(formData.category)]._id;
     formData.date = formData.date._d;
-
     this.props.createTransaction(formData);
   }
 
@@ -48,10 +47,6 @@ export default class create_transaction_form extends Component {
     this.setState({
       typeOfTrans: e.target.value
     });
-  }
-
-  isOutsideRange() {
-    return false;
   }
 
   render() {
@@ -76,15 +71,15 @@ export default class create_transaction_form extends Component {
               numberOfMonths={1}
               required={true}
               hideKeyboardShortcutsPanel={true}
-              isOutsideRange={this.isOutsideRange}
+              isOutsideRange={() => false}
             />
           </div>
 
           <label>
             <div className="form-category">
               <p>Category</p>
-              <select onChange={this.handleInput('category')}>
-                <option selected="selected" disabled>
+              <select required onChange={this.handleInput('category')}>
+                <option value="" selected="selected" disabled>
                   please select
                 </option>
                 {categoryOptions}
@@ -121,6 +116,9 @@ export default class create_transaction_form extends Component {
                 type="number"
                 value={this.state.amount}
                 onChange={this.handleInput('amount')}
+                defaultValue="0"
+                min="0"
+                required
               />
             </div>
           </label>
@@ -131,6 +129,7 @@ export default class create_transaction_form extends Component {
                 id="text-area"
                 value={this.state.description}
                 onChange={this.handleInput('description')}
+                required
               />
             </div>
           </label>
