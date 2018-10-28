@@ -45,7 +45,13 @@ export default class create_transaction_form extends Component {
   }
 
   handleRadioChange(e) {
-    this.setState({ typeOfTrans: e.target.value });
+    this.setState({
+      typeOfTrans: e.target.value
+    });
+  }
+
+  isOutsideRange() {
+    return false;
   }
 
   render() {
@@ -57,7 +63,7 @@ export default class create_transaction_form extends Component {
 
     return (
       <div className="create-form-box">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-date">
             <p>Date</p>
             <SingleDatePicker
@@ -68,6 +74,9 @@ export default class create_transaction_form extends Component {
               id="single-date-picker"
               required={true}
               numberOfMonths={1}
+              required={true}
+              hideKeyboardShortcutsPanel={true}
+              isOutsideRange={this.isOutsideRange}
             />
           </div>
 
@@ -126,9 +135,7 @@ export default class create_transaction_form extends Component {
             </div>
           </label>
 
-          <button className="create-button" onClick={this.handleSubmit}>
-            Create
-          </button>
+          <button className="create-button">Create</button>
         </form>
       </div>
     );
