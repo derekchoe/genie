@@ -79,20 +79,22 @@ export default class CreateCategoryForm extends Component {
         <h3>Create a new category</h3>
         <form onSubmit={this.handleSubmit}>
           <label>
-            <p>Name</p>
-            <input type="text" required onChange={this.handleInput('name')} />
-          </label>
-
-          <label>
-            <div className="cate-form-desc">
-              <p>Description(optional)</p>
-              <input type="text" onChange={this.handleInput('description')} />
+            <div className="cate-form-name">
+              <p>Name</p>
+              <input type="text" required onChange={this.handleInput('name')} />
             </div>
           </label>
 
+          {/* <label>
+            <div className="cate-form-desc">
+              <p>Description</p>
+              <input type="text" onChange={this.handleInput('description')} />
+            </div>
+          </label> */}
+
           <label>
             <div className="cate-form-budget">
-              <p>Budget(optional)</p>
+              <p>Budget</p>
               <input
                 type="number"
                 min="0"
