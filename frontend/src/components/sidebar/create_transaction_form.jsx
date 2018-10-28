@@ -5,7 +5,7 @@ export default class create_transaction_form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: '',
+      category: '0',
       amount: '',
       description: '',
       date: null,
@@ -83,8 +83,8 @@ export default class create_transaction_form extends Component {
           <label>
             <div className="form-category">
               <p>Category</p>
-              <select onChange={this.handleInput('category')}>
-                <option selected="selected" disabled>
+              <select required onChange={this.handleInput('category')}>
+                <option value="" selected="selected" disabled>
                   please select
                 </option>
                 {categoryOptions}
@@ -121,6 +121,7 @@ export default class create_transaction_form extends Component {
                 type="number"
                 value={this.state.amount}
                 onChange={this.handleInput('amount')}
+                required
               />
             </div>
           </label>
@@ -131,6 +132,7 @@ export default class create_transaction_form extends Component {
                 id="text-area"
                 value={this.state.description}
                 onChange={this.handleInput('description')}
+                required
               />
             </div>
           </label>
