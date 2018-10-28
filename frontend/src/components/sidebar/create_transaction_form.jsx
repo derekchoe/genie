@@ -5,7 +5,7 @@ export default class create_transaction_form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: '0',
+      category: '',
       amount: '',
       description: '',
       date: null,
@@ -36,7 +36,7 @@ export default class create_transaction_form extends Component {
     ].name;
     formData.category = this.props.categories[parseInt(formData.category)]._id;
     formData.date = formData.date._d;
-
+    debugger;
     this.props.createTransaction(formData);
   }
 
