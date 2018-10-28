@@ -8,7 +8,7 @@ class ChartDashboard extends Component {
     super(props);
 
     this.state = {
-      isLoading: true,
+      isLoading: true
     };
     this.formatBetter = this.formatBetter.bind(this)
   }
@@ -42,6 +42,7 @@ class ChartDashboard extends Component {
         
     return <div className="chart-dashboard-box">
 
+
         <p>Chart Dashboard</p>
         <div>
           <IncomePieChart transactionByCategory={this.props.transactionByCategory} />
@@ -59,7 +60,6 @@ class ChartDashboard extends Component {
             <Tooltip />
           </PieChart>
         </div>
-
         <div>
           <NetIncomeBarChartContainer />
         </div>
