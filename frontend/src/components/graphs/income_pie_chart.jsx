@@ -24,7 +24,6 @@ const PieChartDB = ({ transactionByCategory }) => {
         <Tooltip />
       </PieChart>
     </div>
-  );
 };
 
 export default PieChartDB;
