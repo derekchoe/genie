@@ -30,13 +30,13 @@ export default class create_transaction_form extends Component {
 
   handleSubmit(e) {
     let formData = Object.assign({}, this.state);
-    formData.category = this.props.categories[parseInt(formData.category)]._id;
-    formData.date = formData.date._d;
     formData.categoryName = this.props.categories[
       parseInt(formData.category)
     ].name;
- 
+    formData.category = this.props.categories[parseInt(formData.category)]._id;
+    formData.date = formData.date._d;
 
+    debugger;
     this.props.createTransaction(formData);
   }
 
