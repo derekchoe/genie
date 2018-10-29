@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import IncomePieChart from './income_pie_chart';
 import NetIncomeBarChartContainer from './net_income_bar_chart_container';
 import IncomeVsExpenseChart from './income_vs_expense_chart'
+<<<<<<< HEAD
+=======
 import { Pie, PieChart, Tooltip, Sector, Cell, Label } from 'recharts';
+>>>>>>> master
 
 class ChartDashboard extends Component {
   constructor(props) {
@@ -11,7 +13,6 @@ class ChartDashboard extends Component {
     this.state = {
       isLoading: true
     };
-    this.formatBetter = this.formatBetter.bind(this);
   }
 
   componentDidMount() {
@@ -19,28 +20,13 @@ class ChartDashboard extends Component {
     this.props.fetchCategoriesByExpenses();
   }
 
-  formatBetter(data) {
-    const result = [];
-    data.forEach(trans => {
-      const income = trans.income || 0;
-      let expense = trans.expense || 0;
-      let netIn = income - expense;
-      if (netIn < 0) {
-        expense = (income - expense) * -1;
-        netIn = 0;
-      }
-      result.push({ Name: 'Remaining Income', Amount: netIn });
-      result.push({ Name: 'Expense', Amount: expense });
-    });
-    return result.slice(0, 2);
-  }
-
   render() {
-    const COLORS = ['#00C49F', '#e60000'];
-    const data = this.formatBetter(this.props.netIncome);
-
     return (
       <div className="chart-dashboard-box">
+<<<<<<< HEAD
+        <div className='chart-wrapper'>
+          <p>Chart Dashboard</p>
+=======
         <p>Chart Dashboard</p>
         <div className='chart-wrapper'>
           {/* <PieChart width={800} height={400} onMouseEnter={this.onPieEnter} z-index={'1'} >
@@ -49,6 +35,7 @@ class ChartDashboard extends Component {
             </Pie>
             <Tooltip />
           </PieChart> */}
+>>>>>>> master
           <IncomeVsExpenseChart 
           netIncome={this.props.netIncome}
           transactionByCategory={this.props.transactionByCategory}
@@ -58,6 +45,8 @@ class ChartDashboard extends Component {
             netIncome={this.props.netIncome}
           /> */}
         </div>
+<<<<<<< HEAD
+=======
 
         {/* <div>
           <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
@@ -80,6 +69,7 @@ class ChartDashboard extends Component {
             <Tooltip />
           </PieChart>
         </div> */}
+>>>>>>> master
         <div>
           <NetIncomeBarChartContainer />
         </div>
