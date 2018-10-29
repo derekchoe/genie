@@ -11,6 +11,11 @@ nav {
 .nav-box {
   display: flex;
   justify-content: center;
+  position: fixed;
+}
+.nav-container-placeholder {
+  height: 80px;
+  width:100%;
 }
 
 
