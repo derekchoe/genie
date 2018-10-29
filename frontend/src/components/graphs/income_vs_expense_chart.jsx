@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pie, PieChart, Tooltip, Cell } from "recharts";
+import { Pie, PieChart, Tooltip, Cell, Legend} from "recharts";
 
 const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
   function formatBetter(netIncomeData) {
@@ -32,14 +32,14 @@ const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
 
   return <div>
       <PieChart width={800} height={400} z-index={"1"}>
-        <Pie data={data} dataKey="Amount" nameKey="Name" cx={120} cy={200} labelLine={false} innerRadius={80} outerRadius={110} fill="#8884d8">
+      <Pie data={data} dataKey="Amount" nameKey="Name" cx={120} cy={200} labelLine={false} innerRadius={80} outerRadius={110} fill="#8884d8">
           {data.map((entry, index) => (
             <Cell fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
 
-        <Pie data={data1} dataKey="value" nameKey="name" cx="500" cy="200" innerRadius={80} outerRadius={110} fill="#82ca9d" />
-      <Pie data={data1} dataKey="value" nameKey="name" cx="500" cy="200" outerRadius={60} fill="#8884d8" />
+        <Pie data={data1} dataKey="value" nameKey="name" cx="500" cy="200" innerRadius={80} outerRadius={110} fill="#82ca9d"/>
+        <Pie data={data1} dataKey="value" nameKey="name" cx="500" cy="200" outerRadius={60} fill="#8884d8" />
         <Tooltip />
       </PieChart>
     </div>;
