@@ -12,6 +12,7 @@ nav {
   display: flex;
   justify-content: center;
   position: fixed;
+  z-index: 30;
 }
 .nav-container-placeholder {
   height: 80px;
