@@ -13,6 +13,7 @@ export default class DashBoard extends Component {
     return (
       <div className="dashboard-box">
         <NavbarContainer />
+        <div className='nav-container-placeholder'></div>
         <div className="body-box">
           <SidebarContainer />
           <ChartDashboardContainer />
