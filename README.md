@@ -2,7 +2,7 @@
 
 _Your personal financial management tool_
 
-[Live Site](https://www.google.com)
+[Live Site](https://genie-flex-project.herokuapp.com/)
 
 ## Background and Overview
 
