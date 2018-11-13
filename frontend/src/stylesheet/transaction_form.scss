@@ -7,16 +7,33 @@
         width: 240px;
 
     }
-    select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -ms-appearance: none;
-        appearance: none;
-        outline: 0;
-        box-shadow: none;
-        border: 0 !important;
-        background: #2c3e50;
-        background-image: none;
-    }
 
+}
+
+select {
+    padding: 5px 8px;
+    border: none;
+    box-shadow: none;
+    background: white;
+    background-image: none;
+    -webkit-appearance: none;
+     border-radius: 2px;
+    height: 31px;
+
+}
+ select:focus {
+    outline: none;
+}
+
+.create-button {
+    background: rgb(28, 184, 65);
+    height: 40px;
+    font-weight: 600;
+    width: 100px;
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    &:hover {
+        background: lightgreen;
+    }
 }
