@@ -48,14 +48,6 @@ export default class create_transaction_form extends Component {
           [field]: e.target.value
         })
       });
-
-    // return e => {
-    //   this.setState({
-    //     category: Object.assign({}, this.state.category, {
-    //       [field]: e.target.value
-    //     })
-    //   });
-    // };
   }
 
   handleSelect(e) {
@@ -63,19 +55,10 @@ export default class create_transaction_form extends Component {
       this.openCreateCateModal();
     } else {
       this.setState({
-        // ['transactionForm']: {
-        //   ['category']: e.target.value
-        // }
         transaction: Object.assign({}, this.state.transaction, {
           ['category']: e.target.value
         })
       });
-
-      // this.setState({
-      //   transaction: Object.assign({}, this.state.transaction, {
-      //     [field]: e.target.value
-      //   })
-      // });
     }
   }
 
@@ -83,13 +66,11 @@ export default class create_transaction_form extends Component {
     let formData = {};
     formData = Object.assign({}, this.state.transaction);
     delete formData['createCateModalOpen'];
-    debugger;
     formData.categoryName = this.props.categories[
       parseInt(formData.category)
     ].name;
     formData.category = this.props.categories[parseInt(formData.category)]._id;
     formData.date = formData.date._d;
-    debugger;
     this.props.createTransaction(formData);
   }
 
@@ -138,7 +119,6 @@ export default class create_transaction_form extends Component {
   }
 
   handleCalendarDate(date) {
-    debugger;
     this.setState({
       transaction: Object.assign({}, this.state.transaction, {
         ['date']: date
