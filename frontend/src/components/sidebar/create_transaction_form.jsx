@@ -22,11 +22,11 @@ export default class create_transaction_form extends Component {
         amount: '',
         description: '',
         date: null,
-        typeOfTrans: 'expense',
-        focus: false
+        typeOfTrans: 'expense'
       },
       category: { name: '', description: '', budget: '' },
-      createCateModalOpen: false
+      createCateModalOpen: false,
+      focused: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,10 +44,18 @@ export default class create_transaction_form extends Component {
   handleInput(field) {
     return e =>
       this.setState({
-        ['transactionForm']: {
+        transaction: Object.assign({}, this.state.transaction, {
           [field]: e.target.value
-        }
+        })
       });
+
+    // return e => {
+    //   this.setState({
+    //     category: Object.assign({}, this.state.category, {
+    //       [field]: e.target.value
+    //     })
+    //   });
+    // };
   }
 
   handleSelect(e) {
@@ -55,10 +63,19 @@ export default class create_transaction_form extends Component {
       this.openCreateCateModal();
     } else {
       this.setState({
-        ['transactionForm']: {
+        // ['transactionForm']: {
+        //   ['category']: e.target.value
+        // }
+        transaction: Object.assign({}, this.state.transaction, {
           ['category']: e.target.value
-        }
+        })
       });
+
+      // this.setState({
+      //   transaction: Object.assign({}, this.state.transaction, {
+      //     [field]: e.target.value
+      //   })
+      // });
     }
   }
 
@@ -66,11 +83,13 @@ export default class create_transaction_form extends Component {
     let formData = {};
     formData = Object.assign({}, this.state.transaction);
     delete formData['createCateModalOpen'];
+    debugger;
     formData.categoryName = this.props.categories[
       parseInt(formData.category)
     ].name;
     formData.category = this.props.categories[parseInt(formData.category)]._id;
     formData.date = formData.date._d;
+    debugger;
     this.props.createTransaction(formData);
   }
 
@@ -89,29 +108,16 @@ export default class create_transaction_form extends Component {
   }
 
   handleCateInput(field) {
-    // debugger;
     return e => {
-      // this.setState({
-      //   someProperty: Object.assign({}, this.state.someProperty, {
-      //     flag: false
-      //   })
-      // });
-
       this.setState({
         category: Object.assign({}, this.state.category, {
           [field]: e.target.value
         })
       });
-
-      // let stateCategory = { ...this.state.category };
-      // console.log(stateCategory);
-      // stateCategory[field] = e.target.value;
-      // this.setState({ stateCategory });
     };
   }
 
   handleCateSubmit(e) {
-    // debugger;
     e.preventDefault();
     let formData = Object.assign({}, this.state.category);
     if (formData.budget !== '') {
@@ -128,6 +134,15 @@ export default class create_transaction_form extends Component {
     });
     createPromise.then(() => {
       this.closeCreateCateModal();
+    });
+  }
+
+  handleCalendarDate(date) {
+    debugger;
+    this.setState({
+      transaction: Object.assign({}, this.state.transaction, {
+        ['date']: date
+      })
     });
   }
 
@@ -154,7 +169,7 @@ export default class create_transaction_form extends Component {
           contentLabel="Success Modal"
           style={statusStyle}
         >
-          <div className="create-cate-modal mod-positive">
+          <div id="create-cate-modal">
             <h3>Create a new category</h3>
             <form onSubmit={this.handleCateSubmit}>
               <label>
@@ -179,6 +194,13 @@ export default class create_transaction_form extends Component {
                 </div>
               </label>
 
+              <label>
+                <div className="cate-form-budget">
+                  <p>Description</p>
+                  <textarea onChange={this.handleCateInput('description')} />
+                </div>
+              </label>
+
               <button className="create-button">Create</button>
             </form>
           </div>
@@ -189,8 +211,8 @@ export default class create_transaction_form extends Component {
           <div className="form-date">
             <p>Date</p>
             <SingleDatePicker
-              date={this.state.date}
-              onDateChange={date => this.setState({ date })}
+              date={this.state.transaction.date}
+              onDateChange={date => this.handleCalendarDate(date)}
               focused={this.state.focused}
               onFocusChange={({ focused }) => this.setState({ focused })}
               id="single-date-picker"

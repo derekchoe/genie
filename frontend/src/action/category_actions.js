@@ -44,7 +44,6 @@ export const fetchCategory = id => dispatch => {
 
 export const createCategory = categoryData => dispatch => {
   dispatch(clearErrors());
-  debugger;
   axios
     .post('/api/categories', categoryData)
     .then(res =>
