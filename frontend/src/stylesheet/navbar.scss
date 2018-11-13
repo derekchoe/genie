@@ -1,18 +1,20 @@
-.App {
-  // text-align-last: right;
-}
 
 nav {
-  background-color: #a0cab1;
+  background-color: #061479;
   height: 80px;
   width: 100%;
+  color: white;
+  font-weight: 400;
 }
 
 .nav-box {
+  background-color: #001f88;
   display: flex;
   justify-content: center;
   position: fixed;
   z-index: 30;
+  border-bottom: 2px solid #232323
+
 }
 .nav-container-placeholder {
   height: 80px;
@@ -38,7 +40,7 @@ nav {
 .logout-button {
   font-size: 20px;
   // font-family: sans-serif;
-  color: #3188de;
+  color: white;
 
   border-radius: 5px;
   // padding: 6px;
