@@ -54,6 +54,11 @@ export default class create_transaction_form extends Component {
   handleSelect(e) {
     if (e.target.value === 'add new category...') {
       this.openCreateCateModal();
+      this.setState({
+        transaction: Object.assign({}, this.state.transaction, {
+          ['category']: 'choosing'
+        })
+      });
     } else {
       this.setState({
         transaction: Object.assign({}, this.state.transaction, {
@@ -120,7 +125,7 @@ export default class create_transaction_form extends Component {
       this.closeCreateCateModal();
       this.setState({
         transaction: Object.assign({}, this.state.transaction, {
-          ['category']: this.props.categories[this.props.categories.length - 1]
+          ['category']: this.props.categories.length
         })
       });
     });
@@ -139,6 +144,14 @@ export default class create_transaction_form extends Component {
   }
 
   closeCreateCateModal() {
+    if (this.state.transaction.category === 'choosing') {
+      this.setState({
+        transaction: Object.assign({}, this.state.transaction, {
+          ['category']: ''
+        })
+      });
+    }
+
     this.setState({ createCateModalOpen: false });
   }
 
@@ -147,7 +160,7 @@ export default class create_transaction_form extends Component {
       <option
         key={category._id}
         value={idx}
-        selected={this.state.category.name === category.name ? 'selected' : ''}
+        selected={this.state.transaction.category === idx ? 'selected' : ''}
       >
         {category.name}
       </option>
@@ -222,13 +235,15 @@ export default class create_transaction_form extends Component {
               <select required onChange={this.handleSelect}>
                 <option
                   value=""
-                  selected={this.state.category.name === '' ? 'selected' : ''}
+                  selected={
+                    this.state.transaction.category === '' ? 'selected' : ''
+                  }
                   disabled
                 >
                   please select
                 </option>
                 {categoryOptions}
-                <option>add new category...</option>
+                <option selected="">add new category...</option>
               </select>
             </div>
           </label>
@@ -262,7 +277,6 @@ export default class create_transaction_form extends Component {
                 type="number"
                 value={this.state.transaction.amount}
                 onChange={this.handleInput('amount')}
-                defaultValue="0"
                 min="0"
                 required
               />
