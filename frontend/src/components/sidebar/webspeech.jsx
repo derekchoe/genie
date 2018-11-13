@@ -8,10 +8,6 @@ export default class WebSpeech extends Component {
     this.transcript = '';
   }
 
-  componentWillUnmount() {
-    // this.props.clearErrors();
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     // this.props.clearErrors();
@@ -21,19 +17,17 @@ export default class WebSpeech extends Component {
 
     if (!this.state.stream) {
       this.setState({ stream: true });
-      // console.log(this.transcript);
-
       this.recognition = new SpeechRecognition();
       this.recognition.continuous = true;
       this.recognition.interimResults = true;
       this.recognition.lang = 'en-US';
       this.recognition.maxAlternatives = 1;
 
-      let text = document.querySelector('.live-text');
-      // let p = document.getElementById('text-area')
-      let p = document.createElement('p');
+      // let text = document.querySelector('.live-text');
+      let p = document.getElementById('text-area');
+      // let p = document.createElement('p');
 
-      text.appendChild(p);
+      // text.appendChild(p);
 
       this.recognition.addEventListener('result', e => {
         let transcript = Array.from(e.results)
@@ -41,12 +35,14 @@ export default class WebSpeech extends Component {
           .map(result => result.transcript)
           .join('');
 
-        p.textContent = transcript;
+        // p.textContent = transcript;
+        p.value = transcript;
+        
         if (e.results[0].isFinal) {
-          this.transcript += p.textContent + '. ';
+          // this.transcript += p.textContent + '. ';
 
-          p = document.createElement('p');
-          text.appendChild(p);
+          // p = document.createElement('p');
+          // text.appendChild(p);
         }
       });
 
