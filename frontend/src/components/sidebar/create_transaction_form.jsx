@@ -52,15 +52,13 @@ export default class create_transaction_form extends Component {
   }
 
   handleSelect(e) {
-    console.log(this);
     if (e.target.value === 'add new category...') {
       this.openCreateCateModal();
       this.setState({
         transaction: Object.assign({}, this.state.transaction, {
-          ['category']: ''
+          ['category']: 'choosing'
         })
       });
-      debugger;
     } else {
       this.setState({
         transaction: Object.assign({}, this.state.transaction, {
@@ -146,6 +144,14 @@ export default class create_transaction_form extends Component {
   }
 
   closeCreateCateModal() {
+    if (this.state.transaction.category === 'choosing') {
+      this.setState({
+        transaction: Object.assign({}, this.state.transaction, {
+          ['category']: ''
+        })
+      });
+    }
+
     this.setState({ createCateModalOpen: false });
   }
 
@@ -237,7 +243,7 @@ export default class create_transaction_form extends Component {
                   please select
                 </option>
                 {categoryOptions}
-                <option>add new category...</option>
+                <option selected="">add new category...</option>
               </select>
             </div>
           </label>
