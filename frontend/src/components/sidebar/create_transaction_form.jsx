@@ -9,7 +9,8 @@ const statusStyle = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    zIndex: '1001'
   }
 };
 
@@ -117,6 +118,11 @@ export default class create_transaction_form extends Component {
     });
     createPromise.then(() => {
       this.closeCreateCateModal();
+      this.setState({
+        transaction: Object.assign({}, this.state.transaction, {
+          ['category']: this.props.categories[this.props.categories.length - 1]
+        })
+      });
     });
   }
 
@@ -138,7 +144,11 @@ export default class create_transaction_form extends Component {
 
   render() {
     const categoryOptions = this.props.categories.map((category, idx) => (
-      <option key={category._id} value={idx}>
+      <option
+        key={category._id}
+        value={idx}
+        selected={this.state.category.name === category.name ? 'selected' : ''}
+      >
         {category.name}
       </option>
     ));
@@ -210,7 +220,11 @@ export default class create_transaction_form extends Component {
             <div className="form-category">
               <p>Category</p>
               <select required onChange={this.handleSelect}>
-                <option value="" selected="selected" disabled>
+                <option
+                  value=""
+                  selected={this.state.category.name === '' ? 'selected' : ''}
+                  disabled
+                >
                   please select
                 </option>
                 {categoryOptions}
