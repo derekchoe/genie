@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NetIncomeBarChartContainer from './net_income_bar_chart_container';
-import IncomeVsExpenseChart from './income_vs_expense_chart'
+import IncomeVsExpenseChart from './income_vs_expense_chart';
 
 class ChartDashboard extends Component {
   constructor(props) {
@@ -19,11 +19,11 @@ class ChartDashboard extends Component {
   render() {
     return (
       <div className="chart-dashboard-box">
-        <div className='chart-wrapper'>
+        <div className="chart-wrapper">
           <p>Chart Dashboard</p>
-          <IncomeVsExpenseChart 
-          netIncome={this.props.netIncome}
-          transactionByCategory={this.props.transactionByCategory}
+          <IncomeVsExpenseChart
+            netIncome={this.props.netIncome}
+            transactionByCategory={this.props.transactionByCategory}
           />
         </div>
         <div>

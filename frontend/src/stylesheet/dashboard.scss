@@ -1,9 +1,10 @@
 .body-box {
   display: flex;
-  height: 850px;
+  height: 1000px;
   color: #3188de;
   background-color: white;
   font-weight: 500;
+  width: 1500px;
 }
 
 // Recent Transaction table
@@ -14,11 +15,11 @@
 
 .recent-trans-table {
   box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 0.2);
+  margin: 15px 0 0 0;
 }
 
-.chart-wrapper{
-
-  .recharts-wrapper{
+.chart-wrapper {
+  .recharts-wrapper {
     height: 50px;
   }
 }
@@ -26,7 +27,8 @@
 .recent-trans-table ul {
   list-style: none;
   padding: 0;
-  width: 500px;
+  width: 100%;
+  // width: 500px;
   border-width: 1px 1px 0 1px;
   border-style: solid;
   border-color: lightgrey;
@@ -85,6 +87,3 @@
   color: red;
   font-weight: 600;
 }
-
-
-
