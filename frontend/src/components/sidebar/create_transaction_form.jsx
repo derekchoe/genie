@@ -75,12 +75,14 @@ export default class create_transaction_form extends Component {
   }
 
   radioCheck(field) {
-    return field === this.state.typeOfTrans;
+    return field === this.state.transaction.typeOfTrans;
   }
 
   handleRadioChange(e) {
     this.setState({
-      typeOfTrans: e.target.value
+      transaction: Object.assign({}, this.state.transaction, {
+        ['typeOfTrans']: e.target.value
+      })
     });
   }
 
@@ -244,7 +246,7 @@ export default class create_transaction_form extends Component {
               <p>Amount</p>
               <input
                 type="number"
-                value={this.state.amount}
+                value={this.state.transaction.amount}
                 onChange={this.handleInput('amount')}
                 defaultValue="0"
                 min="0"
@@ -257,7 +259,7 @@ export default class create_transaction_form extends Component {
               <p>Description</p>
               <textarea
                 id="text-area"
-                value={this.state.description}
+                value={this.state.transaction.description}
                 onChange={this.handleInput('description')}
                 required
               />
