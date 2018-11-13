@@ -242,7 +242,7 @@ export default class create_transaction_form extends Component {
           </label>
 
           <label>
-            <div className="form-amount">
+            <div className="form-amount form-div">
               <p>Amount</p>
               <input
                 type="number"
@@ -255,7 +255,7 @@ export default class create_transaction_form extends Component {
             </div>
           </label>
           <label>
-            <div className="form-desc">
+            <div className="form-desc form-div">
               <p>Description</p>
               <textarea
                 id="text-area"
