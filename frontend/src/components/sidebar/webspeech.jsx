@@ -36,14 +36,10 @@ export default class WebSpeech extends Component {
           .join('');
       
            transcript = transcript.charAt(0).toUpperCase() + transcript.slice(1);
-     
         p.value = transcript;
         
         if (e.results[0].isFinal) {
           p.value += '. ';
-
-          // p = document.createElement('p');
-          // text.appendChild(p);
         }
       });
 
