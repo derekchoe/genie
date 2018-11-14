@@ -26,7 +26,7 @@ const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
     });
     return result;
   }
-  const COLORS = ['#00C49F', '#e60000'];
+  const COLORS = ['#91c79e', '#ea7171'];
   const data = formatBetter(netIncome);
   const data1 = formatBetter1(transactionByCategory);
 
