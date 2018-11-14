@@ -1,4 +1,3 @@
-
 nav {
   background-color: #061479;
   height: 80px;
@@ -13,14 +12,12 @@ nav {
   justify-content: center;
   position: fixed;
   z-index: 30;
-  border-bottom: 2px solid #232323
-
+  border-bottom: 2px solid #232323;
 }
 .nav-container-placeholder {
   height: 80px;
-  width:100%;
+  width: 100%;
 }
-
 
 .logo-logout-wrapper {
   width: 90%;
@@ -39,11 +36,9 @@ nav {
 
 .logout-button {
   font-size: 20px;
-  // font-family: sans-serif;
   color: white;
 
   border-radius: 5px;
-  // padding: 6px;
   border: none;
   background-color: inherit;
   margin: 20px -40px 20px 0px;
@@ -52,5 +47,4 @@ nav {
 
 .logout-button:hover {
   color: gray;
-
 }

@@ -1,63 +1,60 @@
 .form-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    input {
-        width: 240px;
-
-    }
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  input {
+    width: 240px;
+  }
 }
 
 select {
-    padding: 5px 8px;
-    border: none;
-    box-shadow: none;
-    background: white;
-    background-image: none;
-    -webkit-appearance: none;
-     border-radius: 2px;
-    height: 31px;
-
+  padding: 5px 8px;
+  border: none;
+  box-shadow: none;
+  background: white;
+  background-image: none;
+  -webkit-appearance: none;
+  border-radius: 2px;
+  height: 31px;
 }
- select:focus {
-    outline: none;
+select:focus {
+  outline: none;
 }
 
 .create-button {
-    background: rgb(28, 184, 65);
-    height: 40px;
-    font-weight: 600;
-    width: 100px;
-    color: white;
-    border-radius: 4px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    &:hover {
-        background: lightgreen;
-    }
+  background: rgb(28, 184, 65);
+  height: 40px;
+  font-weight: 600;
+  width: 100px;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  &:hover {
+    background: lightgreen;
+  }
 }
 
 .record-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color:white;
-    width: 40px;
-    height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  height: 40px;
 }
 
 .Record {
-    background: #43c743;
-    &:hover {
-       background:  #1b691b;
-    }
+  background: #43c743;
+  &:hover {
+    background: #1b691b;
+  }
 }
 
 .Stop {
-    background: #860e11;
-    &:hover {
-        background: #71090c;
-    }
+  background: #860e11;
+  &:hover {
+    background: #71090c;
+  }
 }

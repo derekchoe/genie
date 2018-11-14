@@ -18,7 +18,6 @@
   border: 2px solid #8982d5;
   padding: 10px 0 20px 0;
   border-radius: 5px;
-  // box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .create-form-box input {
@@ -30,11 +29,6 @@
   height: 50px;
   font-size: 15px;
 }
-
-// .create-form-box div {
-//   display: grid;
-//   grid-template-columns: 1fr 3fr;
-// }
 
 .form-category {
   display: flex;
@@ -125,37 +119,10 @@
   left: 15px !important;
 }
 
-// create cate form
-
-// .create-form-box-2 {
-//   width: 95%;
-//   border: 2px solid #8982d5;
-//   padding: 0 0 20px 0;
-//   border-radius: 5px;
-//   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-//   margin: 0 5px 20px 5px;
-// }
-
-// .create-form-box-2 input {
-//   width: 145px;
-//   height: 30px;
-//   font-size: 15px;
-// }
-
-// .create-form-box-2 p {
-//   text-align: left;
-//   margin-left: 25px;
-// }
-
 .cate-form-desc,
 .cate-form-budget,
 .cate-form-name {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   align-items: center;
-}
-
-// create cate form modal
-
-#create-cate-modal {
 }

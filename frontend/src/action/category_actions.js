@@ -7,7 +7,6 @@ export const CATEGORY_LOADING = 'CATEGORY_LOADING';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const fetchCategories = () => dispatch => {
-  // dispatch(setCategoryLoading());
   axios
     .get('/api/categories')
     .then(res =>
@@ -25,7 +24,6 @@ export const fetchCategories = () => dispatch => {
 };
 
 export const fetchCategory = id => dispatch => {
-  // dispatch(setCategoryLoading());
   axios
     .get(`/api/categories/${id}`)
     .then(res =>
