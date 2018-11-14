@@ -4,7 +4,6 @@ import {
   REMOVE_TRANSACTION,
   RECEIVE_MONTHLY_TRANSACTIONS,
   RECEIVE_CATEGORY_EXPENSE
-  // TRANSACTION_LOADING
 } from '../action/transaction_actions';
 
 const initialState = {
@@ -17,11 +16,6 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    // case TRANSACTION_LOADING:
-    //     return {
-    //         ...state,
-    //         loading: true
-    //     };
     case RECEIVE_TRANSACTIONS:
       return {
         ...state,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavbarContainer from '../layout/navbar_container';
-import SidebarContainer from '../sidebar/sidebar_container';
+import Sidebar from '../sidebar/sidebar';
 import ChartDashboardContainer from '../graphs/chart_dashboard_container';
 import RecentTransContainer from './recent_trans_container';
 
@@ -13,9 +13,9 @@ export default class DashBoard extends Component {
     return (
       <div className="dashboard-box">
         <NavbarContainer />
-        <div className='nav-container-placeholder'></div>
+        <div className="nav-container-placeholder" />
         <div className="body-box">
-          <SidebarContainer />
+          <Sidebar />
           <ChartDashboardContainer />
           <RecentTransContainer transactions={this.props.transactions} />
         </div>

@@ -25,11 +25,10 @@
 }
 
 .chart-name {
-  // margin-top: 10px;
   display: flex;
   justify-content: space-around;
   position: absolute;
-  top:100px;
+  top: 100px;
   left: 170px;
 }
 
@@ -41,7 +40,6 @@
   list-style: none;
   padding: 0;
   width: 100%;
-  // width: 500px;
   border-width: 1px 1px 0 1px;
   border-style: solid;
   border-color: lightgrey;

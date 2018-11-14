@@ -20,82 +20,21 @@ Genie is a personal daily financial management app, which users can utilize to k
 
 ## Technologies & Technical Challenges
 
-- Backend: MongoDB/Express/Node.js
-- Frontend: React/Redux
-- API Voice input to text
+- Backend: `MongoDB` / `Express` / `Node.js`
+- Frontend: `React` / `Redux`
+- `Web Audio API` for voice input to text
 
 ## Login / Sign Up Page
+
 ![](images/loginpage.gif)
 
-Users can login or sign up through this page. 
+Users can login or sign up through this page.
 
-## Dashboard 
+## Dashboard
 
 ![](images/dashboard.gif)
-Users can view their net income graph, expense graph and recent transactions.  Users can also create a category or transcation at the sidebar.
-
-
+Users can view their net income graph, expense graph and recent transactions. Users can also create a category or transcation at the sidebar.
 
 ![](images/webspeech.png)
 
-
 For a better user experience, we added a voice recognition features for users to record details of the new transaction.
-
-
-
-# Overall Schedule
-
-## Accomplished over the Weekend
-
-- [ ] All members of the team read the MERN tutorials
-- [ ] Set up database
-- [ ] Wrote proposal Readme and planned work for the week
-- [ ] Implement user authorization on both frontend and backend
-
-## Group Members & Work Breakdown
-
-#### Day 1 - Oct 22
-
-- Set up categories model and routes - Alice
-- Set up transactions model and routes - Justin
-- Design components - Rika
-- Log in/sign up page styling - Derek
-
-#### Day 2 - Oct 24
-
-- Finish backend related logic - Alice
-- Write React frontend for transactions - Justin
-- Write actions/reducers for categories and transactions, create detailed design for dashboard - Rika
-- Research implementation of charts and graphs / frontend styling - Derek
-
-#### Day 3 - Oct 25
-
-- Write routes and queries for dashboard graphs/charts - Alice
-- Write routes and queries for dashboard graphs/charts - Justin
-- Prepare for API implementation / finish navbar - Rika
-- Create/style nav-bar - Derek
-
-#### Day 4 - Oct 26
-
-- Polish backend query result for monthly transactions Justin
-- Write recent transaction table for dashboard - Alice
-- Write net income chart for dashboard - Rika, Justin
-- Write monthly transactions pie chart for dashboard - Derek
-
-#### Day 5 - Oct 27
-
-- Create toggable sidebar - Alice
-- Polish recent transaction table, add delete feature - Justin
-- Write monthly transactions pie chart for dashboard - Derek
-- Seed demo - Rika
-
-#### Day 6 - Oct 28
-
-- debug
-- polish
-- Clean out console warnings
-
-#### Day 7 - Oct 29
-
-- debug
-- polish
