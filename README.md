@@ -24,6 +24,24 @@ Genie is a personal daily financial management app, which users can utilize to k
 - Frontend: React/Redux
 - API Voice input to text
 
+## Login / Sign Up Page
+![](images/loginpage.gif)
+
+Users can login or sign up through this page. 
+
+## Dashboard 
+
+![](images/dashboard.gif)
+Users can view their net income graph, expense graph and recent transactions.  Users can also create a category or transcation at the sidebar.
+
+
+
+![](images/webspeech.png)
+
+
+For a better user experience, we added a voice recognition features for users to record details of the new transaction.
+
+
 
 # Overall Schedule
 
