@@ -24,6 +24,9 @@ Genie is a personal daily financial management app, which users can utilize to k
 - Frontend: React/Redux
 - API Voice input to text
 
+
+# Overall Schedule
+
 ## Accomplished over the Weekend
 
 - [ ] All members of the team read the MERN tutorials
