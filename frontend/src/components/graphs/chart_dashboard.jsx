@@ -20,13 +20,17 @@ class ChartDashboard extends Component {
     return (
       <div className="chart-dashboard-box">
         <div className="chart-wrapper">
-          <p>Chart Dashboard</p>
+        <div className="chart-name">
+         <p>Free Cash</p>
+         <p>Expenses Details</p>
+        </div>
           <IncomeVsExpenseChart
             netIncome={this.props.netIncome}
             transactionByCategory={this.props.transactionByCategory}
           />
         </div>
         <div>
+        
           <NetIncomeBarChartContainer />
         </div>
       </div>
