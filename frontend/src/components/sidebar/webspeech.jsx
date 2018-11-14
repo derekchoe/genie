@@ -34,12 +34,13 @@ export default class WebSpeech extends Component {
           .map(result => result[0])
           .map(result => result.transcript)
           .join('');
-
-        // p.textContent = transcript;
+      
+           transcript = transcript.charAt(0).toUpperCase() + transcript.slice(1);
+     
         p.value = transcript;
         
         if (e.results[0].isFinal) {
-          // this.transcript += p.textContent + '. ';
+          p.value += '. ';
 
           // p = document.createElement('p');
           // text.appendChild(p);
@@ -72,14 +73,9 @@ export default class WebSpeech extends Component {
     let buttonContent = this.state.stream ? 'Stop' : 'Record';
     return (
       <div className="webspeech-box">
-        <div className="instruction">Voice record your transactions!</div>
-        <div className="live-text">
-          <button className="record-button" onClick={this.handleSubmit}>
-            {buttonContent}
-          </button>
-          <br />
-          <br />
-        </div>
+          <div className={` record-button ${buttonContent}`} onClick={this.handleSubmit}>
+          <i class="fas fa-microphone"></i>
+          </div>
       </div>
     );
   }

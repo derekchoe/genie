@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { SingleDatePicker } from 'react-dates';
 import Modal from 'react-modal';
+import WebSpeechContainer from './webspeech_container';
 
 const statusStyle = {
   content: {
@@ -263,6 +264,7 @@ export default class create_transaction_form extends Component {
                 onChange={this.handleInput('description')}
                 required
               />
+              <WebSpeechContainer/>
             </div>
           </label>
 

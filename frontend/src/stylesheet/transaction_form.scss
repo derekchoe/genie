@@ -37,3 +37,27 @@ select {
         background: lightgreen;
     }
 }
+
+.record-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    width: 40px;
+    height: 40px;
+}
+
+.Record {
+    background: #43c743;
+    &:hover {
+       background:  #1b691b;
+    }
+}
+
+.Stop {
+    background: #860e11;
+    &:hover {
+        background: #71090c;
+    }
+}
