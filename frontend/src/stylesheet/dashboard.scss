@@ -4,7 +4,7 @@
   color: #3188de;
   background-color: white;
   font-weight: 500;
-  width: 1500px;
+  width: 1800px;
 }
 
 // Recent Transaction table
@@ -22,6 +22,19 @@
   .recharts-wrapper {
     height: 50px;
   }
+}
+
+.chart-name {
+  // margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top:100px;
+  left: 170px;
+}
+
+.chart-name p:last-child {
+  margin-left: 270px;
 }
 
 .recent-trans-table ul {
