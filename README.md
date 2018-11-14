@@ -33,6 +33,7 @@ Users can login or sign up through this page.
 ## Dashboard
 
 ![](images/dashboard.gif)
+
 Users can view their net income graph, expense graph and recent transactions. Users can also create a category or transcation at the sidebar.
 
 ![](images/webspeech.png)
