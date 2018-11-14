@@ -61,7 +61,7 @@ export default class NetIncomeBarChart extends Component {
           {netIncome.map((income, index) => (
             <Cell
               key={index}
-              fill={income.NetIncome > 0 ? '#b3ff99' : '#b30047'}
+              fill={income.NetIncome > 0 ? '#91c79e' : '#ea7171'}
               stroke={'#ffff'}
               strokeWidth={1}
             />
