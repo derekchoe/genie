@@ -43,35 +43,34 @@ export default class NetIncomeBarChart extends Component {
     });
     const linedata = this.props.monthlyTransactions.reverse();
 
-    const netIncomeChart = () => (
-      <BarChart
-        width={600}
-        height={300}
-        data={netIncome}
-        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="month" />
-        <YAxis />
-        <Tooltip cursor={{ fill: 'none' }} />
+    const netIncomeChart = () => <div className="chart-handler">
+        <BarChart width={600} height={300} data={netIncome} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Tooltip cursor={{ fill: "none" }} />
 
-        <ReferenceLine y={0} stroke="gray" />
+          <ReferenceLine y={0} stroke="gray" />
 
-        <Bar dataKey="NetIncome" barSize={60}>
-          {netIncome.map((income, index) => (
-            <Cell
-              key={index}
-              fill={income.NetIncome > 0 ? '#91c79e' : '#ea7171'}
-              stroke={'#ffff'}
-              strokeWidth={1}
-            />
-          ))}
-        </Bar>
-      </BarChart>
-    );
+          <Bar dataKey="NetIncome" barSize={60}>
+            {netIncome.map((income, index) => (
+              <Cell
+                key={index}
+                fill={
+                  income.NetIncome > 0
+                    ? "rgb(119,188,171)"
+                    : "rgb(230,109,150)"
+                }
+                stroke={"#ffff"}
+                strokeWidth={1}
+              />
+            ))}
+          </Bar>
+        </BarChart>
+      </div>;
 
     const areaChart = () => (
-      <div>
+      <div className='chart-handler'>
         <AreaChart
           width={600}
           height={300}
@@ -80,12 +79,12 @@ export default class NetIncomeBarChart extends Component {
         >
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+              <stop offset="5%" stopColor="rgb(91,173,214)" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="rgb(91,173,214)" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+              <stop offset="5%" stopColor="rgb(119,188,171)" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="rgb(119,188,171)" stopOpacity={0} />
             </linearGradient>
           </defs>
           <XAxis dataKey="month" />
@@ -96,14 +95,14 @@ export default class NetIncomeBarChart extends Component {
           <Area
             type="monotone"
             dataKey="income"
-            stroke="#8884d8"
+            stroke="rgb(91,173,214)"
             fillOpacity={1}
             fill="url(#colorUv)"
           />
           <Area
             type="monotone"
             dataKey="expense"
-            stroke="#82ca9d"
+            stroke="rgb(119,188,171)"
             fillOpacity={1}
             fill="url(#colorPv)"
           />
@@ -114,7 +113,7 @@ export default class NetIncomeBarChart extends Component {
     return (
       <div className="net-income-graph-container">
         <div className="title-switch-wrapper">
-          <p>{this.state.net ? 'Net Income' : 'Income/Expense Comparison'}</p>
+          <p className='chart-labels'>{this.state.net ? 'Net Income' : 'Income/Expense Comparison'}</p>
 
           <Switch
             checked={this.state.net}
