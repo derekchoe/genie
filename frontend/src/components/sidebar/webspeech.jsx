@@ -57,7 +57,7 @@ export default class WebSpeech extends Component {
           className={` record-button ${buttonContent}`}
           onClick={this.handleSubmit}
         >
-          <i class="fas fa-microphone" />
+          <i className="fas fa-microphone" />
         </div>
       </div>
     );

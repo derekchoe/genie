@@ -2,7 +2,7 @@
   display: flex;
   height: 1000px;
   color: #3188de;
-  background-color: white;
+  background-color: rgb(51, 59, 67);
   font-weight: 500;
   width: 1800px;
 }
@@ -10,7 +10,15 @@
 // Recent Transaction table
 
 .recent-trans-title {
-  padding: 15px 0 15px 0;
+  // padding: 15px 0 15px 0;
+  color: rgb(154,166,172);
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  line-height: 16px;
+  margin-bottom: 8px;
+  margin-top: 0;
 }
 
 .recent-trans-table {
@@ -91,10 +99,79 @@
 }
 
 .rec-titles {
-  color: #51535a;
+  color: rgb(154,166,172);
+}
+
+.other-colors{
+  color: rgb(154,166,172)
 }
 
 .success-modal {
   color: red;
   font-weight: 600;
+}
+
+.pie-chart-income-expense-wrapper{
+  display: flex;
+  flex-direction: row;
+
+  .chart-container{
+    padding: 25px;
+  }
+
+  .chart-labels{
+    color: rgb(154,166,172);
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 16px;
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+
+  .chart-handler1{
+    height: 85.5%;
+    background-color: #36404a;
+    margin: 17px;
+    border-radius: 10px;
+  }
+
+
+  .chart-handler{
+    background-color: #36404a;
+    margin: 17px;
+    border-radius: 10px;
+
+    .chart-labels-inside{
+      margin: 5px;
+    }
+
+    .chart-labels-wrapper{
+      display: flex;
+      margin: 5px;
+      justify-content: space-between;
+
+      .chart-labels-inner{
+        color: rgb(154,166,172);
+        font-size: 15px;
+        font-weight: 550;
+        text-align: left;
+        line-height: 16px;
+        margin-bottom: 8px;
+        margin-top: 0;
+        text-align: center;
+      }
+      .chart-labels-inner1{
+        color: rgb(154,166,172);
+        font-size: 18px;
+        font-weight: 550;
+        text-align: left;
+        line-height: 16px;
+        margin-bottom: 8px;
+        margin-top: 0;
+        text-align: center;
+      }
+    } 
+  } 
 }
