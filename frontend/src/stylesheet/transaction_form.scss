@@ -23,7 +23,7 @@ select:focus {
 }
 
 .create-button {
-  background: rgb(28, 184, 65);
+  background: rgb(119,188,171);
   height: 40px;
   font-weight: 600;
   width: 100px;
@@ -31,7 +31,7 @@ select:focus {
   border-radius: 4px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   &:hover {
-    background: lightgreen;
+    background: rgb(118, 213, 189);
   }
 }
 
@@ -46,15 +46,15 @@ select:focus {
 }
 
 .Record {
-  background: #43c743;
+  background: rgb(119,188,171);
   &:hover {
-    background: #1b691b;
+    background: rgb(118, 213, 189);
   }
 }
 
 .Stop {
-  background: #860e11;
+  background: rgb(230,109,150);
   &:hover {
-    background: #71090c;
+    background: rgb(234, 122, 159);
   }
 }

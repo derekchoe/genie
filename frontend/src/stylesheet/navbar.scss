@@ -1,32 +1,31 @@
-nav {
-  background-color: #061479;
+nav{
+  background-color: rgb(51, 59, 67);
   height: 85px;
   width: 100%;
   color: white;
   font-weight: 400;
 }
 
-.nav-box {
-  // background-color: #001f88;
-  background-color: #333b43;
+.nav-box{
+  background-color: #001f88;
   display: flex;
   justify-content: center;
   position: fixed;
   z-index: 30;
   border-bottom: 2px solid #232323;
 }
-.nav-container-placeholder {
+.nav-container-placeholder{
   height: 80px;
   width: 100%;
 }
 
-.logo-logout-wrapper {
+.logo-logout-wrapper{
   width: 90%;
   display: flex;
   justify-content: space-between;
 }
 
-.logo {
+.logo{
   background-image: url(https://s3-us-west-1.amazonaws.com/bagquest-pro/logo/logo4.png);
   background-repeat: no-repeat;
   width: 130px;
@@ -35,7 +34,7 @@ nav {
   margin-top: 10px;
 }
 
-.logout-button {
+.logout-button{
   font-size: 20px;
   background-color: #36404a;
   font-weight: 800;
@@ -51,7 +50,7 @@ nav {
   align-self: center;
 }
 
-.logout-button:hover {
+.logout-button:hover{
   color: gray;
   background-color: white;
 }

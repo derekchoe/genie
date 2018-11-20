@@ -107,7 +107,6 @@ class TwoLevelPieChart extends React.Component {
 
   render() {
     if (!this.props.transactionByCategory) {return null}
-    console.log(this.formatBetter(this.props.transactionByCategory));
     return (
       <div className="chart-handler">
         <div className="chart-container">
