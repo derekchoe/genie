@@ -25,14 +25,15 @@ class ChartDashboard extends Component {
          {/* <p>Free Cash</p>
          <p>Expenses Details</p> */}
         </div>
-          <IncomeVsExpenseChart
-            netIncome={this.props.netIncome}
-            transactionByCategory={this.props.transactionByCategory}
-          />
-          <TwoLevelPieChart
-            transactionByCategory={this.props.transactionByCategory}
-          />
-          
+          <div className='pie-chart-income-expense-wrapper'>
+            <IncomeVsExpenseChart
+              netIncome={this.props.netIncome}
+              transactionByCategory={this.props.transactionByCategory}
+            />
+            <TwoLevelPieChart
+              transactionByCategory={this.props.transactionByCategory}
+            />
+          </div>
         </div>
         <div className="pie-chart-income-expense-wrapper">
           <div className="chart-handler">

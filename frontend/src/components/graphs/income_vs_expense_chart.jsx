@@ -35,8 +35,7 @@ const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
 
 
 
-  return <div className="pie-chart-income-expense-wrapper">
-      <div className="chart-handler">
+  return <div className="chart-handler">
         <div className="chart-container">
           <p className="chart-labels">Free Cash</p>
           <PieChart width={350} height={270} z-index={"1"}>
@@ -58,7 +57,6 @@ const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
             </div>
           </div>
         </div>
-      </div>
 
       {/* <div className="pie-chart-income-expense-wrapper">
         <div className="chart-handler">

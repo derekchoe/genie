@@ -10,7 +10,15 @@
 // Recent Transaction table
 
 .recent-trans-title {
-  padding: 15px 0 15px 0;
+  // padding: 15px 0 15px 0;
+  color: rgb(154,166,172);
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  line-height: 16px;
+  margin-bottom: 8px;
+  margin-top: 0;
 }
 
 .recent-trans-table {
@@ -91,7 +99,11 @@
 }
 
 .rec-titles {
-  color: #51535a;
+  color: rgb(154,166,172);
+}
+
+.other-colors{
+  color: rgb(154,166,172)
 }
 
 .success-modal {
@@ -118,9 +130,18 @@
     margin-top: 0;
   }
 
+  .chart-handler1{
+    height: 85.5%;
+    background-color: #36404a;
+    margin: 17px;
+    border-radius: 10px;
+  }
+
+
   .chart-handler{
     background-color: #36404a;
     margin: 17px;
+    border-radius: 10px;
 
     .chart-labels-inside{
       margin: 5px;

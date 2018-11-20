@@ -17,7 +17,7 @@ export default class DashBoard extends Component {
         <div className="body-box">
           <Sidebar />
           <ChartDashboardContainer />
-          {/* <RecentTransContainer transactions={this.props.transactions} /> */}
+          <RecentTransContainer transactions={this.props.transactions} />
         </div>
       </div>
     );

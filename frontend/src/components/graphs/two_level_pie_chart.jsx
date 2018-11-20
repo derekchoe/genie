@@ -67,7 +67,7 @@ class TwoLevelPieChart extends React.Component {
           outerRadius={outerRadius}
           startAngle={startAngle}
           endAngle={endAngle}
-          fill={fill}
+          fill="rgb(91,173,214)"
         />
         <Sector
           cx={cx}
@@ -76,20 +76,20 @@ class TwoLevelPieChart extends React.Component {
           endAngle={endAngle}
           innerRadius={outerRadius + 6}
           outerRadius={outerRadius + 10}
-          fill={fill}
+          fill="rgb(91,173,214)"
         />
         <path
           d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
           stroke={fill}
           fill="none"
         />
-        <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
+        <circle cx={ex} cy={ey} r={2} fill="rgb(91,173,214)" stroke="none" />
         <text
           x={ex + (cos >= 0 ? 1 : -1) * 12}
           y={ey}
           textAnchor={textAnchor}
           fill="#fff"
-        >{`PV ${value}`}</text>
+        >{`Spent $${value}`}</text>
         <text
           x={ex + (cos >= 0 ? 1 : -1) * 12}
           y={ey}
@@ -97,7 +97,7 @@ class TwoLevelPieChart extends React.Component {
           textAnchor={textAnchor}
           fill="#999"
         >
-          {`(Rate ${(percent * 100).toFixed(2)}%)`}
+          {`(${(percent * 100).toFixed(2)}%)`}
         </text>
       </g>
     );
@@ -107,20 +107,26 @@ class TwoLevelPieChart extends React.Component {
 
   render() {
     if (!this.props.transactionByCategory) {return null}
+    console.log(this.formatBetter(this.props.transactionByCategory));
     return (
-      <PieChart width={800} height={400}>
-        <Pie
-          activeIndex={this.state.activeIndex}
-          activeShape={this.renderActiveShape}
-          data={this.formatBetter(this.props.transactionByCategory)}
-          cx={300}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          onMouseEnter={this.onPieEnter}
-        />
-      </PieChart>
+      <div className="chart-handler">
+        <div className="chart-container">
+          <p className="chart-labels">Monthly Expenses</p>
+          <PieChart width={520} height={270}>
+            <Pie
+              activeIndex={this.state.activeIndex}
+              activeShape={this.renderActiveShape}
+              data={this.formatBetter(this.props.transactionByCategory)}
+              cx={255}
+              cy={120}
+              innerRadius={80}
+              outerRadius={110}
+              fill="rgb(91,173,214)"
+              onMouseEnter={this.onPieEnter}
+            />
+          </PieChart>
+        </div>
+      </div>
     );
   }
 }

@@ -44,7 +44,7 @@ export default class NetIncomeBarChart extends Component {
     const linedata = this.props.monthlyTransactions.reverse();
 
     const netIncomeChart = () => <div className="chart-handler">
-        <BarChart width={600} height={300} data={netIncome} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+        <BarChart width={900} height={300} data={netIncome} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" />
           <YAxis />
@@ -72,19 +72,19 @@ export default class NetIncomeBarChart extends Component {
     const areaChart = () => (
       <div className='chart-handler'>
         <AreaChart
-          width={600}
+          width={900}
           height={300}
           data={linedata}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="rgb(91,173,214)" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="rgb(91,173,214)" stopOpacity={0} />
-            </linearGradient>
-            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="rgb(119,188,171)" stopOpacity={0.8} />
               <stop offset="95%" stopColor="rgb(119,188,171)" stopOpacity={0} />
+            </linearGradient>
+            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="rgb(230,109,150)" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="rgb(230,109,150)" stopOpacity={0} />
             </linearGradient>
           </defs>
           <XAxis dataKey="month" />
@@ -95,14 +95,14 @@ export default class NetIncomeBarChart extends Component {
           <Area
             type="monotone"
             dataKey="income"
-            stroke="rgb(91,173,214)"
+            stroke="rgb(119,188,171)"
             fillOpacity={1}
             fill="url(#colorUv)"
           />
           <Area
             type="monotone"
             dataKey="expense"
-            stroke="rgb(119,188,171)"
+            stroke="rgb(230,109,150)"
             fillOpacity={1}
             fill="url(#colorPv)"
           />

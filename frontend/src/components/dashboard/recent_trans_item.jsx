@@ -64,9 +64,9 @@ class RecentTransItem extends React.Component {
           key={tran.id}
           className={tran.typeOfTrans === 'expense' ? 'negative' : 'positive'}
         >
-          <li>{tran.description}</li>
-          <li>{tran.date.slice(5, 10)}</li>
-          <li>{tran.categoryName}</li>
+          <li className='other-colors'>{tran.description}</li>
+          <li className='other-colors'>{tran.date.slice(5, 10)}</li>
+          <li className='other-colors'>{tran.categoryName}</li>
           <li>${tran.amount}</li>
           <li className="delete-recent" onClick={this.deleteTrans}>
             Delete
