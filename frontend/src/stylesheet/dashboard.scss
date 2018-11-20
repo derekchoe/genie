@@ -99,6 +99,7 @@
 }
 
 .rec-titles {
+
   color: white;
 }
 
@@ -110,6 +111,7 @@
   color: red;
   font-weight: 600;
 }
+
 
 .pie-chart-income-expense-wrapper {
   display: flex;
@@ -130,23 +132,24 @@
     margin-top: 0;
   }
 
-  .chart-handler1 {
+  .chart-handler1{
     height: 85.5%;
     background-color: #36404a;
     margin: 17px;
     border-radius: 10px;
   }
 
-  .chart-handler {
+
+  .chart-handler{
     background-color: #36404a;
     margin: 17px;
     border-radius: 10px;
 
-    .chart-labels-inside {
+    .chart-labels-inside{
       margin: 5px;
     }
 
-    .chart-labels-wrapper {
+    .chart-labels-wrapper{
       display: flex;
       margin: 5px;
       justify-content: space-between;
