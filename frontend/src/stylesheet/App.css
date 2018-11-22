@@ -1,9 +1,8 @@
-
 .App {
   text-align: center;
 }
 
-.footer{
+.footer {
   position: fixed;
   left: 30%;
   top: 100%;
@@ -25,7 +24,6 @@
   color: white;
 }
 
-
 .App-link {
   color: #61dafb;
 }
@@ -39,27 +37,17 @@
   }
 }
 
-.session-wrapper{
+.session-wrapper {
   width: 800px;
-  /* height: 1000px; */
 }
-
-/* .login-page-wrapper{
-  height: 100%;
-  width: 10000000000px;
-} */
-
-.particles-stuff{
+.particles-stuff {
   position: fixed;
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   z-index: 0;
-
-  /* display: flex; */
-  /* align-content: center; */
 }
 
-.login-form-wrapper{
+.login-form-wrapper {
   display: flex;
   margin-top: 80px;
   width: 350px;
@@ -74,31 +62,29 @@
   background: rgba(0, 0, 0, 0.4);
   justify-content: center;
   align-items: center;
-  z-index: 1
+  z-index: 1;
 }
 
-.login-word{
+.login-word {
   font-size: 40px;
   font-weight: bold;
   margin: 0;
   color: white;
 }
 
-.login-form{
-  /* margin: 40px; */
+.login-form {
   width: 70%;
-  /* height: 80%; */
   display: flex;
   flex-direction: column;
 }
 
-.email-wrapper{
+.email-wrapper {
   display: flex;
   flex-direction: column;
   border-radius: 3px;
 }
 
-#input-option{
+#input-option {
   padding: 10px;
   margin-top: 10px;
   border-radius: 5px;
@@ -108,7 +94,7 @@
   outline: none;
 }
 
-#email-input{
+#email-input {
   padding: 10px 17px 10px 17px;
   margin-top: 10px;
   border-radius: 5px;
@@ -118,7 +104,7 @@
   outline: none;
 }
 
-.login-button{
+.login-button {
   margin: 15px 0 50px 10px;
   width: 97%;
   background-color: #344dbb;
@@ -130,7 +116,7 @@
   font-weight: 600;
 }
 
-.login-button1{
+.login-button1 {
   margin: 15px 0 50px 0px;
   width: 92%;
   background-color: #344dbb;
@@ -142,24 +128,24 @@
   font-weight: 600;
 }
 
-.stupid-errors{
+.stupid-errors {
   height: 30px;
   overflow: scroll;
 }
 
-.login-button:hover{
+.login-button:hover {
   background-color: #536fec;
 }
 
-.login-button1:hover{
+.login-button1:hover {
   background-color: #536fec;
 }
 
-.first-last-name{
+.first-last-name {
   display: flex;
 }
 
-.picture-logo-stuff{
+.picture-logo-stuff {
   background-image: url('http://sid.cps.unizar.es/SEMANTICWEB/GENIE/GENIE_files/GENIE%20LOGO.png');
   width: 170px;
   height: 170px;

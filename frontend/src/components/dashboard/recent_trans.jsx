@@ -15,25 +15,33 @@ import RecentTransItem from './recent_trans_item';
 const RecentTrans = props => {
   const transactions = props.transactions.slice(0, 11).map(tran => {
     return (
-      <RecentTransItem
-        key={tran._id}
-        deleteTrans={props.deleteTransaction}
-        tran={tran}
-      />
+      <div>
+        <RecentTransItem
+          key={tran._id}
+          deleteTrans={props.deleteTransaction}
+          tran={tran}
+        />
+      </div>
     );
   });
 
   return (
-    <div className="recent-trans-box">
-      <div className="recent-trans-title">Recent Transactions</div>
-      <div className="recent-trans-table">
-        <ul className="rec-titles">
-          <li>Description</li>
-          <li>Date</li>
-          <li>Category</li>
-          <li>Amount</li>
-        </ul>
-        {transactions}
+    <div className='pie-chart-income-expense-wrapper'>
+      <div className='chart-handler1'>
+        <div className='chart-container'>
+          <div className="recent-trans-box">
+            <div className="recent-trans-title">Recent Transactions</div>
+            <div className="recent-trans-table">
+              <ul className="rec-titles">
+                <li>Description</li>
+                <li>Date</li>
+                <li>Category</li>
+                <li>Amount</li>
+              </ul>
+              {transactions}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

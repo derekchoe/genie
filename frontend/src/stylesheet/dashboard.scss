@@ -1,8 +1,8 @@
 .body-box {
   display: flex;
   height: 1000px;
-  color: #3188de;
-  background-color: white;
+  color: white;
+  background-color: rgb(51, 59, 67);
   font-weight: 500;
   width: 1800px;
 }
@@ -10,7 +10,15 @@
 // Recent Transaction table
 
 .recent-trans-title {
-  padding: 15px 0 15px 0;
+  // padding: 15px 0 15px 0;
+  color: white;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  line-height: 16px;
+  margin-bottom: 8px;
+  margin-top: 0;
 }
 
 .recent-trans-table {
@@ -25,11 +33,10 @@
 }
 
 .chart-name {
-  // margin-top: 10px;
   display: flex;
   justify-content: space-around;
   position: absolute;
-  top:100px;
+  top: 100px;
   left: 170px;
 }
 
@@ -41,7 +48,6 @@
   list-style: none;
   padding: 0;
   width: 100%;
-  // width: 500px;
   border-width: 1px 1px 0 1px;
   border-style: solid;
   border-color: lightgrey;
@@ -93,10 +99,81 @@
 }
 
 .rec-titles {
-  color: #51535a;
+
+  color: white;
+}
+
+.other-colors {
+  color: white;
 }
 
 .success-modal {
   color: red;
   font-weight: 600;
+}
+
+
+.pie-chart-income-expense-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  .chart-container {
+    padding: 25px;
+  }
+
+  .chart-labels {
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 16px;
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+
+  .chart-handler1{
+    height: 85.5%;
+    background-color: #36404a;
+    margin: 17px;
+    border-radius: 10px;
+  }
+
+
+  .chart-handler{
+    background-color: #36404a;
+    margin: 17px;
+    border-radius: 10px;
+
+    .chart-labels-inside{
+      margin: 5px;
+    }
+
+    .chart-labels-wrapper{
+      display: flex;
+      margin: 5px;
+      justify-content: space-between;
+
+      .chart-labels-inner {
+        color: white;
+        font-size: 15px;
+        font-weight: 550;
+        text-align: left;
+        line-height: 16px;
+        margin-bottom: 8px;
+        margin-top: 0;
+        text-align: center;
+      }
+      .chart-labels-inner1 {
+        color: white;
+        font-size: 18px;
+        font-weight: 550;
+        text-align: left;
+        line-height: 16px;
+        margin-bottom: 8px;
+        margin-top: 0;
+        text-align: center;
+      }
+    }
+  }
 }

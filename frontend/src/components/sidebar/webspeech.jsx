@@ -10,8 +10,6 @@ export default class WebSpeech extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.clearErrors();
-
     let SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -23,21 +21,17 @@ export default class WebSpeech extends Component {
       this.recognition.lang = 'en-US';
       this.recognition.maxAlternatives = 1;
 
-      // let text = document.querySelector('.live-text');
       let p = document.getElementById('text-area');
-      // let p = document.createElement('p');
-
-      // text.appendChild(p);
 
       this.recognition.addEventListener('result', e => {
         let transcript = Array.from(e.results)
           .map(result => result[0])
           .map(result => result.transcript)
           .join('');
-      
-           transcript = transcript.charAt(0).toUpperCase() + transcript.slice(1);
+
+        transcript = transcript.charAt(0).toUpperCase() + transcript.slice(1);
         p.value = transcript;
-        
+
         if (e.results[0].isFinal) {
           p.value += '. ';
         }
@@ -51,17 +45,7 @@ export default class WebSpeech extends Component {
       this.recognition.removeEventListener('end', this.recognition.start);
 
       this.recognition = null;
-      // this.props.createTransaction({
-      //     token: this.props.currentUser.token,
-      //     transcript: this.transcript
-      // })
-
       this.transcript = '';
-      //will clear everything when you stop
-      // let children = Array.from(document.querySelectorAll('.live-text > p'));
-      // children.forEach(child => {
-      //   child.parentNode.removeChild(child);
-      // });
     }
   }
 
@@ -69,9 +53,12 @@ export default class WebSpeech extends Component {
     let buttonContent = this.state.stream ? 'Stop' : 'Record';
     return (
       <div className="webspeech-box">
-          <div className={` record-button ${buttonContent}`} onClick={this.handleSubmit}>
-          <i class="fas fa-microphone"></i>
-          </div>
+        <div
+          className={` record-button ${buttonContent}`}
+          onClick={this.handleSubmit}
+        >
+          <i className="fas fa-microphone" />
+        </div>
       </div>
     );
   }

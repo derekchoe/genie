@@ -10,7 +10,6 @@ import Login from './components/session/login';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
 import { receiveCurrentUser, logoutUser } from './action/session_actions';
-// import './stylesheet/index.scss';
 import store from './store/store';
 import Redirect from 'react-router-dom/Redirect';
 
@@ -24,7 +23,6 @@ if (localStorage.jwtToken) {
   const currentTime = Date.now() / 1000;
   if (decoded.exp < currentTime) {
     store.dispatch(logoutUser());
-    // TODO: Clear other related state
     window.location.href = '/login';
   }
 }

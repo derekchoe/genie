@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
 
-const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
+const IncomeVsExpenseChart = ({ netIncome}) => {
   function formatBetter(netIncomeData) {
     const result = [];
     netIncomeData.forEach(data => {
@@ -17,61 +17,40 @@ const IncomeVsExpenseChart = ({ netIncome, transactionByCategory }) => {
     });
     return result.slice(0, 2);
   }
-
-  function formatBetter1(categoryData) {
-    let result = [];
-
-    categoryData.forEach(datum => {
-      result.push({ value: datum.totalExpense, name: datum.categoryName });
-    });
-    return result;
-  }
-  const COLORS = ['#91c79e', '#ea7171'];
   const data = formatBetter(netIncome);
-  const data1 = formatBetter1(transactionByCategory);
 
-  return (
-    <div>
-      <PieChart width={700} height={400} z-index={'1'}>
-        <Pie
-          data={data}
-          dataKey="Amount"
-          nameKey="Name"
-          cx={120}
-          cy={200}
-          labelLine={false}
-          innerRadius={80}
-          outerRadius={110}
-          fill="#8884d8"
-        >
-          {data.map((entry, index) => (
-            <Cell fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
+  const neededData = Object.values(data).map(i => {
+    const remaining = []
+    remaining.push(i['Amount'])
+    return remaining
+  })
+  const COLORS = ["rgb(119,188,171)", "rgb(230,109,150)"];
 
-        <Pie
-          data={data1}
-          dataKey="value"
-          nameKey="name"
-          cx="500"
-          cy="200"
-          innerRadius={80}
-          outerRadius={110}
-          fill="#82ca9d"
-        />
-        <Pie
-          data={data1}
-          dataKey="value"
-          nameKey="name"
-          cx="500"
-          cy="200"
-          outerRadius={60}
-          fill="#8884d8"
-        />
-        <Tooltip />
-      </PieChart>
-    </div>
-  );
+
+
+  return <div className="chart-handler">
+        <div className="chart-container">
+          <p className="chart-labels">Free Cash</p>
+          <PieChart width={350} height={270} z-index={"1"}>
+            <Pie data={data} dataKey="Amount" nameKey="Name" cx={170} cy={120} labelLine={false} outerRadius={110} fill="#8884d8">
+              {data.map((_, index) => (
+                <Cell fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+          <div className="chart-labels-wrapper">
+            <div className="chart-labels-inside">
+              <p className="chart-labels-inner">Remaining Income: </p>
+              <p className="chart-labels-inner1">{neededData[0]} </p>
+            </div>
+            <div className="chart-labels-inside">
+              <p className="chart-labels-inner">Total Expenses: </p>
+          <p className="chart-labels-inner1">{neededData[1]} </p>
+            </div>
+          </div>
+        </div>
+    </div>;
 };
 
 export default IncomeVsExpenseChart;
