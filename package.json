@@ -27,7 +27,6 @@
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.4",
     "node-sass": "^4.9.4",
-    "nodemon": "^1.18.4",
     "particles.js": "^2.0.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
@@ -46,5 +45,8 @@
   "engines": {
     "node": "v8.9.0",
     "npm": "6.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
   }
 }

@@ -6,17 +6,7 @@ _Your personal financial management tool_
 
 ## Background and Overview
 
-Genie is a personal daily financial management app, which users can utilize to keeps tracks of their personal budgets and spending. Users have the options of voice input and text input to record transactions.
-
-## Functionality and MVP
-
-- [ ] User authorization: sign up and log in
-
-- [ ] Users can create personalized categories to keep track of their income/expenses
-
-- [ ] Users can use voice input to record transactions
-
-- [ ] Users will be personalized dashboard to view graphs created based on their account information
+Genie is a personal financial management app, which users can utilize to keep tracks of their personal budgets and spendings. Genie also incorporates Web Speech API so users can choose from voice or text when creating transactions.
 
 ## Technologies & Technical Challenges
 
@@ -26,16 +16,20 @@ Genie is a personal daily financial management app, which users can utilize to k
 
 ## Login / Sign Up Page
 
-![](images/loginpage.gif)
+![](images/login.gif)
 
-Users can login or sign up through this page.
+Log in and Sign up page uses particles as background, users can also interact with the particles by moving or clicking the mouse.
 
 ## Dashboard
 
-![](images/dashboard.gif)
+The dashboard is the most important page that contains almost all the information for the users to track their personal financial status. Users can view their net income graph, expense graph, and recent transactions tables.
 
-Users can view their net income graph, expense graph and recent transactions. Users can also create a category or transcation at the sidebar.
+![](images/dashboard.jpg)
 
-![](images/webspeech.png)
+Genie visualizes users' transaction data into dynamic graphs and charts.
 
-For a better user experience, we added a voice recognition features for users to record details of the new transaction.
+![](images/charts.gif)
+
+Users can create a category or a new transcation inside the sidebar. For a better user experience, Genie also enabled a voice recognition feature for users to record details of the new transaction.
+
+![](images/form.jpg)
