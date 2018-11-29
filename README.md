@@ -26,16 +26,20 @@ Genie is a personal daily financial management app, which users can utilize to k
 
 ## Login / Sign Up Page
 
-![](images/loginpage.gif)
+![](images/login.gif)
 
 Users can login or sign up through this page.
 
 ## Dashboard
 
-![](images/dashboard.gif)
+Users can view their net income graph, expense graph and recent transactions.
 
-Users can view their net income graph, expense graph and recent transactions. Users can also create a category or transcation at the sidebar.
+![](images/dashboard.jpg)
 
-![](images/webspeech.png)
+Genie visualizes users' transaction data into dynamic graphs and charts.
 
-For a better user experience, we added a voice recognition features for users to record details of the new transaction.
+![](images/charts.gif)
+
+Users can also create a category or transcation at the sidebar. For a better user experience, we added a voice recognition features for users to record details of the new transaction.
+
+![](images/form.jpg)
