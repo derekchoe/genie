@@ -111,13 +111,13 @@ class TwoLevelPieChart extends React.Component {
       <div className="chart-handler">
         <div className="chart-container">
           <p className="chart-labels">Monthly Expenses</p>
-          <PieChart width={520} height={270}>
+          <PieChart width={500} height={300}>
             <Pie
               activeIndex={this.state.activeIndex}
               activeShape={this.renderActiveShape}
               data={this.formatBetter(this.props.transactionByCategory)}
               cx={255}
-              cy={120}
+              cy={150}
               innerRadius={80}
               outerRadius={110}
               fill="rgb(91,173,214)"
