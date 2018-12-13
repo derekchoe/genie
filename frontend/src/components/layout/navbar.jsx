@@ -6,7 +6,7 @@ class Navbar extends Component {
         <div className="logo-logout-wrapper">
           <div className="logo" />
           <button className="logout-button" onClick={this.props.logoutUser}>
-            <i class="fas fa-sign-out-alt" /> Log Out
+            <i className="fas fa-sign-out-alt" /> Log Out
           </button>
         </div>
       </nav>;

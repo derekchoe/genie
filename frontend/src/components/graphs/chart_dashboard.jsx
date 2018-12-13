@@ -17,15 +17,18 @@ class ChartDashboard extends Component {
     this.props.fetchCategoriesByExpenses();
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.netIncome !== this.props.netIncome){
+  //     console.log(nextProps)
+  //   }
+  // }
+
   render() {
     return (
       <div className="chart-dashboard-box">
         <div className="chart-wrapper">
-        <div className="chart-name">
-         {/* <p>Free Cash</p>
-         <p>Expenses Details</p> */}
-        </div>
-          <div className='pie-chart-income-expense-wrapper'>
+          <div className="chart-name" />
+          <div className="pie-chart-income-expense-wrapper">
             <IncomeVsExpenseChart
               netIncome={this.props.netIncome}
               transactionByCategory={this.props.transactionByCategory}
@@ -37,7 +40,7 @@ class ChartDashboard extends Component {
         </div>
         <div className="pie-chart-income-expense-wrapper">
           <div className="chart-handler">
-            <div className='chart-container'>
+            <div className="chart-container">
               <NetIncomeBarChartContainer />
             </div>
           </div>

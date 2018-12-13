@@ -116,7 +116,7 @@ class TwoLevelPieChart extends React.Component {
               activeIndex={this.state.activeIndex}
               activeShape={this.renderActiveShape}
               data={this.formatBetter(this.props.transactionByCategory)}
-              cx={255}
+              cx={245}
               cy={150}
               innerRadius={80}
               outerRadius={110}
