@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import logger from "redux-logger";
 import rootReducer from '../reducers/root_reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -19,7 +20,7 @@ const store = createStore(
   // )
   composeWithDevTools(
     /* logger must be the last middleware in chain to log actions */
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, logger)
   )
 );
 

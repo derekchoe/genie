@@ -31,7 +31,11 @@ router.get(
     ];
 
     for (let i = 0; i < 5; i++) {
-      months.push(currentMonth - i);
+      if (currentMonth - i < 1){
+        months.push(12 + currentMonth - i);
+      } else {
+        months.push(currentMonth - i);
+      }
     }
 
     let request = months.map(month => {
@@ -40,7 +44,7 @@ router.get(
           $match: {
             date: {
               $gte: new Date(`2018-${month}-01`),
-              $lt: new Date(`2018-${month}-31`)
+              $lt: new Date(`2019-${month}-31`)
             },
             user: ObjectId(req.user.id)
           }
@@ -81,7 +85,7 @@ router.get(
         $match: {
           date: {
             $gte: new Date(`2018-${currentMonth}-01`),
-            $lt: new Date(`2018-${currentMonth}-31`)
+            $lt: new Date(`2019-${currentMonth}-31`)
           },
           user: ObjectId(req.user.id)
         }
@@ -109,7 +113,7 @@ router.get(
         $match: {
           date: {
             $gte: new Date(`2018-${currentMonth}-01`),
-            $lt: new Date(`2018-${currentMonth}-31`)
+            $lt: new Date(`2019-${currentMonth}-31`)
           },
           typeOfTrans: 'income',
           user: ObjectId(req.user.id)
@@ -141,7 +145,7 @@ router.get(
         $match: {
           date: {
             $gte: new Date(`2018-${currentMonth}-01`),
-            $lt: new Date(`2018-${currentMonth}-31`)
+            $lt: new Date(`2019-${currentMonth}-31`)
           },
           typeOfTrans: 'expense',
           user: ObjectId(req.user.id)
