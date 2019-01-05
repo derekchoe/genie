@@ -38,23 +38,33 @@ router.get(
       }
     }
 
+    //find better solution for this later. quick fix to get app working again
+    // months dollar amounts were adding up as a result of the new year (line 56-57 where we query $GTE and $LT)
+    const fixYear = (month) => {
+      if (month >= 9) {
+        return '2018';
+      } else {
+        return '2019';
+      }
+    };
+
     let request = months.map(month => {
       const result = Transaction.aggregate([
         {
           $match: {
             date: {
-              $gte: new Date(`2018-${month}-01`),
-              $lt: new Date(`2019-${month}-31`)
+              $gte: new Date(`${fixYear(month)}-${month}-01`),
+              $lt: new Date(`${fixYear(month)}-${month}-31`)
             },
             user: ObjectId(req.user.id)
           }
         },
         {
           $group: {
-            _id: '$typeOfTrans',
-            total: { $sum: '$amount' }
+            _id: "$typeOfTrans",
+            total: { $sum: "$amount" }
           }
-        },
+        }
       ]);
       return result;
     });
@@ -84,7 +94,7 @@ router.get(
       {
         $match: {
           date: {
-            $gte: new Date(`2018-${currentMonth}-01`),
+            $gte: new Date(`2019-${currentMonth}-01`),
             $lt: new Date(`2019-${currentMonth}-31`)
           },
           user: ObjectId(req.user.id)
@@ -112,7 +122,7 @@ router.get(
       {
         $match: {
           date: {
-            $gte: new Date(`2018-${currentMonth}-01`),
+            $gte: new Date(`2019-${currentMonth}-01`),
             $lt: new Date(`2019-${currentMonth}-31`)
           },
           typeOfTrans: 'income',
@@ -144,7 +154,7 @@ router.get(
       {
         $match: {
           date: {
-            $gte: new Date(`2018-${currentMonth}-01`),
+            $gte: new Date(`2019-${currentMonth}-01`),
             $lt: new Date(`2019-${currentMonth}-31`)
           },
           typeOfTrans: 'expense',

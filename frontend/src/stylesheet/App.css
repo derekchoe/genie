@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-.footer {
-  position: fixed;
-  left: 30%;
-  top: 100%;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;

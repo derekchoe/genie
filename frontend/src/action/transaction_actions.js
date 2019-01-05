@@ -40,7 +40,7 @@ export const fetchCategoriesByExpenses = () => dispatch => {
 };
 
 export const fetchCategoriesByIncome = () => dispatch => {
-  // dispatch(setCategoryLoading());
+    // dispatch(setCategoryLoading());
   axios.get('/api/transactions/byCategoryIncome').then(res =>
     dispatch({
       type: RECEIVE_CATEGORY_INCOME,

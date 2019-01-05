@@ -1,0 +1,36 @@
+.footer-box{
+  height: 150px;
+  background-color: rgb(52, 59, 66);
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.footer-pictures{
+  display: flex;
+  flex-direction: row;
+}
+
+.derek{
+  width: 80px;
+  height: 80px;
+  background-size: cover
+}
+
+.rika{
+  width: 80px;
+  height: 80px;
+  background-size: cover
+}
+
+.justin{
+  width: 80px;
+  height: 80px;
+  background-size: cover
+}
+
+.alice{
+  width: 80px;
+  height: 80px;
+  background-size: cover
+}
