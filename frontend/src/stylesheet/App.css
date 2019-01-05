@@ -122,11 +122,6 @@
   font-weight: 600;
 }
 
-.stupid-errors {
-  height: 30px;
-  overflow: scroll;
-}
-
 .login-button:hover {
   background-color: #536fec;
 }

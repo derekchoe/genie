@@ -3,6 +3,7 @@ import NavbarContainer from '../layout/navbar_container';
 import Sidebar from '../sidebar/sidebar';
 import ChartDashboardContainer from '../graphs/chart_dashboard_container';
 import RecentTransContainer from './recent_trans_container';
+import Footer from "../layout/footer";
 
 export default class DashBoard extends Component {
   componentDidMount() {
@@ -10,8 +11,7 @@ export default class DashBoard extends Component {
   }
 
   render() {
-    return (
-      <div className="dashboard-box">
+    return <div className="dashboard-box">
         <NavbarContainer />
         <div className="nav-container-placeholder" />
         <div className="body-box">
@@ -19,7 +19,7 @@ export default class DashBoard extends Component {
           <ChartDashboardContainer />
           <RecentTransContainer transactions={this.props.transactions} />
         </div>
-      </div>
-    );
+        <Footer/>
+      </div>;
   }
 }

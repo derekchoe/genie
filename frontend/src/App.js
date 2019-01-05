@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { AuthRoute, ProtectedRoute } from './util/route_util';
-import Footer from './components/layout/footer';
 import DashBoardContainer from './components/dashboard/dashboard_container';
 import Signup from './components/session/signup';
 import Login from './components/session/login';
@@ -39,7 +38,6 @@ class App extends Component {
               <ProtectedRoute exact path="/" component={DashBoardContainer} />
               <Redirect to="/login" />
             </Switch>
-            <Footer />
           </div>
         </Router>
       </Provider>

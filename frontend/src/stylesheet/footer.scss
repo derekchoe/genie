@@ -1,36 +1,46 @@
 .footer-box{
-  height: 150px;
+  height: 95px;
   background-color: rgb(52, 59, 66);
   color: white;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 600;
 }
 
 .footer-pictures{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
+
 .derek{
-  width: 80px;
-  height: 80px;
-  background-size: cover
+  background-image: url('dc.png');
+  width: 55px;
+  height: 55px;
+  background-size: cover;
+  margin-right: 25px;
 }
 
 .rika{
-  width: 80px;
-  height: 80px;
-  background-size: cover
+  background-image: url('RS.png');
+  width: 55px;
+  height: 55px;
+  background-size: cover;
+  margin-right: 25px;
 }
 
 .justin{
-  width: 80px;
-  height: 80px;
-  background-size: cover
+  background-image: url('jh.png');
+  width: 55px;
+  height: 55px;
+  background-size: cover;
+  margin-right: 25px;
 }
 
 .alice{
-  width: 80px;
-  height: 80px;
+  background-image: url('xy.png');
+  width: 55px;
+  height: 55px;
   background-size: cover
+
 }

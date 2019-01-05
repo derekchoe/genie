@@ -2,15 +2,24 @@ import React from 'react';
 
 export default () => {
   return <div className="footer-box">
-      See Our Other Projects At
-      <br />
-      <br />
-      <div className="footer-pictures">
-        <a href="http://derekchoe.com" target="_blank"><img src="images/dc.png" alt="" /></a>
-        {/* <div className="derek"></div> */}
-        <div className="rika" />
-        <div className="justin" />
-        <div className="alice" />
+      <div className='footer-margin'>
+        Check the Team Out:
+        <br />
+        <div className="footer-pictures">
+          <a href="http://derekchoe.com">
+            <div className="derek" />
+          </a>
+          <a href="https://rikasun.github.io/">
+            <div className="rika" />
+          </a>
+          <a href="http://justinhan.net">
+            <div className="justin" />
+          </a>
+          <a href="https://www.xiaoyuny.com/">
+            <div className="alice" />
+          </a>
+
+      </div>
       </div>
     </div>;
 };

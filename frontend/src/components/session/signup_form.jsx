@@ -50,7 +50,7 @@ class SignupForm extends Component {
             <div className="login-header-wrapper">
               <div className='picture-logo-stuff'>
               </div>
-            <div className='stupid-errors'>
+            <div>
               {errors}
             </div>
             </div>
