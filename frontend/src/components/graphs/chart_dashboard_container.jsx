@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
-import { fetchCategoriesByExpenses } from "../../action/transaction_actions";
+import { fetchCategoriesByExpenses, fetchTransactionMonthly } from "../../action/transaction_actions";
 import ChartDashboard from './chart_dashboard';
-import { fetchTransactionMonthly } from '../../action/transaction_actions';
 
 const mapStateToProps = state => ({
   transactionByCategory: Object.keys(

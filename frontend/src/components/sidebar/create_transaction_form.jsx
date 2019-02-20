@@ -43,119 +43,6 @@ export default class create_transaction_form extends Component {
     this.props.fetchCategories();
   }
 
-  handleInput(field) {
-    return e =>
-      this.setState({
-        transaction: Object.assign({}, this.state.transaction, {
-          [field]: e.target.value
-        })
-      });
-  }
-
-  handleSelect(e) {
-    if (e.target.value === 'add new category...') {
-      this.openCreateCateModal();
-      this.setState({
-        transaction: Object.assign({}, this.state.transaction, {
-          ['category']: 'choosing'
-        })
-      });
-    } else {
-      this.setState({
-        transaction: Object.assign({}, this.state.transaction, {
-          ['category']: e.target.value
-        })
-      });
-    }
-  }
-
-  handleSubmit(e) {
-    let formData = {};
-    formData = Object.assign({}, this.state.transaction);
-    delete formData['createCateModalOpen'];
-    formData.categoryName = this.props.categories[
-      parseInt(formData.category)
-    ].name;
-    formData.category = this.props.categories[parseInt(formData.category)]._id;
-    formData.date = formData.date._d;
-    this.props.createTransaction(formData);
-  }
-
-  radioCheck(field) {
-    return field === this.state.transaction.typeOfTrans;
-  }
-
-  handleRadioChange(e) {
-    this.setState({
-      transaction: Object.assign({}, this.state.transaction, {
-        ['typeOfTrans']: e.target.value
-      })
-    });
-  }
-
-  handleAddCategory(e) {
-    this.openCreateCateModal();
-  }
-
-  handleCateInput(field) {
-    return e => {
-      this.setState({
-        category: Object.assign({}, this.state.category, {
-          [field]: e.target.value
-        })
-      });
-    };
-  }
-
-  handleCateSubmit(e) {
-    e.preventDefault();
-    let formData = Object.assign({}, this.state.category);
-    if (formData.budget !== '') {
-      formData.budget = parseInt(formData.budget);
-    }
-    this.setState({
-      name: '',
-      description: '',
-      budget: ''
-    });
-
-    const createPromise = new Promise((resolve, reject) => {
-      resolve(this.props.createCategory(formData));
-    });
-    createPromise.then(() => {
-      this.closeCreateCateModal();
-      this.setState({
-        transaction: Object.assign({}, this.state.transaction, {
-          ['category']: this.props.categories.length
-        })
-      });
-    });
-  }
-
-  handleCalendarDate(date) {
-    this.setState({
-      transaction: Object.assign({}, this.state.transaction, {
-        ['date']: date
-      })
-    });
-  }
-
-  openCreateCateModal() {
-    this.setState({ createCateModalOpen: true });
-  }
-
-  closeCreateCateModal() {
-    if (this.state.transaction.category === 'choosing') {
-      this.setState({
-        transaction: Object.assign({}, this.state.transaction, {
-          ['category']: ''
-        })
-      });
-    }
-
-    this.setState({ createCateModalOpen: false });
-  }
-
   render() {
     const categoryOptions = this.props.categories.map((category, idx) => (
       <option
@@ -301,4 +188,120 @@ export default class create_transaction_form extends Component {
       </div>
     );
   }
+
+  handleInput(field) {
+    return e =>
+      this.setState({
+        transaction: Object.assign({}, this.state.transaction, {
+          [field]: e.target.value
+        })
+      });
+  }
+
+  handleSelect(e) {
+    if (e.target.value === 'add new category...') {
+      this.openCreateCateModal();
+      this.setState({
+        transaction: Object.assign({}, this.state.transaction, {
+          ['category']: 'choosing'
+        })
+      });
+    } else {
+      this.setState({
+        transaction: Object.assign({}, this.state.transaction, {
+          ['category']: e.target.value
+        })
+      });
+    }
+  }
+
+  handleSubmit(e) {
+    let formData = {};
+    formData = Object.assign({}, this.state.transaction);
+    delete formData['createCateModalOpen'];
+    formData.categoryName = this.props.categories[
+      parseInt(formData.category)
+    ].name;
+    formData.category = this.props.categories[parseInt(formData.category)]._id;
+    formData.date = formData.date._d;
+    this.props.createTransaction(formData);
+    this.props.fetchCategoriesByExpenses();
+    this.props.fetchTransactionMonthly();
+  }
+
+  radioCheck(field) {
+    return field === this.state.transaction.typeOfTrans;
+  }
+
+  handleRadioChange(e) {
+    this.setState({
+      transaction: Object.assign({}, this.state.transaction, {
+        ['typeOfTrans']: e.target.value
+      })
+    });
+  }
+
+  handleAddCategory(e) {
+    this.openCreateCateModal();
+  }
+
+  handleCateInput(field) {
+    return e => {
+      this.setState({
+        category: Object.assign({}, this.state.category, {
+          [field]: e.target.value
+        })
+      });
+    };
+  }
+
+  handleCateSubmit(e) {
+    e.preventDefault();
+    let formData = Object.assign({}, this.state.category);
+    if (formData.budget !== '') {
+      formData.budget = parseInt(formData.budget);
+    }
+    this.setState({
+      name: '',
+      description: '',
+      budget: ''
+    });
+
+    const createPromise = new Promise((resolve, reject) => {
+      resolve(this.props.createCategory(formData));
+    });
+    createPromise.then(() => {
+      this.closeCreateCateModal();
+      this.setState({
+        transaction: Object.assign({}, this.state.transaction, {
+          ['category']: this.props.categories.length
+        })
+      });
+    });
+  }
+
+  handleCalendarDate(date) {
+    this.setState({
+      transaction: Object.assign({}, this.state.transaction, {
+        ['date']: date
+      })
+    });
+  }
+
+  openCreateCateModal() {
+    this.setState({ createCateModalOpen: true });
+  }
+
+  closeCreateCateModal() {
+    if (this.state.transaction.category === 'choosing') {
+      this.setState({
+        transaction: Object.assign({}, this.state.transaction, {
+          ['category']: ''
+        })
+      });
+    }
+
+    this.setState({ createCateModalOpen: false });
+  }
+
 }

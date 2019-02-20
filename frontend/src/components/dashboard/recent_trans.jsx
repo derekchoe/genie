@@ -1,16 +1,6 @@
 import React from 'react';
 import RecentTransItem from './recent_trans_item';
 
-// const statusStyle = {
-//   content: {
-//     top: '50%',
-//     left: '50%',
-//     right: 'auto',
-//     bottom: 'auto',
-//     marginRight: '-50%',
-//     transform: 'translate(-50%, -50%)'
-//   }
-// };
 
 const RecentTrans = props => {
   const transactions = props.transactions.slice(0, 11).map(tran => {
@@ -20,6 +10,8 @@ const RecentTrans = props => {
           key={tran._id}
           deleteTrans={props.deleteTransaction}
           tran={tran}
+          fetchCat={props.fetchCategoriesByExpenses}
+          fetchTrans={props.fetchTransactionMonthly}
         />
       </div>
     );

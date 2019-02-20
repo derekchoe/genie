@@ -1,33 +1,16 @@
 import { PieChart, Pie, Sector } from 'recharts';
-import React, { Component } from "react";
+import React from "react";
 
 
 class TwoLevelPieChart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0 };
+    this.state = { 
+      activeIndex: 0 
+    };
     this.renderActiveShape = this.renderActiveShape.bind(this);
     this.onPieEnter = this.onPieEnter.bind(this);
     this.formatBetter = this.formatBetter.bind(this);
-  }
-
-  formatBetter= (categoryData) => {
-    let result = [];
-
-    categoryData.forEach(datum => {
-      result.push({ value: datum.totalExpense, name: datum.categoryName });
-    });
-    return result;
-  }
-  // data = this.formatBetter(this.props.transactionByCategory);
-
-
-
-
-  onPieEnter(data, index) {
-    this.setState({
-      activeIndex: index
-    });
   }
 
   renderActiveShape(props) {
@@ -103,21 +86,19 @@ class TwoLevelPieChart extends React.Component {
     );
   }
 
-
-
   render() {
     if (!this.props.transactionByCategory) {return null}
     return (
       <div className="chart-handler">
         <div className="chart-container">
           <p className="chart-labels">Monthly Expenses</p>
-          <PieChart width={500} height={300}>
+          <PieChart width={530} height={350}>
             <Pie
               activeIndex={this.state.activeIndex}
               activeShape={this.renderActiveShape}
               data={this.formatBetter(this.props.transactionByCategory)}
-              cx={245}
-              cy={150}
+              cx={260}
+              cy={170}
               innerRadius={80}
               outerRadius={110}
               fill="rgb(91,173,214)"
@@ -127,6 +108,22 @@ class TwoLevelPieChart extends React.Component {
         </div>
       </div>
     );
+  }
+
+
+  formatBetter= (categoryData) => {
+    let result = [];
+
+    categoryData.forEach(datum => {
+      result.push({ value: datum.totalExpense, name: datum.categoryName });
+    });
+    return result;
+  }
+
+  onPieEnter(data, index) {
+    this.setState({
+      activeIndex: index
+    });
   }
 }
 

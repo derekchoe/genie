@@ -35,6 +35,9 @@ class RecentTransItem extends React.Component {
     deletePromise.then(() => {
       this.openSuccessModal();
     });
+
+    this.props.fetchCat()
+    this.props.fetchTrans()
   }
 
   openSuccessModal() {

@@ -17,12 +17,6 @@ class ChartDashboard extends Component {
     this.props.fetchCategoriesByExpenses();
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.netIncome !== this.props.netIncome){
-  //     console.log(nextProps)
-  //   }
-  // }
-
   render() {
     return (
       <div className="chart-dashboard-box">
