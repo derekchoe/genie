@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 
 import { AuthRoute, ProtectedRoute } from './util/route_util';
 import DashBoardContainer from './components/dashboard/dashboard_container';
-import Signup from './components/session/login_container';
-import Login from './components/session/signup_container';
+import Signup from './components/session/signup_container';
+import Login from './components/session/login_container';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/set_auth_token';
 import { receiveCurrentUser, logoutUser } from './action/session_actions';
